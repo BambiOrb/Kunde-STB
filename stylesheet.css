@@ -1,0 +1,264 @@
+/* =========================================================
+   ATELIER HAIR TATTOO (STB Atelier) – Horgen
+   Stylesheet · rebuild by digitalNow
+   ========================================================= */
+
+:root{
+  --bg:#1d1d22;
+  --bg-2:#23232a;
+  --bg-3:#272730;
+  --ink:#f4f3ef;
+  --muted:#b6b3aa;
+  --gold:#c9a227;
+  --gold-bright:#dcb949;
+  --line:rgba(255,255,255,.14);
+  --line-soft:rgba(255,255,255,.08);
+  --white-btn:#f6f5f1;
+  --maxw:1180px;
+
+  --serif:'Playfair Display', Georgia, serif;
+  --body:'EB Garamond', Georgia, serif;
+  --sans:'Jost', system-ui, sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:150px}
+body{
+  font-family:var(--body);
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.6;
+  font-size:1.12rem;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.08}
+.hl{color:var(--gold)}
+.g{color:var(--gold)}
+.w{color:var(--ink)}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-block;font-family:var(--sans);cursor:pointer;transition:.25s;text-align:center}
+.btn-book{background:var(--white-btn);color:var(--gold);border-radius:100px;
+  padding:11px 28px;font-size:.95rem;letter-spacing:.02em;border:0}
+.btn-book:hover{background:#fff;transform:translateY(-1px)}
+.btn-flat{background:var(--white-btn);color:var(--gold);text-transform:uppercase;
+  letter-spacing:.14em;font-size:.82rem;padding:14px 28px;border:0}
+.btn-flat:hover{background:#fff}
+.btn-send{background:#e9e7e0;color:#222;border:0;padding:13px 34px;font-size:.95rem;letter-spacing:.06em;cursor:pointer}
+.btn-send:hover{background:#fff}
+
+/* ---------- Header (compact) ---------- */
+.site-header{position:sticky;top:0;z-index:80;background:var(--bg-2)}
+.header-top{display:flex;align-items:center;justify-content:space-between;padding:13px 0}
+.logo{display:flex;align-items:center}
+.logo-img{height:60px;width:auto}          /* hier kommt euer Logo rein */
+.nav-row{border-top:1px solid var(--line-soft)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.nav-links{display:flex;gap:28px;list-style:none;padding:12px 0}
+.nav-links a{font-family:var(--sans);font-size:.92rem;color:var(--gold);transition:color .2s}
+.nav-links a.active,.nav-links a:hover{color:#fff}
+.burger{display:none;background:none;border:0;cursor:pointer;width:28px;height:20px;position:relative}
+.burger span{position:absolute;left:0;height:2px;width:100%;background:#fff;transition:.3s}
+.burger span:nth-child(1){top:0}.burger span:nth-child(2){top:9px}.burger span:nth-child(3){top:18px}
+.burger.open span:nth-child(1){top:9px;transform:rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){top:9px;transform:rotate(-45deg)}
+
+/* ---------- Section basics ---------- */
+section{padding:80px 0}
+.sec-title{font-size:clamp(2.3rem,5vw,3.4rem);margin-bottom:8px}
+.center{text-align:center}
+.lead{color:var(--ink);font-size:1.2rem;max-width:760px}
+
+/* page hero (sub pages) */
+.page-hero{padding:70px 0 20px}
+.page-hero .sec-title{font-size:clamp(2.6rem,6vw,4rem)}
+.page-hero p{color:var(--ink);font-size:1.2rem;max-width:760px;margin-top:22px}
+
+/* image placeholder */
+.ph{position:relative;background:linear-gradient(135deg,#2b2b33,#191920);
+  border:1px solid var(--line-soft);overflow:hidden;display:grid;place-items:center}
+.ph::after{content:attr(data-label);font-family:var(--sans);text-transform:uppercase;
+  letter-spacing:.12em;font-size:.64rem;color:#67645c;padding:0 12px;text-align:center}
+.ph.gold{background:repeating-linear-gradient(135deg,#c9aa5e,#c9aa5e 18px,#b8985080 18px,#b8985080 36px),#c4a35a}
+.ph.gold::after{color:#7a5f1d}
+
+/* ---------- Hero (Start) ---------- */
+.hero{padding:84px 0 64px;text-align:center;position:relative;
+  background:radial-gradient(700px 380px at 50% 0%,rgba(201,162,39,.10),transparent 60%)}
+.hero h1{font-size:clamp(2.6rem,7vw,4.8rem);letter-spacing:.02em}
+.hero .sub{font-family:var(--sans);letter-spacing:.34em;text-transform:uppercase;color:var(--gold);font-size:.88rem;margin-top:18px}
+.hero .actions{margin-top:32px}
+
+/* ---------- NEW SERVICES / COMING SOON ---------- */
+.promo{padding:50px 0}
+.promo-box{position:relative;border:1px solid var(--line);border-radius:4px;padding:34px 30px 26px;max-width:860px;margin:0 auto}
+.promo-title{font-family:var(--sans);text-align:center;letter-spacing:.42em;font-size:1.4rem;color:#fff;font-weight:300;
+  border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:24px}
+.promo-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.promo-card{background:#2a2a32;border-radius:4px;padding:18px 16px;text-align:center;position:relative;overflow:hidden}
+.promo-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px}
+.promo-card.c1::before{background:#c0392b}
+.promo-card.c2::before{background:#2e86c1}
+.promo-card.c3::before{background:#27ae60}
+.promo-card h4{font-family:var(--sans);font-weight:600;color:#fff;font-size:1.02rem;margin-bottom:3px}
+.promo-card span{font-family:var(--sans);color:#9a978f;font-size:.82rem}
+.promo-foot{text-align:center;margin-top:18px;font-family:var(--serif);font-style:italic;color:var(--gold);font-size:1.05rem}
+.stamp-soon{position:absolute;top:-24px;right:-16px;transform:rotate(-12deg);color:#d2392c;border:4px double #d2392c;
+  border-radius:8px;padding:7px 15px;font-family:var(--sans);font-weight:700;text-transform:uppercase;letter-spacing:.06em;
+  font-size:1.4rem;line-height:1.05;text-align:center;opacity:.92}
+
+/* ---------- split (text + image) ---------- */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.split .ph{aspect-ratio:4/5;border-radius:2px}
+.about p,.hair p{font-size:1.2rem;line-height:1.7}
+
+/* ---------- Team ---------- */
+.team .sec-title{text-align:center;margin-bottom:56px}
+.team-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:26px}
+.member{text-align:center}
+.member .avatar{width:100%;max-width:190px;aspect-ratio:1;border-radius:50%;margin:0 auto 20px;
+  background:radial-gradient(circle,#33333c,#1a1a20);display:grid;place-items:center;overflow:hidden;
+  font-family:var(--serif);color:var(--gold);font-size:1.9rem}
+.member .name{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:1.3rem;line-height:1.1}
+.member .role{font-family:var(--serif);font-weight:700;color:#fff;font-size:1.1rem;margin:10px 0 14px;text-transform:uppercase}
+.member .bio{color:var(--ink);font-size:1rem;line-height:1.55}
+
+/* ---------- Tattoo ---------- */
+.style-block{margin-top:50px}
+.style-block h3{font-size:clamp(1.8rem,4vw,2.6rem);color:var(--gold);margin-bottom:26px}
+.style-row{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.style-row .ph{aspect-ratio:1;border-radius:2px}
+.style-cap{font-family:var(--serif);font-size:1.3rem;margin-top:14px}
+.ig-note{text-align:center;margin-top:34px;font-family:var(--serif);font-size:1.15rem}
+.ig-note .igmark{display:inline-grid;place-items:center;width:46px;height:46px;margin-top:12px;color:#cfcdc6}
+.ig-note .igmark svg{width:30px;height:30px}
+
+/* ---------- Services ---------- */
+.services .sec-title{text-align:center;margin-bottom:46px}
+.svc-feature{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-bottom:24px}
+.svc-card{background:var(--bg-2);display:grid;grid-template-columns:1fr 1.1fr;gap:24px;padding:22px;align-items:center}
+.svc-card .ph{aspect-ratio:1;border-radius:2px}
+.svc-card h3{font-size:1.45rem;line-height:1.2}
+.svc-card .dur{color:var(--ink);font-size:1.02rem;margin:10px 0 22px}
+
+/* services page cards (Beards / Combinations / Facial) */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.svc-tile{background:var(--bg-2);padding:0 0 30px}
+.svc-tile .ph{aspect-ratio:1;margin-bottom:24px}
+.svc-tile h3{font-size:1.5rem;padding:0 26px;margin-bottom:20px}
+.svc-tile .btn-flat{margin:0 26px}
+
+/* ---------- Beauty ---------- */
+.beauty .sec-title{text-align:center;margin-bottom:14px}
+.beauty .lead{margin:0 auto 50px;text-align:center}
+.beauty-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.beauty-card{background:var(--bg-2);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;
+  border-top:3px solid var(--gold)}
+.beauty-card.c1{border-top-color:#c0392b}
+.beauty-card.c2{border-top-color:#2e86c1}
+.beauty-card.c3{border-top-color:#27ae60}
+.beauty-card .ph{aspect-ratio:4/3}
+.beauty-body{padding:26px;display:flex;flex-direction:column;gap:10px;flex:1}
+.beauty-body h3{font-size:1.5rem}
+.beauty-body p{color:var(--muted);font-size:1.02rem}
+.beauty-body .btn-flat{margin-top:auto;align-self:flex-start}
+
+/* ---------- Best sellers / products ---------- */
+.sellers .sec-title{text-align:center;margin-bottom:44px}
+.seller-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.seller{text-align:center}
+.seller .ph{aspect-ratio:1;border-radius:2px;margin-bottom:18px}
+.seller .pname{font-family:var(--serif);font-size:1.35rem}
+.line-head{text-align:center;margin:60px 0 8px}
+.line-head h3{font-size:clamp(2rem,4vw,3rem);color:var(--gold)}
+.line-head p{color:var(--ink);font-size:1.15rem;max-width:760px;margin:10px auto 0}
+
+/* ---------- Reviews ---------- */
+.reviews .sec-title{text-align:center;margin-bottom:0}
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:40px;border-top:1px solid var(--line)}
+.review{padding:54px 40px;text-align:center;border-right:1px solid var(--line)}
+.review:last-child{border-right:0}
+.review .quote{font-family:var(--serif);color:var(--gold);font-size:4.2rem;line-height:.6;height:42px}
+.review .stars{color:var(--gold-bright);letter-spacing:4px;font-size:1.3rem;margin:22px 0}
+.review .who{font-family:var(--serif);font-size:1.6rem;margin-bottom:20px}
+.review p{font-size:1.12rem;line-height:1.55}
+
+/* ---------- Rewards ---------- */
+.rewards-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:center}
+.rewards .sec-title{margin-bottom:22px}
+.rewards .says{font-family:var(--serif);font-size:1.45rem;margin-bottom:14px}
+.rewards p{font-size:1.15rem;line-height:1.7;margin-bottom:18px}
+.rewards .bold{font-family:var(--serif);font-weight:700;color:#fff;margin:26px 0 22px;font-size:1.18rem}
+.badges{display:flex;gap:16px;flex-wrap:wrap}
+.badge{width:112px;height:112px;border-radius:50%;display:grid;place-items:center;text-align:center;font-family:var(--sans);line-height:1.1;padding:10px}
+.badge.b1,.badge.b2{background:#3a36c9;color:#fff}
+.badge.b3,.badge.b4{background:#1c1640;color:var(--gold-bright)}
+.badge .tr{font-size:.88rem;font-weight:600}
+.badge .yr{font-size:1.15rem}
+.badge .stars{font-size:.7rem;letter-spacing:2px;color:var(--gold-bright)}
+.rewards .photo{aspect-ratio:3/4;border-radius:2px}
+
+/* ---------- Contact ---------- */
+.contact .sec-title{text-align:center;margin-bottom:56px}
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px}
+.contact-info{list-style:none;display:flex;flex-direction:column;gap:42px}
+.contact-info li{display:flex;gap:18px;align-items:center}
+.contact-info .ic{width:42px;height:42px;flex:none;border-radius:50%;border:1px solid var(--ink);display:grid;place-items:center;color:var(--ink)}
+.contact-info .ic svg{width:20px;height:20px}
+.contact-info a{font-size:1.18rem;text-decoration:underline;text-underline-offset:4px}
+.contact-info a:hover{color:var(--gold)}
+form .row{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.field{margin-bottom:24px}
+.field label{display:block;font-family:var(--sans);font-size:.92rem;color:var(--ink);margin-bottom:10px}
+.field input,.field textarea{width:100%;background:transparent;border:1px solid var(--ink);padding:12px 14px;color:var(--ink);font-family:var(--body);font-size:1.05rem}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--gold)}
+.field textarea{min-height:150px;resize:vertical}
+.form-actions{text-align:right}
+.form-msg{margin-top:14px;font-family:var(--sans);font-size:.92rem;display:none;text-align:right}
+.form-msg.ok{display:block;color:#7fd6a0}
+.form-msg.err{display:block;color:#e0816f}
+
+/* ---------- Footer ---------- */
+.map-band .ph{height:300px;border-radius:0}
+.site-footer{padding:50px 0 60px;text-align:center}
+.site-footer .fname{font-family:var(--serif);color:var(--gold);font-size:1.6rem}
+.site-footer .copy{font-family:var(--serif);color:var(--ink);margin-top:8px}
+.site-footer .copy a{text-decoration:underline}
+.socials{display:flex;gap:18px;justify-content:center;margin-top:22px}
+.socials a{width:46px;height:46px;border-radius:12px;background:#fff;display:grid;place-items:center;color:#1d1d22;transition:.25s}
+.socials a:hover{transform:translateY(-3px)}
+.socials svg{width:24px;height:24px}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- responsive ---------- */
+@media (max-width:1000px){
+  .team-grid{grid-template-columns:repeat(2,1fr);gap:40px}
+  .svc-feature{grid-template-columns:1fr}
+  .seller-grid,.svc-grid,.beauty-grid{grid-template-columns:1fr}
+}
+@media (max-width:820px){
+  .split,.rewards-grid,.contact-grid{grid-template-columns:1fr;gap:34px}
+  .promo-cards,.style-row{grid-template-columns:1fr;gap:18px}
+  .review-grid{grid-template-columns:1fr}
+  .review{border-right:0;border-bottom:1px solid var(--line)}
+  .svc-card{grid-template-columns:1fr}
+  .nav-links{display:none;flex-direction:column;gap:0;padding:0;width:100%}
+  .nav-links.open{display:flex}
+  .nav-links li{border-top:1px solid var(--line-soft)}
+  .nav-links a{display:block;padding:14px 0}
+  .burger{display:block}
+  .nav-inner{padding:8px 0}
+}
+@media (max-width:560px){
+  .team-grid{grid-template-columns:1fr}
+  form .row{grid-template-columns:1fr}
+}
