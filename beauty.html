@@ -9,6 +9,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="stylesheet.css">
+<style>
+  .soon-banner{position:relative;display:flex;align-items:center;justify-content:center;gap:14px;
+    max-width:560px;margin:0 auto 30px;padding:14px 28px;border-radius:100px;
+    border:1px solid rgba(201,162,75,.45);overflow:hidden;
+    background:linear-gradient(110deg,rgba(201,162,75,.06),rgba(201,162,75,.16),rgba(201,162,75,.06));
+    background-size:220% 100%;animation:soonShimmer 3.6s ease-in-out infinite}
+  .soon-banner .dot{width:9px;height:9px;border-radius:50%;background:#c9a24b;flex:0 0 auto;
+    box-shadow:0 0 0 0 rgba(201,162,75,.6);animation:soonPulse 1.8s ease-out infinite}
+  .soon-banner .txt{font-family:'Jost',sans-serif;font-weight:500;letter-spacing:.32em;
+    text-transform:uppercase;font-size:.82rem;color:#c9a24b;white-space:nowrap}
+  @keyframes soonShimmer{0%,100%{background-position:0% 0}50%{background-position:100% 0}}
+  @keyframes soonPulse{0%{box-shadow:0 0 0 0 rgba(201,162,75,.55)}70%{box-shadow:0 0 0 12px rgba(201,162,75,0)}100%{box-shadow:0 0 0 0 rgba(201,162,75,0)}}
+  @media(max-width:480px){.soon-banner .txt{letter-spacing:.2em;font-size:.72rem}}
+</style>
 </head>
 <body id="top">
 <header class="site-header">
@@ -32,36 +46,54 @@
 </header>
 <section class="beauty page-hero">
   <div class="wrap">
+    <div class="soon-banner reveal"><span class="dot"></span><span class="txt">Opening Soon — Stay Tuned</span></div>
     <h2 class="sec-title reveal center" style="margin:0 auto"><span class="g">Beauty</span></h2>
     <p class="lead reveal">New beauty &amp; wellness treatments coming soon to STB Atelier. Booking will run through Treatwell — stay tuned.</p>
 
     <div class="beauty-grid">
       <article class="beauty-card c1 reveal">
-        <div class="ph" data-label="assets/img/beauty-laser.jpg"></div>
+        <img class="ph" src="img/radio.png" alt="beauty"></img>
         <div class="beauty-body">
-          <h3>Laser Diodo</h3>
-          <p>Hair Removal — modern diode laser for smooth, lasting results.</p>
+          <h3>Diode Laser</h3>
+          <p>Latest-generation medical technology for a progressive and lasting reduction of unwanted hair. A safe, precise and highly effective treatment, suitable for various skin types. Smooth skin, visible results, absolute comfort.</p>
           <a href="https://www.treatwell.ch/ort/stb-atelier-hair-tattoo/" target="_blank" rel="noopener" class="btn btn-flat">Booking</a>
         </div>
       </article>
       <article class="beauty-card c2 reveal">
-        <div class="ph" data-label="assets/img/beauty-massage.jpg"></div>
+        <img class="ph" src="img/massaggi.png" alt="beauty"></img>
         <div class="beauty-body">
           <h3>Massages</h3>
-          <p>Relaxation &amp; Wellness — treatments to unwind and recharge.</p>
+          <p>Exclusive rituals designed for your wellbeing. From deep-tissue to lymphatic-drainage and relaxing massages, every treatment is crafted to release tension and rebalance body and mind. Deep relaxation, instant lightness, total balance.</p>
           <a href="https://www.treatwell.ch/ort/stb-atelier-hair-tattoo/" target="_blank" rel="noopener" class="btn btn-flat">Booking</a>
         </div>
       </article>
       <article class="beauty-card c3 reveal">
-        <div class="ph" data-label="assets/img/beauty-facial.jpg"></div>
+        <img class="ph" src="img/facialcleansing.png" alt="beauty"></img>
         <div class="beauty-body">
           <h3>Facial Cleansing</h3>
-          <p>&amp; More — deep cleansing and care for healthy, fresh skin.</p>
+          <p>Every skin is unique. Our facial treatments are fully tailored to meet every need: hydration, purification, anti-aging or rebalancing. Radiant, healthy and visibly improved skin.</p>
+          <a href="https://www.treatwell.ch/ort/stb-atelier-hair-tattoo/" target="_blank" rel="noopener" class="btn btn-flat">Booking</a>
+        </div>
+      </article>
+      <article class="beauty-card c4 reveal">
+        <img class="ph" src="img/cleansing.png" alt="beauty"></img>
+        <div class="beauty-body">
+          <h3>Deep Cleansing</h3>
+          <p>Advanced, high-performance facial cleansing, ideal for freeing the skin from impurities, blackheads and sebum build-up. Visibly improves skin texture and gives a fresher, more cared-for and even appearance. Cleaner, more even and visibly healthier skin from the very first session.</p>
+          <a href="https://www.treatwell.ch/ort/stb-atelier-hair-tattoo/" target="_blank" rel="noopener" class="btn btn-flat">Booking</a>
+        </div>
+      </article>
+      <article class="beauty-card c5 reveal">
+        <img class="ph" src="img/radiofre.png" alt="beauty"></img>
+        <div class="beauty-body">
+          <h3>Radiofrequency</h3>
+          <p>Latest-generation anti-aging technology to visibly redefine and improve the skin. It acts on wrinkles, loss of firmness, dehydration, dull complexion, fatty deposits and scars, giving a firmer, more radiant and even appearance. Visible results, transformed skin.</p>
           <a href="https://www.treatwell.ch/ort/stb-atelier-hair-tattoo/" target="_blank" rel="noopener" class="btn btn-flat">Booking</a>
         </div>
       </article>
     </div>
-    <div class="promo-foot reveal" style="margin-top:34px">Opening Soon&nbsp;&nbsp;—&nbsp;&nbsp;Stay Tuned</div>
+
+
   </div>
 </section>
 <footer class="site-footer">
