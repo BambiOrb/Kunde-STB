@@ -124,7 +124,7 @@ section{padding:80px 0}
 
 /* ---------- Team ---------- */
 .team .sec-title{text-align:center;margin-bottom:56px}
-.team-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:26px}
+.team-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:26px}
 .member{text-align:center}
 .member .avatar{width:100%;max-width:190px;aspect-ratio:1;border-radius:50%;margin:0 auto 20px;
   background:radial-gradient(circle,#33333c,#1a1a20);display:grid;place-items:center;overflow:hidden;
@@ -276,7 +276,7 @@ form .row{display:grid;grid-template-columns:1fr 1fr;gap:24px}
   .nav-links li{border-top:1px solid var(--line-soft)}
   .nav-links a{display:block;padding:14px 0}
   .burger{display:block}
-  .nav-inner{padding:8px 0}
+  .nav-inner{padding:8px 16px}
   .bg-chair{background-attachment:scroll}
   .header-top{padding-right:16px}
 }

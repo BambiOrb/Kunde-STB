@@ -9,23 +9,38 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="stylesheet.css">
+<style>
+  .lang-switcher{display:flex;gap:8px;align-items:center;font-family:var(--sans);font-size:.82rem}
+  .lang-switcher button{background:none;border:1px solid rgba(255,255,255,.25);color:var(--muted);
+    padding:4px 9px;cursor:pointer;border-radius:4px;font-family:var(--sans);font-size:.78rem;
+    letter-spacing:.06em;transition:.2s}
+  .lang-switcher button:hover{border-color:var(--gold);color:var(--gold)}
+  .lang-switcher button.active{border-color:var(--gold);color:var(--gold);background:rgba(201,162,39,.1)}
+</style>
 </head>
 <body id="top">
 
 <header class="site-header">
   <div class="wrap header-top">
     <a href="index.html" class="logo"><img class="logo-img" src="img/stb_logo_full_inverted_2.png" alt="ATELIER HAIR TATTOO"></a>
-    <a href="https://www.treatwell.ch/ort/stb-atelier-hair-tattoo/" target="_blank" rel="noopener" class="btn btn-book">Book now</a>
+    <div style="display:flex;align-items:center;gap:18px">
+      <div class="lang-switcher">
+        <button data-lang="de">DE</button>
+        <button data-lang="en">EN</button>
+        <button data-lang="it">IT</button>
+      </div>
+      <a href="https://www.treatwell.ch/ort/stb-atelier-hair-tattoo/" target="_blank" rel="noopener" class="btn btn-book" data-i18n="btn_book">Book now</a>
+    </div>
   </div>
   <div class="nav-row">
     <div class="wrap nav-inner">
       <ul class="nav-links" id="navLinks">
-        <li><a href="index.html" data-page="index">Start</a></li>
-        <li><a href="about-us.html" data-page="about-us">About Us</a></li>
-        <li><a href="services.html" data-page="services">Services</a></li>
-        <li><a href="tattoo.html" data-page="tattoo">Tattoo</a></li>
-        <li><a href="beauty.html" data-page="beauty">Beauty</a></li>
-        <li><a href="products.html" data-page="products">Products</a></li>
+        <li><a href="index.html" data-page="index" data-i18n="nav_start">Start</a></li>
+        <li><a href="about-us.html" data-page="about-us" data-i18n="nav_about">About Us</a></li>
+        <li><a href="services.html" data-page="services" data-i18n="nav_services">Services</a></li>
+        <li><a href="tattoo.html" data-page="tattoo" data-i18n="nav_tattoo">Tattoo</a></li>
+        <li><a href="beauty.html" data-page="beauty" data-i18n="nav_beauty">Beauty</a></li>
+        <li><a href="products.html" data-page="products" data-i18n="nav_products">Products</a></li>
       </ul>
       <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
@@ -35,9 +50,9 @@
 <section class="hero">
   <div class="wrap">
     <h1>Atelier Hair&nbsp;Tattoo</h1>
-    <p class="sub">Barber · Tattoo · Beauty</p>
+    <p class="sub" data-i18n="hero_sub">Barber · Tattoo · Beauty</p>
     <div class="actions">
-      <a href="https://www.treatwell.ch/ort/stb-atelier-hair-tattoo/" target="_blank" rel="noopener" class="btn btn-book">Book now</a>
+      <a href="https://www.treatwell.ch/ort/stb-atelier-hair-tattoo/" target="_blank" rel="noopener" class="btn btn-book" data-i18n="btn_book">Book now</a>
     </div>
   </div>
 </section>
@@ -46,46 +61,52 @@
   <div class="wrap split">
     <img class="reveal" src="img/shop_picture.jpg" alt="STB Atelier Salon">
     <div class="reveal">
-      <h2 class="sec-title"><span class="g">About</span> <span class="w">Us</span></h2>
-      <p>Welcome to our <span class="hl">exclusive</span> salon, where <span class="hl">elegance</span> and craft come together for a <span class="hl">unique experience</span>. From haircuts to the artistic precision of tattoos, our <span class="hl">team of professionals</span> is dedicated to your <span class="hl">natural beauty</span> with <span class="hl">personalized treatments</span> and a <span class="hl">full range of services</span> in a welcoming, modern environment.</p>
-      <a href="about-us.html" class="btn btn-flat" style="margin-top:22px">Read more</a>
+      <h2 class="sec-title"><span class="g" data-i18n="about_title">About</span> <span class="w" data-i18n="about_title2">Us</span></h2>
+      <p data-i18n-html="about_text">Welcome to our <span class="hl">exclusive</span> salon, where <span class="hl">elegance</span> and craft come together for a <span class="hl">unique experience</span>. From haircuts to the artistic precision of tattoos, our <span class="hl">team of professionals</span> is dedicated to your <span class="hl">natural beauty</span> with <span class="hl">personalized treatments</span> and a <span class="hl">full range of services</span> in a welcoming, modern environment.</p>
+      <a href="about-us.html" class="btn btn-flat" style="margin-top:22px" data-i18n="about_btn">Read more</a>
     </div>
   </div>
 </section>
 
 <section class="team">
   <div class="wrap">
-    <h2 class="sec-title reveal"><span class="g">Meet</span> <span class="w">our Team</span></h2>
+    <h2 class="sec-title reveal"><span class="g" data-i18n="team_title">Meet</span> <span class="w" data-i18n="team_title2">our Team</span></h2>
     <div class="team-grid">
       <article class="member reveal">
         <div class="avatar"><img src="img/sa.jpg" alt="Sayyam Awan"></div>
         <div class="name">Sayyam<br>Awan</div>
         <div class="role">CEO</div>
-        <p class="bio">I'm Sayyam the young and passionate owner of this eclectic beauty, tattoo and hairstyling salon. My goal is simple: to create a welcoming and trendy environment where art is combined with beauty and where talent is expressed freely. With care and dedication, I have assembled a team of talented artists who put their hearts into what they do. Whether you want a stylish haircut, a meaningful tattoo or a personalized beauty treatment, we are here to make you feel unique and exceptionally satisfied. Come and visit us and discover the unique experience that awaits you here at our salon!</p>
+        <p class="bio" data-i18n-html="bio_sayyam">I'm Sayyam the young and passionate owner of this eclectic beauty, tattoo and hairstyling salon.</p>
       </article>
       <article class="member reveal">
         <div class="avatar"><img src="img/rr.jpg" alt="Riccardo Riina"></div>
         <div class="name">Riccardo<br>Riina</div>
         <div class="role">Barber Member</div>
-        <p class="bio">Hello everyone!<br>I'm Riccardo, I come from Sicily and I've been practicing this wonderful job for 6 years now!<br>I arrived in Switzerland in 2023 with the intention of growing even more professionally and leaving behind the good life for hard work.<br>If you are looking for a professional figure who can improve your image, you are in the right place.<br>Book your service now and enjoy the wonderful atmosphere that StbAtelier offers.<br>I'll be waiting for you!</p>
+        <p class="bio" data-i18n-html="bio_riccardo">Hello everyone!</p>
       </article>
       <article class="member reveal">
         <div class="avatar"><img src="img/lc.jpg" alt="Loris Carosella"></div>
         <div class="name">Loris<br>Carosella</div>
         <div class="role">Barber Member</div>
-        <p class="bio">I'm Loris — a young barber with extensive experience in my craft. Precision, passion, and a strong commitment to quality define my work. Every haircut is tailored to your style, your facial features, and your personality, ensuring that you not only feel great, but look great as well.<br>We wait for you!</p>
+        <p class="bio" data-i18n-html="bio_loris">I'm Loris.</p>
       </article>
       <article class="member reveal">
         <div class="avatar"><img src="img/kn.jpg" alt="Kevin Nguyen"></div>
         <div class="name">Kevin<br>Nguyen</div>
         <div class="role">Tattoo Member</div>
-        <p class="bio">Kevin, a renowned tattoo artist whose artistic journey thrives in Bolzano. His mastery in lettering, realism, and black tattoo styles is vividly evident in every stroke. Each tattoo he crafts is not merely an artistic design, but a visual testament to identity and personal narrative. Kevin has elevated his craft by securing several prestigious awards in the world of tattooing, a clear validation of his impact and originality in the field. The fusion of his technical prowess and artistic sensibility results in skin art that transcends the ordinary, solidifying his place at the pinnacle of the tattooing artistry.</p>
+        <p class="bio" data-i18n-html="bio_kevin">Kevin, a renowned tattoo artist.</p>
       </article>
       <article class="member reveal">
         <div class="avatar"><img src="img/em.jpg" alt="Emil Mariscal"></div>
         <div class="name">Emil<br>Mariscal</div>
         <div class="role">Tattoo Member</div>
-        <p class="bio">Hi everyone, I'm Emil, a tattoo artist for 15 years now. A beautiful curriculum that covers 5 years of work in Milan, 3 years in Berlin. I've been a SPECIAL GUEST in Italy, Spain and Germany and several Tattoo Conventions in Europe. I've been based in Bolzano in Alto Adige for 7 years now. My style is traditional old school. This is my Instagram "emilmariscal". I'll be waiting for you!</p>
+        <p class="bio" data-i18n-html="bio_emil">Hi everyone, I'm Emil.</p>
+      </article>
+      <article class="member reveal">
+        <div class="avatar"><img src="img/doina.jpg" alt="Doina"></div>
+        <div class="name">Doina<br>Suveica</div>
+        <div class="role">Beauty Member</div>
+        <p class="bio" data-i18n-html="bio_doina">Doina is a qualified and highly specialized beauty therapist with extensive experience in the beauty and wellness industry.</p>
       </article>
     </div>
   </div>
@@ -94,106 +115,106 @@
 <section class="hair bg-chair">
   <div class="wrap">
     <div class="reveal">
-      <h2 class="sec-title"><span class="g">Hair</span></h2>
-      <p>From classic cuts to modern styling — our barbers tailor every look to your <span class="hl">type</span> and <span class="hl">personality</span>, working with care, precision and <span class="hl">high-quality products</span> in a relaxed atmosphere.</p>
+      <h2 class="sec-title"><span class="g" data-i18n="hair_title">Hair</span></h2>
+      <p data-i18n-html="hair_text">From classic cuts to modern styling — our barbers tailor every look to your <span class="hl">type</span> and <span class="hl">personality</span>, working with care, precision and <span class="hl">high-quality products</span> in a relaxed atmosphere.</p>
     </div>
   </div>
 </section>
 
 <section class="tattoo bg-chair" id="tattoo-preview">
   <div class="wrap">
-    <h2 class="sec-title reveal"><span class="g">Tattoo</span></h2>
-    <p class="reveal" style="max-width:900px">We are specialized in three styles: <span class="hl">Lettering</span>, <span class="hl">realism</span> and <span class="hl">black tattoo</span>.</p>
+    <h2 class="sec-title reveal"><span class="g" data-i18n="tattoo_title">Tattoo</span></h2>
+    <p class="reveal" style="max-width:900px" data-i18n-html="tattoo_text">We are specialized in three styles: <span class="hl">Lettering</span>, <span class="hl">realism</span> and <span class="hl">black tattoo</span>.</p>
     <div class="style-row" style="margin-top:30px">
-      <div class="reveal"><img src="img/Tatto_Realistic_1.jpg" alt="Realistic tattoo"><div class="style-cap">Realistic</div></div>
-      <div class="reveal"><img src="img/Old%20School_Tattoo_3.jpg" alt="Old School / Neo Traditional tattoo"><div class="style-cap">Old School / Neo Traditional</div></div>
-      <div class="reveal"><img src="img/Lettering_Tattoo_2.jpg" alt="Lettering tattoo"><div class="style-cap">Lettering</div></div>
+      <div class="reveal"><img src="img/Tatto_Realistic_1.jpg" alt="Realistic tattoo"><div class="style-cap" data-i18n="cap_realistic">Realistic</div></div>
+      <div class="reveal"><img src="img/Old%20School_Tattoo_3.jpg" alt="Old School / Neo Traditional tattoo"><div class="style-cap" data-i18n="cap_oldschool">Old School / Neo Traditional</div></div>
+      <div class="reveal"><img src="img/Lettering_Tattoo_2.jpg" alt="Lettering tattoo"><div class="style-cap" data-i18n="cap_lettering">Lettering</div></div>
     </div>
-    <div style="margin-top:34px"><a href="tattoo.html" class="btn btn-flat">See more</a></div>
+    <div style="margin-top:34px"><a href="tattoo.html" class="btn btn-flat" data-i18n="tattoo_btn">See more</a></div>
   </div>
 </section>
 
 <section class="products-banner bg-chair">
   <div class="wrap">
-    <h2 class="sec-title reveal"><span class="g">Products</span></h2>
-    <p class="reveal" style="max-width:760px;margin-top:18px">We select only high-quality, professional products, chosen for visible and lasting results.<br>We use nothing less than the best, because every detail matters.</p>
-    <div style="margin-top:34px"><a href="products.html" class="btn btn-flat">View All</a></div>
+    <h2 class="sec-title reveal"><span class="g" data-i18n="products_title">Products</span></h2>
+    <p class="reveal" style="max-width:760px;margin-top:18px" data-i18n-html="products_text">We select only high-quality, professional products, chosen for visible and lasting results.<br>We use nothing less than the best, because every detail matters.</p>
+    <div style="margin-top:34px"><a href="products.html" class="btn btn-flat" data-i18n="products_btn">View All</a></div>
   </div>
 </section>
 
 <section class="services">
   <div class="wrap">
-    <h2 class="sec-title reveal"><span class="w">Our</span> <span class="g">Services</span></h2>
+    <h2 class="sec-title reveal"><span class="w" data-i18n="services_title">Our</span> <span class="g" data-i18n="services_title2">Services</span></h2>
     <div class="svc-feature">
       <article class="svc-card reveal">
-        <img src="img/hot_towel.png" alt="Haircut, shampoo & styling + short beard + hot towel">
+        <img src="img/hot_towel.png" alt="Haircut, shampoo and styling">
         <div>
-          <h3>Haircut, shampoo &amp; styling +<br>Short beard reshaping + HOT TOWEL</h3>
-          <div class="dur">1h 30 mints</div>
-          <a href="https://buchung.treatwell.ch/ort/stbarber/" target="_blank" rel="noopener" class="btn btn-flat">Booking</a>
+          <h3 data-i18n-html="svc1_title">Haircut, shampoo &amp; styling +<br>Short beard reshaping + HOT TOWEL</h3>
+          <div class="dur" data-i18n="svc1_dur">1h 30 mints</div>
+          <a href="https://buchung.treatwell.ch/ort/stbarber/" target="_blank" rel="noopener" class="btn btn-flat" data-i18n="svc_btn">Booking</a>
         </div>
       </article>
       <article class="svc-card reveal">
         <img src="img/combo_premium.webp" alt="Premium Paket">
         <div>
-          <h3>PREMIUM PAKET (haircut + full beard reshaping hot towel, vapor &amp; face scrub + eyebrows + face wax)</h3>
-          <div class="dur">1h 40 minuts</div>
-          <a href="https://buchung.treatwell.ch/ort/stbarber/" target="_blank" rel="noopener" class="btn btn-flat">Booking</a>
+          <h3 data-i18n-html="svc2_title">PREMIUM PAKET</h3>
+          <div class="dur" data-i18n="svc2_dur">1h 40 minuts</div>
+          <a href="https://buchung.treatwell.ch/ort/stbarber/" target="_blank" rel="noopener" class="btn btn-flat" data-i18n="svc_btn">Booking</a>
         </div>
       </article>
       <article class="svc-card reveal">
         <img src="img/haircut_shampoo.jpg" alt="Haircut and shampoo">
         <div>
-          <h3>Haircut &amp; Shampoo &amp; Styling</h3>
-          <div class="dur">45 minuts</div>
-          <a href="https://buchung.treatwell.ch/ort/stbarber/" target="_blank" rel="noopener" class="btn btn-flat">Booking</a>
+          <h3 data-i18n="svc3_title">Haircut &amp; Shampoo &amp; Styling</h3>
+          <div class="dur" data-i18n="svc3_dur">45 minuts</div>
+          <a href="https://buchung.treatwell.ch/ort/stbarber/" target="_blank" rel="noopener" class="btn btn-flat" data-i18n="svc_btn">Booking</a>
         </div>
       </article>
       <article class="svc-card reveal">
         <img src="img/beard_reshape.jpg" alt="Beard Reshaping">
         <div>
-          <h3>Full Beard Reshaping</h3>
-          <div class="dur">30 - 45 minuts</div>
-          <a href="https://buchung.treatwell.ch/ort/stbarber/" target="_blank" rel="noopener" class="btn btn-flat">Booking</a>
+          <h3 data-i18n="svc4_title">Full Beard Reshaping</h3>
+          <div class="dur" data-i18n="svc4_dur">30 - 45 minuts</div>
+          <a href="https://buchung.treatwell.ch/ort/stbarber/" target="_blank" rel="noopener" class="btn btn-flat" data-i18n="svc_btn">Booking</a>
         </div>
       </article>
     </div>
     <div class="center" style="margin-top:32px">
-      <a href="services.html" class="btn btn-flat">View all services</a>
+      <a href="services.html" class="btn btn-flat" data-i18n="svc_all">View all services</a>
     </div>
   </div>
 </section>
 
 <section class="sellers" id="best">
   <div class="wrap">
-    <h2 class="sec-title reveal"><span class="g">Best</span> <span class="w">Sellers</span></h2>
+    <h2 class="sec-title reveal"><span class="g" data-i18n="sellers_title">Best</span> <span class="w" data-i18n="sellers_title2">Sellers</span></h2>
     <div class="seller-grid" style="grid-template-columns:repeat(2,1fr);max-width:900px;margin:0 auto">
       <div class="seller reveal"><img src="img/product_loop.png" alt="Loop – Curly Definition Fluid"><div class="pname"><span class="g">Loop</span> | Curly Definition Fluid</div></div>
       <div class="seller reveal"><img src="img/product_overup.jpg" alt="Overup – Extra Strong Progressive Spray"><div class="pname"><span class="g">Overup</span> | Extra Strong Progressive Spray</div></div>
     </div>
-    <div class="center" style="margin-top:38px"><a href="products.html" class="btn btn-flat">View all</a></div>
+    <div class="center" style="margin-top:38px"><a href="products.html" class="btn btn-flat" data-i18n="sellers_btn">View all</a></div>
   </div>
 </section>
 
 <section class="reviews">
   <div class="wrap">
-    <h2 class="sec-title reveal"><span class="g">Reviews</span></h2>
+    <h2 class="sec-title reveal"><span class="g" data-i18n="reviews_title">Reviews</span></h2>
     <div class="review-grid">
       <div class="review reveal"><div class="quote">&ldquo;</div><div class="stars">★★★★★</div><div class="who">Hans</div><p>Sehr freundlich und professionell. Sie bemühen sich sehr ihre Arbeit sauber zu machen und nehmen sich genügend Zeit. Würde es jedem weiterempfehlen.</p></div>
       <div class="review reveal"><div class="quote">&ldquo;</div><div class="stars">★★★★★</div><div class="who">Elia</div><p>Der Beste in der Region, mit Abstand!</p></div>
       <div class="review reveal"><div class="quote">&ldquo;</div><div class="stars">★★★★★</div><div class="who">Mark</div><p>Highly professional as always.</p></div>
     </div>
-    <div class="center" style="margin-top:40px"><a href="https://www.treatwell.ch/ort/stbarber/" target="_blank" rel="noopener" class="btn btn-flat">All reviews</a></div>
+    <div class="center" style="margin-top:40px"><a href="https://www.treatwell.ch/ort/stbarber/" target="_blank" rel="noopener" class="btn btn-flat" data-i18n="reviews_btn">All reviews</a></div>
   </div>
 </section>
 
 <section class="rewards">
   <div class="wrap rewards-grid">
     <div class="reveal">
-      <h2 class="sec-title"><span class="g">Rewards</span></h2>
-      <div class="says"><span class="g">Treatwell</span> says:</div>
-      <p><span class="hl">Top Rated</span> is an annual event and a special status achieved only by the best Treatwell salons, who outperform themselves and exceed clients' expectations.</p>
-      <div class="bold">Our salon has won this award four times in five years.</div>
+      <h2 class="sec-title"><span class="g" data-i18n="rewards_title">Rewards</span></h2>
+      <div class="says"><span class="g">Treatwell</span> <span data-i18n="rewards_says">says:</span></div>
+      <p data-i18n-html="rewards_text"><span class="hl">Top Rated</span> is an annual event and a special status achieved only by the best Treatwell salons, who outperform themselves and exceed clients' expectations.</p>
+      <div class="bold" data-i18n="rewards_bold">Our salon has won this award four times in five years.</div>
       <div class="badges">
         <img class="badge-img" src="img/top_rated_2021.svg" alt="Treatwell Top Rated 2021" loading="lazy">
         <img class="badge-img" src="img/top_rated_2022.svg" alt="Treatwell Top Rated 2022" loading="lazy">
@@ -207,7 +228,7 @@
 
 <section class="contact" id="contact">
   <div class="wrap">
-    <h2 class="sec-title"><span class="g">Contact</span></h2>
+    <h2 class="sec-title"><span class="g" data-i18n="contact_title">Contact</span></h2>
     <div class="contact-grid">
       <ul class="contact-info reveal">
         <li>
@@ -225,13 +246,13 @@
       </ul>
       <form id="contactForm" class="reveal" novalidate>
         <div class="row">
-          <div class="field"><label for="firstName">First Name</label><input type="text" id="firstName" name="firstName"></div>
-          <div class="field"><label for="lastName">Last Name</label><input type="text" id="lastName" name="lastName"></div>
+          <div class="field"><label for="firstName" data-i18n="contact_fn">First Name</label><input type="text" id="firstName" name="firstName"></div>
+          <div class="field"><label for="lastName" data-i18n="contact_ln">Last Name</label><input type="text" id="lastName" name="lastName"></div>
         </div>
-        <div class="field"><label for="email">Email *</label><input type="email" id="email" name="email" required></div>
-        <div class="field"><label for="message">Message</label><textarea id="message" name="message"></textarea></div>
+        <div class="field"><label for="email" data-i18n="contact_email">Email *</label><input type="email" id="email" name="email" required></div>
+        <div class="field"><label for="message" data-i18n="contact_msg">Message</label><textarea id="message" name="message"></textarea></div>
         <div class="form-actions">
-          <button type="submit" class="btn btn-send" id="submitBtn">Send</button>
+          <button type="submit" class="btn btn-send" id="submitBtn" data-i18n="contact_send">Send</button>
           <p class="form-msg" id="formMsg"></p>
         </div>
       </form>
@@ -241,7 +262,7 @@
 
 <div class="map-band">
   <div class="wrap">
-    <iframe class="map-frame" style="display:block;width:100%;height:420px;border:0" src="https://www.google.com/maps?q=Seestrasse%20149%2C%208810%20Horgen&amp;output=embed" title="STB Atelier – Seestrasse 149, 8810 Horgen" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    <iframe class="map-frame" style="display:block;width:100%;height:420px;border:0" src="https://www.google.com/maps?q=Seestrasse%20149%2C%208810%20Horgen&output=embed" title="STB Atelier – Seestrasse 149, 8810 Horgen" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
   </div>
 </div>
 
@@ -249,7 +270,11 @@
   <div class="wrap">
     <div class="fname">STB Atelier</div>
     <div class="copy">©2026 by <a href="https://digitalnow.ch" target="_blank" rel="noopener">digitalNow</a></div>
-    <div class="socials">
+    <div style="margin-top:14px;font-family:var(--sans);font-size:1rem;color:var(--muted);letter-spacing:.04em">
+      <a href="impressum.html" style="color:var(--muted);text-decoration:underline;margin:0 10px">Impressum</a>
+      <a href="datenschutz.html" style="color:var(--muted);text-decoration:underline;margin:0 10px">Datenschutz</a>
+    </div>
+       <div class="socials">
       <a href="#" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3c.3 2 1.6 3.6 3.5 3.9v2.4c-1.3.1-2.5-.3-3.6-1v5.8c0 3-2.2 5.4-5.2 5.4S6 19.1 6 16.2s2.4-5.2 5.4-5c.3 0 .5 0 .8.1v2.5c-.3-.1-.5-.2-.8-.2-1.5 0-2.7 1.2-2.7 2.7s1.2 2.7 2.7 2.7 2.6-1.2 2.6-2.8V3h2.5Z"/></svg></a>
       <a href="https://instagram.com/stb_atelier_" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
       <a href="https://wa.link/jhncjw" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2Zm5 14c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.5-2.6-1.1-4.2-3.7-4.4-3.9-.1-.2-1-1.3-1-2.5s.6-1.7.8-2c.2-.2.5-.3.6-.3h.5c.2 0 .4 0 .6.4l.7 1.8c.1.1.1.3 0 .4l-.3.5-.4.4c-.1.1-.3.3-.1.5.1.3.6 1 1.3 1.6.9.8 1.6 1 1.9 1.2.2.1.4.1.5-.1l.6-.7c.2-.2.3-.2.5-.1l1.7.8c.2.1.4.2.4.3.1.1.1.5-.1 1Z"/></svg></a>
@@ -258,6 +283,7 @@
   </div>
 </footer>
 
+<script src="translations.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

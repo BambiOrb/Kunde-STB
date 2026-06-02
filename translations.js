@@ -1,0 +1,323 @@
+/* =========================================================
+   STB Atelier – Translations
+   Sprachen: de | en | it
+   ========================================================= */
+
+const STB_TRANSLATIONS = {
+
+  de: {
+    // Nav
+    nav_start:    'Start',
+    nav_about:    'Über uns',
+    nav_services: 'Leistungen',
+    nav_tattoo:   'Tattoo',
+    nav_beauty:   'Beauty',
+    nav_products: 'Produkte',
+    btn_book:     'Jetzt buchen',
+
+    // Hero
+    hero_sub: 'Barber · Tattoo · Beauty',
+
+    // About
+    about_title:  'Über',
+    about_title2: 'Uns',
+    about_text:   'Willkommen in unserem <span class="hl">exklusiven</span> Salon, wo <span class="hl">Eleganz</span> und Handwerk sich zu einem <span class="hl">einzigartigen Erlebnis</span> vereinen. Von Haarschnitten bis zur künstlerischen Präzision von Tattoos widmet sich unser <span class="hl">Profi-Team</span> deiner <span class="hl">natürlichen Schönheit</span> mit <span class="hl">personalisierten Behandlungen</span> und einem <span class="hl">umfassenden Serviceangebot</span> in einem einladenden, modernen Umfeld.',
+    about_btn:    'Mehr erfahren',
+
+    // Team
+    team_title:  'Unser',
+    team_title2: 'Team',
+    bio_sayyam:  'Ich bin Sayyam, der junge und leidenschaftliche Inhaber dieses vielseitigen Beauty-, Tattoo- und Hairstyling-Salons. Mein Ziel ist einfach: eine einladende und trendige Umgebung zu schaffen, in der Kunst und Schönheit vereint sind und Talent frei ausgelebt wird. Mit Sorgfalt und Engagement habe ich ein Team talentierter Künstler zusammengestellt, die ihr Herz in ihre Arbeit stecken. Ob stilvoller Haarschnitt, bedeutungsvolles Tattoo oder personalisierte Beauty-Behandlung – wir sorgen dafür, dass du dich einzigartig und rundum zufrieden fühlst.',
+    bio_riccardo: 'Hallo alle!<br>Ich bin Riccardo, komme aus Sizilien und übe diesen wunderbaren Beruf seit 6 Jahren aus!<br>2023 kam ich in die Schweiz, um professionell zu wachsen und hart zu arbeiten.<br>Wenn du eine professionelle Fachkraft suchst, die dein Image aufwertet, bist du hier genau richtig.<br>Buche jetzt deinen Service und geniesse die tolle Atmosphäre im StbAtelier.<br>Ich warte auf dich!',
+    bio_loris:    'Ich bin Loris – ein junger Barber mit umfangreicher Erfahrung in meinem Handwerk. Präzision, Leidenschaft und ein starkes Qualitätsbewusstsein definieren meine Arbeit. Jeder Haarschnitt wird individuell auf deinen Stil, deine Gesichtszüge und deine Persönlichkeit abgestimmt.<br>Wir freuen uns auf dich!',
+    bio_kevin:    'Kevin ist ein renommierter Tattoo-Künstler aus Bozen. Seine Meisterschaft in Lettering, Realismus und schwarzen Tattoo-Stilen zeigt sich in jedem Strich. Jedes Tattoo ist nicht nur ein künstlerisches Design, sondern ein visuelles Zeugnis von Identität und persönlicher Geschichte. Kevin hat seinen Stil mit mehreren renommierten Preisen in der Tattoo-Welt untermauert.',
+    bio_doina:    'Doina ist eine qualifizierte und hochspezialisierte Beauty-Therapeutin mit umfangreicher Erfahrung in der Beauty- und Wellnessbranche. Sie ist bekannt für ihre Professionalität, Präzision und ihr Engagement für kontinuierliche Weiterbildung. Sie bietet personalisierte Behandlungen an, die auf die Bedürfnisse jedes Kunden zugeschnitten sind. Spezialisiert auf fortgeschrittene Ästhetik, Massagetherapie und Augen-Beauty-Behandlungen begleitet sie jeden Kunden mit Fachkenntnis, Sorgfalt und Empathie.',
+    bio_emil:     'Hallo alle, ich bin Emil, seit 15 Jahren Tattoo-Künstler. Ein beeindruckender Werdegang mit 5 Jahren in Mailand, 3 Jahren in Berlin. Ich war SPECIAL GUEST in Italien, Spanien und Deutschland sowie bei mehreren Tattoo-Conventions in Europa. Seit 7 Jahren bin ich in Bozen ansässig. Mein Stil ist traditionelles Old School. Instagram: "emilmariscal". Ich warte auf euch!',
+
+    // Hair
+    hair_title: 'Hair',
+    hair_text:  'Von klassischen Schnitten bis zum modernen Styling – unsere Barber passen jeden Look an deinen <span class="hl">Typ</span> und deine <span class="hl">Persönlichkeit</span> an, mit Sorgfalt, Präzision und <span class="hl">hochwertigen Produkten</span> in entspannter Atmosphäre.',
+
+    // Tattoo
+    tattoo_title: 'Tattoo',
+    tattoo_text:  'Wir sind auf drei Stile spezialisiert: <span class="hl">Lettering</span>, <span class="hl">Realismus</span> und <span class="hl">Black Tattoo</span>.',
+    tattoo_btn:   'Mehr sehen',
+    cap_realistic: 'Realistisch',
+    cap_oldschool: 'Old School / Neo Traditional',
+    cap_lettering: 'Lettering',
+
+    // Products
+    products_title: 'Produkte',
+    products_text:  'Wir wählen ausschliesslich hochwertige, professionelle Produkte für sichtbare und dauerhafte Ergebnisse.<br>Nur das Beste, weil jedes Detail zählt.',
+    products_btn:   'Alle ansehen',
+
+    // Services
+    services_title:  'Unsere',
+    services_title2: 'Leistungen',
+    svc1_title: 'Haarschnitt, Shampoo & Styling +<br>Kurzer Bart + HOT TOWEL',
+    svc1_dur:   '1h 30 Min.',
+    svc2_title: 'PREMIUM PAKET (Haarschnitt + voller Bart, Hot Towel, Dampf & Gesichtspeeling + Augenbrauen + Gesichtswachs)',
+    svc2_dur:   '1h 40 Min.',
+    svc3_title: 'Haarschnitt & Shampoo & Styling',
+    svc3_dur:   '45 Min.',
+    svc4_title: 'Vollbart-Reshaping',
+    svc4_dur:   '30 - 45 Min.',
+    svc_btn:    'Buchen',
+    svc_all:    'Alle Leistungen',
+
+    // Best Sellers
+    sellers_title:  'Best',
+    sellers_title2: 'Sellers',
+    sellers_btn:    'Alle ansehen',
+
+    // Product lines
+    prod_urban_title:   'Urban',
+    prod_urban_text:    'Reinigende Detox-Linie zur Entfernung von Unreinheiten, Vorbereitung der Haare auf Behandlungen und Wiederherstellung der Balance von Kopfhaut und Haarschaft.',
+    prod_action_title:  'Action',
+    prod_action_text:   'Normalisierende Linie für die Kopfhaut, mit stimulierender Wirkung gegen Haarausfall oder beruhigender Wirkung für empfindliche Kopfhaut.',
+    prod_treat_title:   'Treat',
+    prod_treat_text:    'Regenerierende Behandlungen zur Stärkung der Haarfaserstruktur.',
+    prod_hydrate_title: 'Hydrate',
+    prod_hydrate_text:  'Nährende Feuchtigkeitslinie für Hydration, Elastizität und Glanz.',
+    prod_volume_title:  'Volume',
+    prod_volume_text:   'Anti-Aging Volumen-Linie für Fülle, Textur und Vitalität.',
+    prod_style_title:   'Style',
+    prod_style_text:    'Styling-Linie für jeden Look – anpassbare Produkte für alle Haartypen.',
+
+    // Reviews
+    reviews_title: 'Bewertungen',
+    reviews_btn:   'Alle Bewertungen',
+
+    // Rewards
+    rewards_title: 'Auszeichnungen',
+    rewards_says:  'Treatwell sagt:',
+    rewards_text:  '<span class="hl">Top Rated</span> ist ein jährliches Event und ein besonderer Status, den nur die besten Treatwell-Salons erreichen, die sich selbst übertreffen und die Erwartungen ihrer Kunden übertreffen.',
+    rewards_bold:  'Unser Salon hat diese Auszeichnung viermal in fünf Jahren gewonnen.',
+
+    // Contact
+    svcpage_title:        'Leistungen',
+    svcpage_intro:        'Entdecke unsere Barbershop-Leistungen.',
+    svcpage_cancel:       'Bei Nichtabsage wird der vollständige Betrag der gebuchten Leistung in Rechnung gestellt.',
+    svc_hair_title:       'Haarschnitt, Shampoo & Frisuren',
+    svc_children_title:   'Kinder – Haarschnitt & Frisuren',
+    svc_treatments_title: 'Haarbehandlungen',
+    svc_beards_title:     'Bart',
+    svc_combos_title:     'Kombinationen',
+    svc_facial_title:     'Gesichtsbehandlungen',
+    svcpage_treatwell:    'Auf Treatwell buchen',
+
+    contact_title:  'Kontakt',
+    contact_fn:     'Vorname',
+    contact_ln:     'Nachname',
+    contact_email:  'E-Mail *',
+    contact_msg:    'Nachricht',
+    contact_send:   'Senden',
+    contact_ok:     'Nachricht gesendet!',
+    contact_err_email: 'Bitte E-Mail angeben.',
+    contact_err_generic: 'Etwas ist schiefgelaufen.',
+    contact_err_conn: 'Verbindung fehlgeschlagen. Bitte später nochmal versuchen.',
+    contact_sending: 'Senden…',
+  },
+
+  en: {
+    nav_start:    'Start',
+    nav_about:    'About Us',
+    nav_services: 'Services',
+    nav_tattoo:   'Tattoo',
+    nav_beauty:   'Beauty',
+    nav_products: 'Products',
+    btn_book:     'Book now',
+
+    hero_sub: 'Barber · Tattoo · Beauty',
+
+    about_title:  'About',
+    about_title2: 'Us',
+    about_text:   'Welcome to our <span class="hl">exclusive</span> salon, where <span class="hl">elegance</span> and craft come together for a <span class="hl">unique experience</span>. From haircuts to the artistic precision of tattoos, our <span class="hl">team of professionals</span> is dedicated to your <span class="hl">natural beauty</span> with <span class="hl">personalized treatments</span> and a <span class="hl">full range of services</span> in a welcoming, modern environment.',
+    about_btn:    'Read more',
+
+    team_title:  'Meet',
+    team_title2: 'our Team',
+    bio_sayyam:  'I\'m Sayyam the young and passionate owner of this eclectic beauty, tattoo and hairstyling salon. My goal is simple: to create a welcoming and trendy environment where art is combined with beauty and where talent is expressed freely. With care and dedication, I have assembled a team of talented artists who put their hearts into what they do. Whether you want a stylish haircut, a meaningful tattoo or a personalized beauty treatment, we are here to make you feel unique and exceptionally satisfied.',
+    bio_riccardo: 'Hello everyone!<br>I\'m Riccardo, I come from Sicily and I\'ve been practicing this wonderful job for 6 years now!<br>I arrived in Switzerland in 2023 with the intention of growing even more professionally and leaving behind the good life for hard work.<br>If you are looking for a professional figure who can improve your image, you are in the right place.<br>Book your service now and enjoy the wonderful atmosphere that StbAtelier offers.<br>I\'ll be waiting for you!',
+    bio_loris:    'I\'m Loris — a young barber with extensive experience in my craft. Precision, passion, and a strong commitment to quality define my work. Every haircut is tailored to your style, your facial features, and your personality, ensuring that you not only feel great, but look great as well.<br>We wait for you!',
+    bio_kevin:    'Kevin is a renowned tattoo artist whose artistic journey thrives in Bolzano. His mastery in lettering, realism, and black tattoo styles is vividly evident in every stroke. Each tattoo he crafts is not merely an artistic design, but a visual testament to identity and personal narrative. Kevin has elevated his craft by securing several prestigious awards in the world of tattooing.',
+    bio_emil:     'Hi everyone, I\'m Emil, a tattoo artist for 15 years now. A beautiful curriculum that covers 5 years of work in Milan, 3 years in Berlin. I\'ve been a SPECIAL GUEST in Italy, Spain and Germany and several Tattoo Conventions in Europe. I\'ve been based in Bolzano in Alto Adige for 7 years now. My style is traditional old school. Instagram: "emilmariscal". I\'ll be waiting for you!',
+
+    bio_doina:    'Doina is a qualified and highly specialized beauty therapist with extensive experience in the beauty and wellness industry. She is recognized for her professionalism, precision, and commitment to continuous professional development, offering personalized treatments tailored to each client\'s needs. Specialized in advanced aesthetics, massage therapy, and eye beauty treatments, she supports every client with expertise, care, and empathy, ensuring visible results and a premium high-end experience.',
+    hair_title: 'Hair',
+    hair_text:  'From classic cuts to modern styling — our barbers tailor every look to your <span class="hl">type</span> and <span class="hl">personality</span>, working with care, precision and <span class="hl">high-quality products</span> in a relaxed atmosphere.',
+
+    tattoo_title: 'Tattoo',
+    tattoo_text:  'We are specialized in three styles: <span class="hl">Lettering</span>, <span class="hl">realism</span> and <span class="hl">black tattoo</span>.',
+    tattoo_btn:   'See more',
+    cap_realistic: 'Realistic',
+    cap_oldschool: 'Old School / Neo Traditional',
+    cap_lettering: 'Lettering',
+
+    products_title: 'Products',
+    products_text:  'We select only high-quality, professional products, chosen for visible and lasting results.<br>We use nothing less than the best, because every detail matters.',
+    products_btn:   'View All',
+
+    services_title:  'Our',
+    services_title2: 'Services',
+    svc1_title: 'Haircut, shampoo & styling +<br>Short beard reshaping + HOT TOWEL',
+    svc1_dur:   '1h 30 min',
+    svc2_title: 'PREMIUM PACKAGE (haircut + full beard reshaping hot towel, vapor & face scrub + eyebrows + face wax)',
+    svc2_dur:   '1h 40 min',
+    svc3_title: 'Haircut & Shampoo & Styling',
+    svc3_dur:   '45 min',
+    svc4_title: 'Full Beard Reshaping',
+    svc4_dur:   '30 - 45 min',
+    svc_btn:    'Booking',
+    svc_all:    'View all services',
+
+    svcpage_title:        'Services',
+    svcpage_intro:        'Discover our barbershop services.',
+    svcpage_cancel:       'In case of no notice of cancellation, the client will be required to pay the full amount of the booked service.',
+    svc_hair_title:       'Haircuts, Shampoo and Hairstyles',
+    svc_children_title:   'Children – Haircut and Hairstyles',
+    svc_treatments_title: 'Hair Treatments',
+    svc_beards_title:     'Beards',
+    svc_combos_title:     'Combinations',
+    svc_facial_title:     'Facial Treatments',
+    svcpage_treatwell:    'Book on Treatwell',
+
+    sellers_title:  'Best',
+    sellers_title2: 'Sellers',
+    sellers_btn:    'View all',
+
+    prod_urban_title:   'Urban',
+    prod_urban_text:    'Purifying detox line to remove impurities, prepare the hair for treatments, restore the balance of the scalp and stem.',
+    prod_action_title:  'Action',
+    prod_action_text:   'Normalizing line for the scalp, with a stimulating action to slow down hair loss or a soothing action for sensitized scalps.',
+    prod_treat_title:   'Treat',
+    prod_treat_text:    'Regenerating treatments to strengthen the structure of the hair fiber.',
+    prod_hydrate_title: 'Hydrate',
+    prod_hydrate_text:  'Nourishing moisturizing line to give hair hydration, elasticity and shine.',
+    prod_volume_title:  'Volume',
+    prod_volume_text:   'Volumizing anti-aging line to give body, texture and vitality to the hair.',
+    prod_style_title:   'Style',
+    prod_style_text:    'Styling line to create any type of look with customizable products suitable for all hair types.',
+
+    reviews_title: 'Reviews',
+    reviews_btn:   'All reviews',
+
+    rewards_title: 'Rewards',
+    rewards_says:  'Treatwell says:',
+    rewards_text:  '<span class="hl">Top Rated</span> is an annual event and a special status achieved only by the best Treatwell salons, who outperform themselves and exceed clients\' expectations.',
+    rewards_bold:  'Our salon has won this award four times in five years.',
+
+    contact_title:  'Contact',
+    contact_fn:     'First Name',
+    contact_ln:     'Last Name',
+    contact_email:  'Email *',
+    contact_msg:    'Message',
+    contact_send:   'Send',
+    contact_ok:     'Thanks for submitting!',
+    contact_err_email: 'Please enter your email.',
+    contact_err_generic: 'Something went wrong.',
+    contact_err_conn: 'Connection failed. Please try again later.',
+    contact_sending: 'Sending…',
+  },
+
+  it: {
+    nav_start:    'Inizio',
+    nav_about:    'Chi siamo',
+    nav_services: 'Servizi',
+    nav_tattoo:   'Tattoo',
+    nav_beauty:   'Beauty',
+    nav_products: 'Prodotti',
+    btn_book:     'Prenota ora',
+
+    hero_sub: 'Barber · Tattoo · Beauty',
+
+    about_title:  'Chi',
+    about_title2: 'siamo',
+    about_text:   'Benvenuti nel nostro salone <span class="hl">esclusivo</span>, dove <span class="hl">eleganza</span> e artigianato si uniscono per un\'<span class="hl">esperienza unica</span>. Dai tagli di capelli alla precisione artistica dei tatuaggi, il nostro <span class="hl">team di professionisti</span> è dedicato alla tua <span class="hl">bellezza naturale</span> con <span class="hl">trattamenti personalizzati</span> e una <span class="hl">gamma completa di servizi</span> in un ambiente accogliente e moderno.',
+    about_btn:    'Scopri di più',
+
+    team_title:  'Il nostro',
+    team_title2: 'Team',
+    bio_sayyam:  'Sono Sayyam, il giovane e appassionato proprietario di questo eclettico salone di bellezza, tatuaggi e acconciature. Il mio obiettivo è semplice: creare un ambiente accogliente e trendy dove l\'arte si unisce alla bellezza e il talento si esprime liberamente. Con cura e dedizione, ho riunito un team di artisti talentuosi che mettono il cuore in ciò che fanno.',
+    bio_riccardo: 'Ciao a tutti!<br>Sono Riccardo, vengo dalla Sicilia e svolgo questo meraviglioso lavoro da 6 anni!<br>Sono arrivato in Svizzera nel 2023 con l\'intenzione di crescere professionalmente.<br>Se stai cercando un professionista che possa migliorare la tua immagine, sei nel posto giusto.<br>Prenota il tuo servizio e goditi la meravigliosa atmosfera dello StbAtelier.<br>Vi aspetto!',
+    bio_loris:    'Sono Loris — un giovane barbiere con grande esperienza nel mio mestiere. Precisione, passione e un forte impegno per la qualità definiscono il mio lavoro. Ogni taglio è su misura per il tuo stile, i tuoi lineamenti e la tua personalità.<br>Vi aspettiamo!',
+    bio_kevin:    'Kevin è un rinomato tatuatore la cui carriera artistica fiorisce a Bolzano. La sua maestria in lettering, realismo e tatuaggi black è evidente in ogni tratto. Ogni tatuaggio che realizza è un\'opera d\'arte e una testimonianza visiva dell\'identità personale. Kevin ha consolidato il suo stile vincendo numerosi prestigiosi premi nel mondo del tatuaggio.',
+    bio_emil:     'Ciao a tutti, sono Emil, tatuatore da 15 anni. Un bel percorso che comprende 5 anni di lavoro a Milano, 3 anni a Berlino. Sono stato SPECIAL GUEST in Italia, Spagna e Germania e in diverse Tattoo Convention in Europa. Da 7 anni sono a Bolzano, in Alto Adige. Il mio stile è il tradizionale old school. Instagram: "emilmariscal". Vi aspetto!',
+
+    bio_doina:    'Doina è una terapista della bellezza qualificata e altamente specializzata, con una vasta esperienza nel settore della bellezza e del benessere. È riconosciuta per la sua professionalità, precisione e impegno nello sviluppo professionale continuo, offrendo trattamenti personalizzati su misura per le esigenze di ogni cliente. Specializzata in estetica avanzata, massoterapia e trattamenti per la bellezza degli occhi, accompagna ogni cliente con competenza, cura ed empatia, garantendo risultati visibili e un\'esperienza premium di alto livello.',
+    hair_title: 'Hair',
+    hair_text:  'Dai tagli classici allo styling moderno — i nostri barbieri adattano ogni look al tuo <span class="hl">tipo</span> e alla tua <span class="hl">personalità</span>, lavorando con cura, precisione e <span class="hl">prodotti di alta qualità</span> in un\'atmosfera rilassata.',
+
+    tattoo_title: 'Tattoo',
+    tattoo_text:  'Siamo specializzati in tre stili: <span class="hl">Lettering</span>, <span class="hl">realismo</span> e <span class="hl">black tattoo</span>.',
+    tattoo_btn:   'Vedi di più',
+    cap_realistic: 'Realistico',
+    cap_oldschool: 'Old School / Neo Traditional',
+    cap_lettering: 'Lettering',
+
+    products_title: 'Prodotti',
+    products_text:  'Selezioniamo solo prodotti professionali di alta qualità, scelti per risultati visibili e duraturi.<br>Solo il meglio, perché ogni dettaglio conta.',
+    products_btn:   'Vedi tutti',
+
+    services_title:  'I nostri',
+    services_title2: 'Servizi',
+    svc1_title: 'Taglio, shampoo & styling +<br>Rifinitura barba corta + HOT TOWEL',
+    svc1_dur:   '1h 30 min',
+    svc2_title: 'PACCHETTO PREMIUM (taglio + rifinitura barba completa, hot towel, vapore & scrub viso + sopracciglia + ceretta viso)',
+    svc2_dur:   '1h 40 min',
+    svc3_title: 'Taglio & Shampoo & Styling',
+    svc3_dur:   '45 min',
+    svc4_title: 'Rifinitura Barba Completa',
+    svc4_dur:   '30 - 45 min',
+    svc_btn:    'Prenota',
+    svc_all:    'Tutti i servizi',
+
+    svcpage_title:        'Servizi',
+    svcpage_intro:        'Scopri i nostri servizi da barbiere.',
+    svcpage_cancel:       'In caso di mancata disdetta, al cliente verrà addebitato l\'intero importo del servizio prenotato.',
+    svc_hair_title:       'Taglio, Shampoo e Acconciature',
+    svc_children_title:   'Bambini – Taglio e Acconciature',
+    svc_treatments_title: 'Trattamenti per Capelli',
+    svc_beards_title:     'Barba',
+    svc_combos_title:     'Combinazioni',
+    svc_facial_title:     'Trattamenti Viso',
+    svcpage_treatwell:    'Prenota su Treatwell',
+
+    sellers_title:  'Best',
+    sellers_title2: 'Sellers',
+    sellers_btn:    'Vedi tutti',
+
+    prod_urban_title:   'Urban',
+    prod_urban_text:    'Linea detox purificante per rimuovere le impurità, preparare i capelli ai trattamenti e ripristinare l\'equilibrio di cuoio capelluto e fusto.',
+    prod_action_title:  'Action',
+    prod_action_text:   'Linea normalizzante per il cuoio capelluto, con azione stimolante per rallentare la caduta dei capelli o azione lenitiva per cuoi capelluti sensibilizzati.',
+    prod_treat_title:   'Treat',
+    prod_treat_text:    'Trattamenti rigeneranti per rafforzare la struttura della fibra capillare.',
+    prod_hydrate_title: 'Hydrate',
+    prod_hydrate_text:  'Linea idratante nutriente per dare ai capelli idratazione, elasticità e lucentezza.',
+    prod_volume_title:  'Volume',
+    prod_volume_text:   'Linea volumizzante anti-aging per dare corpo, texture e vitalità ai capelli.',
+    prod_style_title:   'Style',
+    prod_style_text:    'Linea styling per creare qualsiasi tipo di look con prodotti personalizzabili adatti a tutti i tipi di capelli.',
+
+    reviews_title: 'Recensioni',
+    reviews_btn:   'Tutte le recensioni',
+
+    rewards_title: 'Premi',
+    rewards_says:  'Treatwell dice:',
+    rewards_text:  '<span class="hl">Top Rated</span> è un evento annuale e uno status speciale raggiunto solo dai migliori saloni Treatwell, che superano sé stessi e le aspettative dei clienti.',
+    rewards_bold:  'Il nostro salone ha vinto questo premio quattro volte in cinque anni.',
+
+    contact_title:  'Contatto',
+    contact_fn:     'Nome',
+    contact_ln:     'Cognome',
+    contact_email:  'Email *',
+    contact_msg:    'Messaggio',
+    contact_send:   'Invia',
+    contact_ok:     'Messaggio inviato!',
+    contact_err_email: 'Inserisci la tua email.',
+    contact_err_generic: 'Qualcosa è andato storto.',
+    contact_err_conn: 'Connessione fallita. Riprova più tardi.',
+    contact_sending: 'Invio…',
+  }
+};

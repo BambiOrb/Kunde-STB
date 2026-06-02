@@ -35,6 +35,51 @@
     revealEls.forEach(function (el) { el.classList.add('in'); });
   }
 
+  /* ---- i18n Language Switcher ---- */
+  if (typeof STB_TRANSLATIONS !== 'undefined') {
+
+    var STORAGE_KEY = 'stb_lang';
+    var currentLang = localStorage.getItem(STORAGE_KEY) || 'en';
+
+    function applyLang(lang) {
+      var t = STB_TRANSLATIONS[lang];
+      if (!t) return;
+      currentLang = lang;
+      localStorage.setItem(STORAGE_KEY, lang);
+      document.documentElement.lang = lang;
+
+      // Plain text
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        var key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) el.textContent = t[key];
+      });
+
+      // HTML (spans with classes inside)
+      document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+        var key = el.getAttribute('data-i18n-html');
+        if (t[key] !== undefined) el.innerHTML = t[key];
+      });
+
+      // Active button
+      document.querySelectorAll('.lang-switcher button').forEach(function (btn) {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+
+      // Update contact form error messages reference
+      window._i18n = t;
+    }
+
+    // Language buttons
+    document.querySelectorAll('.lang-switcher button').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        applyLang(btn.getAttribute('data-lang'));
+      });
+    });
+
+    // Apply on load
+    applyLang(currentLang);
+  }
+
   /* ---- Contact form → contact.php ---- */
   var form = document.getElementById('contactForm');
   if (form) {
@@ -43,24 +88,42 @@
     form.addEventListener('submit', async function (ev) {
       ev.preventDefault();
       msg.className = 'form-msg';
+      var t = window._i18n || {};
       var data = {
         firstName: form.firstName.value.trim(),
         lastName:  form.lastName.value.trim(),
         email:     form.email.value.trim(),
         message:   form.message.value.trim()
       };
-      if (!data.email) { msg.classList.add('err'); msg.textContent = 'Bitte E-Mail angeben.'; return; }
-      btn.disabled = true; var original = btn.textContent; btn.textContent = 'Senden…';
+      if (!data.email) {
+        msg.classList.add('err');
+        msg.textContent = t.contact_err_email || 'Please enter your email.';
+        return;
+      }
+      btn.disabled = true;
+      var original = btn.textContent;
+      btn.textContent = t.contact_sending || 'Sending…';
       try {
         var res = await fetch('contact.php', {
           method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data)
         });
         var json = await res.json();
-        if (json.success) { msg.classList.add('ok'); msg.textContent = 'Thanks for submitting!'; form.reset(); }
-        else { msg.classList.add('err'); msg.textContent = json.error || 'Something went wrong.'; }
+        if (json.success) {
+          msg.classList.add('ok');
+          msg.textContent = t.contact_ok || 'Thanks for submitting!';
+          form.reset();
+        } else {
+          msg.classList.add('err');
+          msg.textContent = json.error || t.contact_err_generic || 'Something went wrong.';
+        }
       } catch (err) {
-        msg.classList.add('err'); msg.textContent = 'Connection failed. Please try again later.';
-      } finally { btn.disabled = false; btn.textContent = original; }
+        msg.classList.add('err');
+        msg.textContent = t.contact_err_conn || 'Connection failed. Please try again later.';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = original;
+      }
     });
   }
+
 })();
