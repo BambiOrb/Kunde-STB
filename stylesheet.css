@@ -167,11 +167,36 @@ section{padding:80px 0}
 .beauty .sec-title{text-align:center;margin-bottom:14px}
 .beauty .lead{margin:0 auto 50px;text-align:center}
 .beauty-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
-.beauty-card{background:var(--bg-2);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;
-  border-top:3px solid var(--gold)}
-.beauty-card.c1{border-top-color:#c0392b}
-.beauty-card.c2{border-top-color:#2e86c1}
-.beauty-card.c3{border-top-color:#27ae60}
+.beauty-card{--accent:var(--gold);background:linear-gradient(165deg,var(--bg-3),var(--bg-2));
+  border-radius:14px;overflow:hidden;display:flex;flex-direction:column;position:relative;
+  border:1px solid var(--line-soft);isolation:isolate;
+  transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s ease,border-color .4s ease}
+.beauty-card::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background:radial-gradient(120% 80% at 50% 120%,var(--accent),transparent 60%);
+  transition:opacity .4s ease,transform .4s ease}
+.beauty-card:hover{transform:translateY(-8px);border-color:var(--accent);
+  box-shadow:0 20px 44px -16px var(--accent)}
+.beauty-card:hover::before{opacity:.9;transform:translateY(-8px)}
+.beauty-card .ph{aspect-ratio:4/3;transition:transform .5s ease}
+.beauty-card:hover .ph{transform:scale(1.05)}
+.beauty-card .num{position:absolute;top:10px;right:18px;z-index:2;font-family:var(--serif);
+  font-style:italic;font-size:3.4rem;line-height:1;color:var(--accent);opacity:.18;
+  transition:opacity .4s ease;pointer-events:none}
+.beauty-card:hover .num{opacity:.4}
+.beauty-body{padding:28px;display:flex;flex-direction:column;gap:12px;flex:1;position:relative}
+.beauty-body h3{font-size:1.55rem;color:var(--accent);position:relative;padding-bottom:14px}
+.beauty-body h3::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:34px;
+  background:var(--accent);transition:width .4s ease}
+.beauty-card:hover .beauty-body h3::after{width:72px}
+.beauty-body p{color:var(--muted);font-size:1.02rem}
+.beauty-body .btn-flat{margin-top:auto;align-self:flex-start;background:transparent;color:var(--accent);
+  border:1px solid var(--accent);border-radius:100px;transition:.25s}
+.beauty-body .btn-flat:hover{background:var(--accent);color:var(--bg)}
+.beauty-card.c1{--accent:#d9b779}
+.beauty-card.c2{--accent:#a8b89a}
+.beauty-card.c3{--accent:#e3cdb4}
+.beauty-card.c4{--accent:#c9c7c2}
+.beauty-card.c5{--accent:#b8475f}
 .beauty-card .ph{aspect-ratio:4/3}
 .beauty-body{padding:26px;display:flex;flex-direction:column;gap:10px;flex:1}
 .beauty-body h3{font-size:1.5rem}
@@ -253,6 +278,7 @@ form .row{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 .style-row img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:2px;display:block}
 .svc-card img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:2px;display:block}
 .seller img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:2px;display:block;margin-bottom:18px}
+.beauty-card img.ph{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:0}
 
 /* ---------- reveal ---------- */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
@@ -287,3 +313,48 @@ form .row{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 
 /* ---------- svc-tile echte Bilder ---------- */
 .svc-tile img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;display:block;margin-bottom:24px}
+
+/* ---------- Tattoo – cinematic horizontal rails ---------- */
+.tattoo .style-block{margin-top:0;padding:54px 0;border-top:1px solid var(--line-soft);position:relative}
+.tattoo .style-block:first-of-type{border-top:0}
+
+.tattoo .rail-head{display:flex;align-items:baseline;gap:16px;padding:0 28px;margin-bottom:26px}
+.tattoo .rail-head .idx{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--gold-bright);opacity:.6}
+.tattoo .style-block h3{font-size:clamp(2.2rem,6vw,4.6rem);color:var(--ink);margin:0;letter-spacing:.01em;
+  line-height:1;background:linear-gradient(90deg,var(--gold),var(--gold-bright));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+.tattoo .rail{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;
+  padding:0 28px 22px;scrollbar-width:thin;scrollbar-color:var(--gold) transparent}
+.tattoo .rail::-webkit-scrollbar{height:6px}
+.tattoo .rail::-webkit-scrollbar-thumb{background:var(--gold);border-radius:100px}
+.tattoo .rail::-webkit-scrollbar-track{background:transparent}
+
+.tattoo .frame{position:relative;flex:0 0 clamp(280px,42vw,560px);aspect-ratio:16/10;
+  scroll-snap-align:start;overflow:hidden;border-radius:6px;border:1px solid var(--line-soft)}
+.tattoo .frame img{width:100%;height:100%;object-fit:cover;display:block;
+  filter:grayscale(1) contrast(1.06);transition:transform .8s cubic-bezier(.2,.8,.2,1),filter .6s ease}
+.tattoo .frame::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.55));
+  opacity:.7;transition:opacity .6s ease}
+.tattoo .frame:hover img{transform:scale(1.05);filter:grayscale(0) contrast(1.06)}
+.tattoo .frame:hover::after{opacity:.3}
+
+.tattoo .ig-note{text-align:left;padding:0 28px;margin-top:20px}
+
+@media (max-width:560px){
+  .tattoo .frame{flex:0 0 82vw}
+}
+
+/* ---------- Tattoo – Instagram note (refined) ---------- */
+.tattoo .ig-note{display:inline-flex;align-items:center;gap:16px;font-family:var(--serif);
+  font-size:1.05rem;color:var(--muted);background:rgba(255,255,255,.03);
+  border:1px solid var(--line-soft);border-radius:100px;padding:10px 12px 10px 24px;
+  transition:border-color .3s ease,background .3s ease,transform .3s ease}
+.tattoo .ig-note:hover{border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.05);transform:translateY(-2px)}
+.tattoo .ig-note .igmark{display:inline-grid;place-items:center;width:44px;height:44px;margin:0;
+  border-radius:50%;color:#fff;flex:0 0 auto;
+  background:radial-gradient(circle at 30% 110%,#fdf497 0%,#fd5949 45%,#d6249f 70%,#285AEB 100%);
+  box-shadow:0 4px 14px -4px rgba(214,36,159,.6);transition:transform .35s ease,box-shadow .35s ease}
+.tattoo .ig-note .igmark svg{width:24px;height:24px}
+.tattoo .ig-note:hover .igmark{transform:rotate(-8deg) scale(1.08);box-shadow:0 8px 22px -4px rgba(214,36,159,.75)}
