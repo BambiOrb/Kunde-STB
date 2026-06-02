@@ -9,68 +9,237 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="stylesheet.css">
+<style>
+  .lang-switcher{display:flex;gap:8px;align-items:center;font-family:var(--sans);font-size:.82rem}
+  .lang-switcher button{background:none;border:1px solid rgba(255,255,255,.25);color:var(--muted);
+    padding:4px 9px;cursor:pointer;border-radius:4px;font-family:var(--sans);font-size:.78rem;
+    letter-spacing:.06em;transition:.2s}
+  .lang-switcher button:hover{border-color:var(--gold);color:var(--gold)}
+  .lang-switcher button.active{border-color:var(--gold);color:var(--gold);background:rgba(201,162,39,.1)}
+
+  /* Products page specific */
+  .line-head{text-align:center;margin:70px 0 10px}
+  .line-head h3{font-size:clamp(2.4rem,6vw,4rem);color:var(--gold);font-family:var(--serif);font-weight:400}
+  .line-head p{color:var(--ink);font-size:1.1rem;max-width:760px;margin:10px auto 40px;text-align:center}
+
+  .prod-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+  .prod-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:30px;max-width:820px;margin:0 auto}
+
+  .prod-item{text-align:left}
+  .prod-item img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;display:block;margin-bottom:16px}
+  .prod-item .pname{font-family:var(--serif);font-size:1.2rem;line-height:1.4}
+  .prod-item .pname span{color:var(--gold)}
+
+  /* Best sellers: 2-col on this page */
+  .sellers-2{display:grid;grid-template-columns:repeat(2,1fr);gap:30px;max-width:900px;margin:0 auto}
+  .sellers-2 .prod-item img{aspect-ratio:4/3}
+
+  @media(max-width:820px){
+    .prod-grid-3{grid-template-columns:1fr}
+    .prod-grid-2{grid-template-columns:1fr}
+    .sellers-2{grid-template-columns:1fr}
+  }
+</style>
 </head>
 <body id="top">
+
 <header class="site-header">
   <div class="wrap header-top">
     <a href="index.html" class="logo"><img class="logo-img" src="img/stb_logo_full_inverted_2.png" alt="ATELIER HAIR TATTOO"></a>
-    <a href="https://www.treatwell.ch/ort/stb-atelier-hair-tattoo/" target="_blank" rel="noopener" class="btn btn-book">Book now</a>
+    <div style="display:flex;align-items:center;gap:18px">
+      <div class="lang-switcher">
+        <button data-lang="de">DE</button>
+        <button data-lang="en">EN</button>
+        <button data-lang="it">IT</button>
+      </div>
+      <a href="https://www.treatwell.ch/ort/stb-atelier-hair-tattoo/" target="_blank" rel="noopener" class="btn btn-book" data-i18n="btn_book">Book now</a>
+    </div>
   </div>
   <div class="nav-row">
     <div class="wrap nav-inner">
       <ul class="nav-links" id="navLinks">
-        <li><a href="index.html" data-page="index">Start</a></li>
-        <li><a href="about-us.html" data-page="about-us">About Us</a></li>
-        <li><a href="services.html" data-page="services">Services</a></li>
-        <li><a href="tattoo.html" data-page="tattoo">Tattoo</a></li>
-        <li><a href="beauty.html" data-page="beauty">Beauty</a></li>
-        <li><a href="products.html" data-page="products">Products</a></li>
+        <li><a href="index.html" data-page="index" data-i18n="nav_start">Start</a></li>
+        <li><a href="about-us.html" data-page="about-us" data-i18n="nav_about">About Us</a></li>
+        <li><a href="services.html" data-page="services" data-i18n="nav_services">Services</a></li>
+        <li><a href="tattoo.html" data-page="tattoo" data-i18n="nav_tattoo">Tattoo</a></li>
+        <li><a href="beauty.html" data-page="beauty" data-i18n="nav_beauty">Beauty</a></li>
+        <li><a href="products.html" data-page="products" data-i18n="nav_products">Products</a></li>
       </ul>
       <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
+
+<!-- Hero -->
 <section class="sellers page-hero" id="products">
   <div class="wrap">
-    <h2 class="sec-title reveal center" style="margin:0 auto"><span class="g">Products</span></h2>
-    <p class="reveal" style="text-align:center;max-width:820px;margin:22px auto 0">We select only high-quality, professional products, chosen for visible and lasting results. We use nothing less than the best, because every detail matters.</p>
+    <h2 class="sec-title reveal center" style="margin:0 auto"><span class="g" data-i18n="products_title">Products</span></h2>
+    <p class="reveal" style="text-align:center;max-width:820px;margin:22px auto 0" data-i18n-html="products_text">We select only high-quality, professional products, chosen for visible and lasting results. We use nothing less than the best, because every detail matters.</p>
     <div class="center" style="margin-top:28px">
-      <a href="https://www.stbatelier.ch/blank-3" target="_blank" rel="noopener" class="btn btn-flat">View all</a>
+      <a href="https://www.stbatelier.ch/blank-3" target="_blank" rel="noopener" class="btn btn-flat" data-i18n="sellers_btn">View all</a>
     </div>
   </div>
 </section>
 
 <section class="sellers" style="padding-top:10px">
   <div class="wrap">
-    <h2 class="sec-title reveal"><span class="g">Best</span> <span class="w">Sellers</span></h2>
-    <div class="seller-grid">
-      <div class="seller reveal"><img class="ph" src="img/loop.avif" alt="product"><div class="pname"><span class="g">Loop</span> | Curly DefinitionFluid</div></div>
-      <div class="seller reveal"><img class="ph" src="img/overup.png" alt="product"></img><div class="pname"><span class="g">Overup</span> | Extra Strong Progressive Spray</div></div>
-      <div class="seller reveal"><img class="ph" src="img/breeze.png" alt="product"></img><div class="pname"><span class="g">Breeze</span> | Soothing Treatment</div></div>
+
+    <!-- Best Sellers -->
+    <h2 class="sec-title reveal"><span class="g" data-i18n="sellers_title">Best</span> <span class="w" data-i18n="sellers_title2">Sellers</span></h2>
+    <div class="sellers-2" style="margin-top:30px">
+      <div class="prod-item reveal">
+        <img src="img/product_loop.png" alt="Loop – Curly Definition Fluid">
+        <div class="pname"><span>Loop</span> | Curly DefinitionFluid</div>
+      </div>
+      <div class="prod-item reveal">
+        <img src="img/product_overup.jpg" alt="Overup – Extra Strong Progressive Spray">
+        <div class="pname"><span>Overup</span> | Extra Strong Progressive Spray</div>
+      </div>
     </div>
 
-    <div class="line-head reveal"><h3>Urban</h3><p>Purifying detox line to remove impurities, prepare the hair for treatments and restore the balance of scalp and stem.</p></div>
-    <div class="seller-grid">
-      <div class="seller reveal"><img class="ph" src="img/clarity.png" alt="product"></img><div class="pname"><span class="g">Clarity</span> | Preparatory Shampoo</div></div>
-      <div class="seller reveal"><img class="ph" src="img/first.png" alt="product"></img><div class="pname"><span class="g">First</span> | Detox Treatment</div></div>
-      <div class="seller reveal"><img class="ph" src="img/dexify.png" alt="product"></img><div class="pname"><span class="g">Dexify</span> | Detox Shampoo</div></div>
+    <!-- Urban -->
+    <div class="line-head reveal">
+      <h3 data-i18n="prod_urban_title">Urban</h3>
+      <p data-i18n="prod_urban_text">Purifying detox line to remove impurities, prepare the hair for treatments, restore the balance of the scalp and stem.</p>
+    </div>
+    <div class="prod-grid-3">
+      <div class="prod-item reveal">
+        <img src="img/clarity.png" alt="Clarity – Preparatory Shampoo">
+        <div class="pname"><span>Clarity</span> | Preparatory Shampoo</div>
+      </div>
+      <div class="prod-item reveal">
+        <img src="img/first_detox.png" alt="First – Detox Treatment">
+        <div class="pname"><span>First</span> | Detox Treatment</div>
+      </div>
+      <div class="prod-item reveal">
+        <img src="img/dexify_detox.png" alt="Dexify – Detox Shampoo">
+        <div class="pname"><span>Dexify</span> | Detox Shampoo</div>
+      </div>
     </div>
 
-    <div class="line-head reveal"><h3>Treat</h3><p>Regenerating treatments to strengthen the structure of the hair fiber.</p></div>
-    <div class="seller-grid">
-      <div class="seller reveal"><img class="ph" src="img/venetiandream.png" alt="product"></img><div class="pname"><span class="g">Venetian Dream</span> | Express Treatment</div></div>
-      <div class="seller reveal"><img class="ph" src="img/royaltherapie.png" alt="product"></img><div class="pname"><span class="g">Royal Therapie</span> | Intensive Moisturizer</div></div>
-      <div class="seller reveal"><img class="ph" src="img/hardentherapy.png" alt="product"></img><div class="pname"><span class="g">Harden Therapy</span> | Protein Treatment</div></div>
+    <!-- Action -->
+    <div class="line-head reveal">
+      <h3 data-i18n="prod_action_title">Action</h3>
+      <p data-i18n="prod_action_text">Normalizing line for the scalp, with a stimulating action to slow down hair loss or a soothing action for sensitized scalps.</p>
+    </div>
+    <div class="prod-grid-2">
+      <div class="prod-item reveal">
+        <img src="img/breeze.png" alt="Breeze – Soothing Treatment">
+        <div class="pname"><span>Breeze</span> | Soothing Treatment</div>
+      </div>
+      <div class="prod-item reveal">
+        <img src="img/Life.png" alt="Life – Adjuvant Fluid Against Hair Loss">
+        <div class="pname"><span>Life</span> | Adjuvant Fluid Against Hair Loss</div>
+      </div>
     </div>
 
-    
+    <!-- Treat -->
+    <div class="line-head reveal">
+      <h3 data-i18n="prod_treat_title">Treat</h3>
+      <p data-i18n="prod_treat_text">Regenerating treatments to strengthen the structure of the hair fiber.</p>
+    </div>
+    <div class="prod-grid-3">
+      <div class="prod-item reveal">
+        <img src="img/venetian_dream.png" alt="Venetian Dream – Express Treatment">
+        <div class="pname"><span>Venetian Dream</span> | Express Treatment</div>
+      </div>
+      <div class="prod-item reveal">
+        <img src="img/Royal_Therapy.png" alt="Royal Therapie – Intensive Moisturizer">
+        <div class="pname"><span>Royal Therapie</span> | Intensive Moisturizer</div>
+      </div>
+      <div class="prod-item reveal">
+        <img src="img/harden_therapy.png" alt="Harden Therapy – Protein Treatment">
+        <div class="pname"><span>Harden Therapy</span> | Protein Treatment</div>
+      </div>
+    </div>
+
+    <!-- Hydrate -->
+    <div class="line-head reveal">
+      <h3 data-i18n="prod_hydrate_title">Hydrate</h3>
+      <p data-i18n="prod_hydrate_text">Nourishing moisturizing line to give hair hydration, elasticity and shine.</p>
+    </div>
+    <div class="prod-grid-2">
+      <div class="prod-item reveal">
+        <img src="img/hydrate_mist.png" alt="Mist – Moisturizing Shampoo">
+        <div class="pname"><span>Mist</span> | Moisturizing Shampoo</div>
+      </div>
+      <div class="prod-item reveal">
+        <img src="img/hydrate_aqua.png" alt="Aqua – Moisturizing Conditioner">
+        <div class="pname"><span>Aqua</span> | Moisturizing Conditioner</div>
+      </div>
+    </div>
+
+    <!-- Volume -->
+    <div class="line-head reveal">
+      <h3 data-i18n="prod_volume_title">Volume</h3>
+      <p data-i18n="prod_volume_text">Volumizing anti-aging line to give body, texture and vitality to the hair.</p>
+    </div>
+    <div class="prod-grid-2">
+      <div class="prod-item reveal">
+        <img src="img/volume_rise.png" alt="Rise – Volumizing Shampoo">
+        <div class="pname"><span>Rise</span> | Volumizing Shampoo</div>
+      </div>
+      <div class="prod-item reveal">
+        <img src="img/grace_volume.png" alt="Grace – Volumizing Conditioner">
+        <div class="pname"><span>Grace</span> | Volumizing Conditioner</div>
+      </div>
+    </div>
+
+    <!-- Style -->
+    <div class="line-head reveal">
+      <h3 data-i18n="prod_style_title">Style</h3>
+      <p data-i18n="prod_style_text">Styling line to create any type of look with customizable products suitable for all hair types.</p>
+    </div>
+    <div class="prod-grid-3">
+      <div class="prod-item reveal">
+        <img src="img/soul_stirilizing.png" alt="Soul – Stirilizing Fluid">
+        <div class="pname"><span>Soul</span> | Stirilizing Fluid</div>
+      </div>
+      <div class="prod-item reveal">
+        <img src="img/duty_smoothing_cream.png" alt="Duty – Smoothing Cream">
+        <div class="pname"><span>Duty</span> | Smoothing Cream</div>
+      </div>
+      <div class="prod-item reveal">
+        <img src="img/product_loop.png" alt="Loop – Curly DefinitionFluid">
+        <div class="pname"><span>Loop</span> | Curly DefinitionFluid</div>
+      </div>
+    </div>
+    <div class="prod-grid-2" style="margin-top:30px">
+      <div class="prod-item reveal">
+        <img src="img/product_overup.jpg" alt="Overup – Extra Strong Progressive Spray">
+        <div class="pname"><span>Overup</span> | Extra Strong Progressive Spray</div>
+      </div>
+      <div class="prod-item reveal">
+        <img src="img/ruby_anti_frizz.png" alt="Ruby – Anti-Frizz Serum">
+        <div class="pname"><span>Ruby</span> | Anti-Frizz Serum</div>
+      </div>
+    </div>
+    <div class="prod-grid-3" style="margin-top:30px">
+      <div class="prod-item reveal">
+        <img src="img/emery.png" alt="Emery – Restructuring Spray">
+        <div class="pname"><span>Emery</span> | Restructuring Spray</div>
+      </div>
+      <div class="prod-item reveal">
+        <img src="img/ivory_modelling_paste.png" alt="Ivory – Paste Wax">
+        <div class="pname"><span>Ivory</span> | Paste Wax</div>
+      </div>
+      <div class="prod-item reveal">
+        <img src="img/ebony_modelling_wax.png" alt="Ebony – Strong Wax">
+        <div class="pname"><span>Ebony</span> | Strong Wax</div>
+      </div>
+    </div>
 
   </div>
 </section>
+
 <footer class="site-footer">
   <div class="wrap">
     <div class="fname">STB Atelier</div>
     <div class="copy">©2026 by <a href="https://digitalnow.ch" target="_blank" rel="noopener">digitalNow</a></div>
+    <div style="margin-top:14px;font-family:var(--sans);font-size:1rem;color:var(--muted);letter-spacing:.04em">
+      <a href="impressum.html" style="color:var(--muted);text-decoration:underline;margin:0 10px">Impressum</a>
+      <a href="datenschutz.html" style="color:var(--muted);text-decoration:underline;margin:0 10px">Datenschutz</a>
+    </div>
     <div class="socials">
       <a href="#" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3c.3 2 1.6 3.6 3.5 3.9v2.4c-1.3.1-2.5-.3-3.6-1v5.8c0 3-2.2 5.4-5.2 5.4S6 19.1 6 16.2s2.4-5.2 5.4-5c.3 0 .5 0 .8.1v2.5c-.3-.1-.5-.2-.8-.2-1.5 0-2.7 1.2-2.7 2.7s1.2 2.7 2.7 2.7 2.6-1.2 2.6-2.8V3h2.5Z"/></svg></a>
       <a href="https://instagram.com/stb_atelier_" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
@@ -79,6 +248,8 @@
     </div>
   </div>
 </footer>
+
+<script src="translations.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
