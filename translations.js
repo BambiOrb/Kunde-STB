@@ -146,6 +146,8 @@ const STB_TRANSLATIONS = {
     tattoo_oldschool: "Old School / Neo Traditional",
     tattoo_lettering: "Lettering",
     tattoo_ig: "Entdecken Sie mehr Stile wie diesen auf Instagram",
+
+    stat_team: "Experten", stat_award: "Top Rated", stat_services: "Disziplinen", bio_hint: "Für mehr fahren",
   },
 
   en: {
@@ -276,6 +278,9 @@ const STB_TRANSLATIONS = {
     tattoo_oldschool: "Old School / Neo Traditional",
     tattoo_lettering: "Lettering",
     tattoo_ig: "Explore more styles like this on Instagram",
+
+    stat_team: "Experts", stat_award: "Top Rated", stat_services: "Disciplines", bio_hint: "Hover to read",
+
   },
 
   it: {
@@ -406,5 +411,8 @@ const STB_TRANSLATIONS = {
     tattoo_oldschool: "Old School / Neo Traditional",
     tattoo_lettering: "Lettering",
     tattoo_ig: "Scopri altri stili come questo su Instagram",
+
+    stat_team: "Esperti", stat_award: "Top Rated", stat_services: "Discipline", bio_hint: "Passa per leggere",
+
   }
 };

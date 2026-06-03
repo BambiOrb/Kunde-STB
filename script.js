@@ -153,4 +153,14 @@
     });
   }
 
+/* ---- Smart header on scroll ---- */
+  var hdr = document.querySelector('.site-header');
+  if (hdr && document.body.classList.contains('home')) {
+    var onScroll = function () {
+      hdr.classList.toggle('scrolled', window.scrollY > 60);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
 })();
