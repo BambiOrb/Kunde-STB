@@ -118,7 +118,7 @@ const STB_TRANSLATIONS = {
     contact_err_conn: 'Verbindung fehlgeschlagen. Bitte später nochmal versuchen.',
     contact_sending: 'Senden…',
 
-    welcome_badge: "Bald verfügbar",
+    welcome_badge: "Eröffnung:8. Juni 2026",
     welcome_kicker: "Neu im STB Atelier",
     welcome_title: "Beauty",
     welcome_title2: "kommt bald",
@@ -126,7 +126,7 @@ const STB_TRANSLATIONS = {
     welcome_cta: "Beauty entdecken",
     welcome_dismiss: "Vielleicht später",
 
-    beauty_soon: "Bald verfügbar — Stay Tuned",
+    beauty_soon: "Eröffnung: Montag, 8. Juni 2026",
     beauty_title: "Beauty",
     beauty_lead: "Neue Beauty- & Wellnessbehandlungen kommen bald ins STB Atelier. Die Buchung läuft über Treatwell — bleiben Sie dran.",
     beauty_btn: "Buchen",
@@ -248,7 +248,7 @@ const STB_TRANSLATIONS = {
     contact_err_conn: 'Connection failed. Please try again later.',
     contact_sending: 'Sending…',
 
-    welcome_badge: "Opening Soon",
+    welcome_badge: "Opening: 8 June 2026",
     welcome_kicker: "New at STB Atelier",
     welcome_title: "Beauty",
     welcome_title2: "is coming",
@@ -256,7 +256,7 @@ const STB_TRANSLATIONS = {
     welcome_cta: "Discover Beauty",
     welcome_dismiss: "Maybe later",
 
-    beauty_soon: "Opening Soon — Stay Tuned",
+    beauty_soon: "Opening: Monday, 8 June 2026",
     beauty_title: "Beauty",
     beauty_lead: "New beauty & wellness treatments coming soon to STB Atelier. Booking will run through Treatwell — stay tuned.",
     beauty_btn: "Booking",
@@ -378,7 +378,7 @@ const STB_TRANSLATIONS = {
     contact_err_conn: 'Connessione fallita. Riprova più tardi.',
     contact_sending: 'Invio…',
 
-    welcome_badge: "Prossima apertura",
+    welcome_badge: "Apertura: 8 Giugno 2026",
     welcome_kicker: "Novità da STB Atelier",
     welcome_title: "Beauty",
     welcome_title2: "sta arrivando",
@@ -386,7 +386,7 @@ const STB_TRANSLATIONS = {
     welcome_cta: "Scopri Beauty",
     welcome_dismiss: "Forse più tardi",
 
-    beauty_soon: "Prossima apertura — Stay Tuned",
+    beauty_soon: "Apertura: lunedì 8 giugno 2026",
     beauty_title: "Beauty",
     beauty_lead: "Nuovi trattamenti beauty & wellness in arrivo da STB Atelier. Le prenotazioni passeranno da Treatwell — resta sintonizzato.",
     beauty_btn: "Prenota",
