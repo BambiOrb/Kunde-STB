@@ -17,8 +17,70 @@
   .lang-switcher button:hover{border-color:var(--gold);color:var(--gold)}
   .lang-switcher button.active{border-color:var(--gold);color:var(--gold);background:rgba(201,162,39,.1)}
 </style>
+<style>
+  .welcome-overlay{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;
+    padding:24px;background:rgba(8,8,10,.78);backdrop-filter:blur(6px);
+    opacity:0;visibility:hidden;transition:opacity .45s ease,visibility .45s ease}
+  .welcome-overlay.show{opacity:1;visibility:visible}
+  .welcome-box{position:relative;display:grid;grid-template-columns:1fr 1fr;max-width:860px;width:100%;
+    background:linear-gradient(160deg,#23232a,#1a1a20);border:1px solid rgba(201,162,39,.3);
+    border-radius:18px;overflow:hidden;box-shadow:0 40px 90px -30px rgba(0,0,0,.8);
+    transform:translateY(20px) scale(.96);opacity:0;transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .5s ease}
+  .welcome-overlay.show .welcome-box{transform:none;opacity:1}
+  .welcome-close{position:absolute;top:14px;right:16px;z-index:3;width:38px;height:38px;border-radius:50%;
+    border:1px solid rgba(255,255,255,.25);background:rgba(0,0,0,.35);color:#fff;font-size:1.5rem;line-height:1;
+    cursor:pointer;display:grid;place-items:center;transition:.25s}
+  .welcome-close:hover{border-color:var(--gold);color:var(--gold);transform:rotate(90deg)}
+  .welcome-media{position:relative;min-height:340px}
+  .welcome-media img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+  .welcome-media::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(110deg,transparent 55%,rgba(26,26,32,.6))}
+  .welcome-badge{position:absolute;top:18px;left:18px;z-index:2;display:inline-flex;align-items:center;gap:9px;
+    padding:8px 16px;border-radius:100px;background:rgba(13,13,15,.7);border:1px solid rgba(201,162,75,.5);
+    font-family:var(--sans);text-transform:uppercase;letter-spacing:.22em;font-size:.68rem;color:#dcb949}
+  .wb-dot{width:8px;height:8px;border-radius:50%;background:#dcb949;
+    box-shadow:0 0 0 0 rgba(220,185,73,.6);animation:wbPulse 1.8s ease-out infinite}
+  @keyframes wbPulse{0%{box-shadow:0 0 0 0 rgba(220,185,73,.55)}70%{box-shadow:0 0 0 11px rgba(220,185,73,0)}100%{box-shadow:0 0 0 0 rgba(220,185,73,0)}}
+  .welcome-content{padding:44px 40px;display:flex;flex-direction:column;justify-content:center}
+  .welcome-kicker{font-family:var(--sans);text-transform:uppercase;letter-spacing:.28em;font-size:.72rem;
+    color:var(--muted);margin-bottom:16px}
+  .welcome-title{font-family:var(--serif);font-size:clamp(2rem,4vw,2.8rem);line-height:1.05;margin-bottom:18px}
+  .welcome-text{color:var(--muted);font-size:1.04rem;line-height:1.6;margin-bottom:30px}
+  .welcome-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+  .welcome-cta{background:var(--gold);color:#1b1408;border-radius:100px;padding:13px 30px;font-size:.92rem;
+    letter-spacing:.04em;transition:.25s}
+  .welcome-cta:hover{background:var(--gold-bright);transform:translateY(-2px)}
+  .welcome-dismiss{background:none;border:0;color:var(--muted);font-family:var(--sans);font-size:.9rem;
+    cursor:pointer;text-decoration:underline;text-underline-offset:4px;transition:.2s}
+  .welcome-dismiss:hover{color:var(--ink)}
+  @media(max-width:680px){
+    .welcome-box{grid-template-columns:1fr;max-width:420px}
+    .welcome-media{min-height:240px}
+    .welcome-content{padding:32px 26px}
+  }
+</style>
 </head>
 <body id="top">
+
+<!-- Welcome Modal: Beauty Opening Soon -->
+<div class="welcome-overlay" id="welcomeModal" aria-hidden="true">
+  <div class="welcome-box" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
+    <button class="welcome-close" id="welcomeClose" aria-label="Close">&times;</button>
+    <div class="welcome-media">
+      <img src="img/banner.png" alt="Doina Suveica — Beauty">
+      <span class="welcome-badge"><span class="wb-dot"></span><span data-i18n="welcome_badge">Opening Soon</span></span>
+    </div>
+    <div class="welcome-content">
+      <p class="welcome-kicker" data-i18n="welcome_kicker">New at STB Atelier</p>
+      <h2 class="welcome-title" id="welcomeTitle"><span class="g" data-i18n="welcome_title">Beauty</span> <span data-i18n="welcome_title2">is coming</span></h2>
+      <p class="welcome-text" data-i18n="welcome_text">Discover our new beauty & wellness world with Doina — laser, massages, facial treatments, radiofrequency and more. Booking opens soon.</p>
+      <div class="welcome-actions">
+        <a href="beauty.html" class="btn welcome-cta" data-i18n="welcome_cta">Discover Beauty</a>
+        <button class="welcome-dismiss" id="welcomeDismiss" data-i18n="welcome_dismiss">Maybe later</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <header class="site-header">
   <div class="wrap header-top">

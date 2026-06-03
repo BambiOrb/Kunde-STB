@@ -126,4 +126,31 @@
     });
   }
 
+/* ---- Welcome modal (Beauty opening) ---- */
+  var welcome = document.getElementById('welcomeModal');
+  if (welcome) {
+    var SEEN_KEY = 'stb_welcome_seen';
+    var closeWelcome = function () {
+      welcome.classList.remove('show');
+      welcome.setAttribute('aria-hidden', 'true');
+      try { sessionStorage.setItem(SEEN_KEY, '1'); } catch (e) {}
+    };
+    if (!sessionStorage.getItem(SEEN_KEY)) {
+      setTimeout(function () {
+        welcome.classList.add('show');
+        welcome.setAttribute('aria-hidden', 'false');
+      }, 600);
+    }
+    var wClose = document.getElementById('welcomeClose');
+    var wDismiss = document.getElementById('welcomeDismiss');
+    if (wClose) wClose.addEventListener('click', closeWelcome);
+    if (wDismiss) wDismiss.addEventListener('click', closeWelcome);
+    welcome.addEventListener('click', function (e) {
+      if (e.target === welcome) closeWelcome();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && welcome.classList.contains('show')) closeWelcome();
+    });
+  }
+
 })();
