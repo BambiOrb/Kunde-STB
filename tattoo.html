@@ -14,7 +14,14 @@
 <header class="site-header">
   <div class="wrap header-top">
     <a href="index.html" class="logo"><img class="logo-img" src="img/stb_logo_full_inverted_2.png" alt="ATELIER HAIR TATTOO"></a>
-    <a href="https://www.treatwell.ch/ort/stb-atelier-hair-tattoo/" target="_blank" rel="noopener" class="btn btn-book">Book now</a>
+    <div style="display:flex;align-items:center;gap:18px">
+      <div class="lang-switcher">
+        <button data-lang="de">DE</button>
+        <button data-lang="en">EN</button>
+        <button data-lang="it">IT</button>
+      </div>
+      <a href="https://www.treatwell.ch/ort/stb-atelier-hair-tattoo/" target="_blank" rel="noopener" class="btn btn-book" data-i18n="btn_book">Book now</a>
+    </div>
   </div>
   <div class="nav-row">
     <div class="wrap nav-inner">
@@ -29,18 +36,27 @@
       <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
+  <style>
+  .lang-switcher{display:flex;gap:8px;align-items:center;font-family:var(--sans);font-size:.82rem}
+  .lang-switcher button{background:none;border:1px solid rgba(255,255,255,.25);color:var(--muted);
+    padding:4px 9px;cursor:pointer;border-radius:4px;font-family:var(--sans);font-size:.78rem;
+    letter-spacing:.06em;transition:.2s}
+  .lang-switcher button:hover{border-color:var(--gold);color:var(--gold)}
+  .lang-switcher button.active{border-color:var(--gold);color:var(--gold);background:rgba(201,162,39,.1)}
+</style>
 </header>
 <section class="tattoo page-hero" id="tattoo">
   <div class="wrap">
-    <h2 class="sec-title reveal"><span class="g">Tattoo</span></h2>
-    <p class="reveal">We are specialized in three styles: <span class="hl">Lettering</span>, <span class="hl">realism</span> and <span class="hl">black tattoo</span>. Our agenda is open for selected booking windows — get in touch for available dates.</p>
-  </div>
+    <h2 class="sec-title reveal"><span class="g" data-i18n="tattoo_title">Tattoo</span></h2>
+    <p class="reveal" data-i18n-html="tattoo_intro">We are specialized in three styles: <span class="hl">Lettering</span>, <span class="hl">realism</span> and <span class="hl">black tattoo</span>. Our agenda is open for selected booking windows — get in touch for available dates.</p>
+    </div>
 </section>
 
 <section class="tattoo" style="padding-top:10px">
   <div class="style-block reveal">
-    <div class="rail-head"><span class="idx">01</span><h3>Realism</h3></div>
+    <div class="rail-head"><span class="idx">01</span><h3 data-i18n="tattoo_realism">Realism</h3></div>
     <div class="rail">
+      <div class="frame"><img src="img/realism-tigre.png" alt="Realism tattoo"></div>
       <div class="frame"><img src="img/realism1.png" alt="Realism tattoo"></div>
       <div class="frame"><img src="img/realism2.png" alt="Realism tattoo"></div>
       <div class="frame"><img src="img/realism3.png" alt="Realism tattoo"></div>
@@ -49,8 +65,10 @@
   </div>
 
   <div class="style-block reveal">
-    <div class="rail-head"><span class="idx">02</span><h3>Old School / Neo Traditional</h3></div>
+    <div class="rail-head"><span class="idx">02</span><h3 data-i18n="tattoo_oldschool">Old School / Neo Traditional</h3></div>
     <div class="rail">
+      <div class="frame"><img src="img/olds4.png" alt="Old school tattoo"></div>
+      <div class="frame"><img src="img/olds5.png" alt="Old school tattoo"></div>
       <div class="frame"><img src="img/olds.png" alt="Old school tattoo"></div>
       <div class="frame"><img src="img/olds2.png" alt="Old school tattoo"></div>
       <div class="frame"><img src="img/olds3.png" alt="Old school tattoo"></div>
@@ -59,14 +77,14 @@
   </div>
 
   <div class="style-block reveal">
-    <div class="rail-head"><span class="idx">03</span><h3>Lettering</h3></div>
+    <div class="rail-head"><span class="idx">03</span><h3 data-i18n="tattoo_lettering">Lettering</h3></div>
     <div class="rail">
       <div class="frame"><img src="img/lett1.png" alt="Lettering tattoo"></div>
       <div class="frame"><img src="img/lett2.png" alt="Lettering tattoo"></div>
       <div class="frame"><img src="img/lett3.png" alt="Lettering tattoo"></div>
     </div>
-    <div class="ig-note">Explore more styles like this on Instagram
-      <a class="igmark" href="https://instagram.com/stb_atelier_" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+      <div class="ig-note"><span data-i18n="tattoo_ig">Explore more styles like this on Instagram</span>
+    <a class="igmark" href="https://instagram.com/stb_atelier_" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
     </div>
   </div>
 </section>
@@ -87,7 +105,7 @@
     </div>
   </div>
 </footer>
-
+<script src="translations.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
