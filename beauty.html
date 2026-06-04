@@ -7,7 +7,7 @@
 <meta name="description" content="ATELIER HAIR TATTOO (STB Atelier) – Barber and tattoo studio in Horgen, Zurich.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="stylesheet.css">
 <style>
 .lang-switcher{display:flex;gap:8px;align-items:center;font-family:var(--sans);font-size:.82rem}
@@ -29,12 +29,22 @@
   @keyframes soonShimmer{0%,100%{background-position:0% 0}50%{background-position:100% 0}}
   @keyframes soonPulse{0%{box-shadow:0 0 0 0 rgba(201,162,75,.55)}70%{box-shadow:0 0 0 12px rgba(201,162,75,0)}100%{box-shadow:0 0 0 0 rgba(201,162,75,0)}}
   @media(max-width:480px){.soon-banner .txt{letter-spacing:.2em;font-size:.72rem}}
+
+.beauty-note{display:flex;gap:16px;align-items:flex-start;max-width:760px;margin:0 auto 10px;
+  text-align:left;background:linear-gradient(135deg,rgba(201,162,75,.12),rgba(201,162,75,.04));
+  border:1px solid rgba(201,162,75,.4);border-left:4px solid var(--gold);border-radius:10px;
+  padding:22px 26px}
+.beauty-note .bn-icon{flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:var(--gold);
+  color:#1b1408;font-family:var(--serif);font-style:italic;font-weight:700;display:grid;place-items:center;
+  font-size:1rem;margin-top:2px}
+.beauty-note p{color:var(--ink);font-size:1.02rem;line-height:1.65;margin:0}
+
 </style>
 </head>
 <body id="top">
 <header class="site-header">
   <div class="wrap header-top">
-    <a href="index.html" class="logo"><img class="logo-img" src="img/stb_logo_full_inverted_2.png" alt="ATELIER HAIR TATTOO"></a>
+    <a href="index.html" class="logo"><img class="logo-img" src="img/logo-ohnehg.png" alt="ATELIER HAIR TATTOO"></a>
     <div style="display:flex;align-items:center;gap:18px">
       <div class="lang-switcher">
         <button data-lang="de">DE</button>
@@ -61,8 +71,11 @@
 <section class="beauty page-hero">
   <div class="soon-banner reveal"><span class="dot"></span><span class="txt" data-i18n="beauty_soon">Opening: Monday, 8 June 2026</span></div>
     <h2 class="sec-title reveal center" style="margin:0 auto"><span class="g" data-i18n="beauty_title">Beauty</span></h2>
-    <p class="lead reveal" data-i18n="beauty_lead">New beauty &amp; wellness treatments coming soon to STB Atelier. Booking will run through Treatwell — stay tuned.</p>
-
+<p class="lead reveal" data-i18n="beauty_lead">New beauty &amp; wellness treatments coming soon to STB Atelier. Booking will run through Treatwell — stay tuned.</p>
+    <div class="beauty-note reveal">
+      <span class="bn-icon" aria-hidden="true">i</span>
+      <p data-i18n="beauty_note">To ensure the highest standards of safety, personalization, and treatment effectiveness, a complimentary consultation is required prior to any laser or radiofrequency service. You are welcome to book online at your convenience; once your reservation is received, our team will contact you via WhatsApp or phone to schedule your consultation and guide you through the next steps.</p>
+    </div>
 <div class="beauty-grid">
       <article class="beauty-card c1 reveal">
         <img class="ph" src="img/radio.png" alt="beauty">
@@ -81,7 +94,7 @@
         </div>
       </article>
       <article class="beauty-card c3 reveal">
-        <img class="ph" src="img/facialcleansing.png" alt="beauty">
+        <img class="ph" src="img/Pulizia-viso.jpg" alt="beauty">
         <div class="beauty-body">
           <h3 data-i18n="beauty_facial_t">Facial Cleansing</h3>
           <p data-i18n="beauty_facial_d">Every skin is unique. Our facial treatments are fully tailored to meet every need: hydration, purification, anti-aging or rebalancing. Radiant, healthy and visibly improved skin.</p>
@@ -91,13 +104,13 @@
       <article class="beauty-card c4 reveal">
         <img class="ph" src="img/cleansing.png" alt="beauty">
         <div class="beauty-body">
-          <h3 data-i18n="beauty_deep_t">Deep Cleansing</h3>
-          <p data-i18n="beauty_deep_d">Advanced, high-performance facial cleansing, ideal for freeing the skin from impurities, blackheads and sebum build-up. Visibly improves skin texture and gives a fresher, more cared-for and even appearance. Cleaner, more even and visibly healthier skin from the very first session.</p>
+          <h3 data-i18n="beauty_deep_t">Facial Treatment</h3>
+          <p data-i18n="beauty_deep_d">Advanced, high-performance facial treatment, ideal for freeing the skin from impurities, blackheads and sebum build-up. Visibly improves skin texture and gives a fresher, more cared-for and even appearance. Cleaner, more even and visibly healthier skin from the very first session.</p>
           <a href="https://www.treatwell.ch/ort/stb-atelier-hair-tattoo/" target="_blank" rel="noopener" class="btn btn-flat" data-i18n="beauty_btn">Booking</a>
         </div>
       </article>
       <article class="beauty-card c5 reveal">
-        <img class="ph" src="img/radiofre.png" alt="beauty">
+        <img class="ph" src="img/Radiofrequenza.jpg" alt="beauty">
         <div class="beauty-body">
           <h3 data-i18n="beauty_radio_t">Radiofrequency</h3>
           <p data-i18n="beauty_radio_d">Latest-generation anti-aging technology to visibly redefine and improve the skin. It acts on wrinkles, loss of firmness, dehydration, dull complexion, fatty deposits and scars, giving a firmer, more radiant and even appearance. Visible results, transformed skin.</p>

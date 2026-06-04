@@ -7,7 +7,7 @@
 <meta name="description" content="ATELIER HAIR TATTOO (STB Atelier) – Barber and tattoo studio in Horgen, Zurich.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="stylesheet.css">
 <style>
   .lang-switcher{display:flex;gap:8px;align-items:center;font-family:var(--sans);font-size:.82rem}
@@ -60,7 +60,7 @@
   }
 </style>
 </head>
-<body id="top">
+<body id="top" class="home redesign">
 
 <!-- Welcome Modal: Beauty Opening Soon -->
 <div class="welcome-overlay" id="welcomeModal" aria-hidden="true">
@@ -84,7 +84,7 @@
 
 <header class="site-header">
   <div class="wrap header-top">
-    <a href="index.html" class="logo"><img class="logo-img" src="img/stb_logo_full_inverted_2.png" alt="ATELIER HAIR TATTOO"></a>
+    <a href="index.html" class="logo"><img class="logo-img" src="img/logo-ohnehg.png" alt="ATELIER HAIR TATTOO"></a>
     <div style="display:flex;align-items:center;gap:18px">
       <div class="lang-switcher">
         <button data-lang="de">DE</button>
@@ -111,63 +111,81 @@
 
 <section class="hero">
   <div class="wrap">
-    <h1>Atelier Hair&nbsp;Tattoo</h1>
     <p class="sub" data-i18n="hero_sub">Barber · Tattoo · Beauty</p>
+    <h1>Atelier Hair&nbsp;Tattoo</h1>
     <div class="actions">
       <a href="https://www.treatwell.ch/ort/stb-atelier-hair-tattoo/" target="_blank" rel="noopener" class="btn btn-book" data-i18n="btn_book">Book now</a>
+      <a href="services.html" class="btn btn-flat" data-i18n="svc_all">View all services</a>
     </div>
   </div>
+  <div class="hero-scroll" aria-hidden="true"></div>
 </section>
 
 <section class="about" id="about">
   <div class="wrap split">
     <img class="reveal" src="img/shop_picture.jpg" alt="STB Atelier Salon">
     <div class="reveal">
+      <span class="kicker" data-i18n="nav_about">About Us</span>
       <h2 class="sec-title"><span class="g" data-i18n="about_title">About</span> <span class="w" data-i18n="about_title2">Us</span></h2>
       <p data-i18n-html="about_text">Welcome to our <span class="hl">exclusive</span> salon, where <span class="hl">elegance</span> and craft come together for a <span class="hl">unique experience</span>. From haircuts to the artistic precision of tattoos, our <span class="hl">team of professionals</span> is dedicated to your <span class="hl">natural beauty</span> with <span class="hl">personalized treatments</span> and a <span class="hl">full range of services</span> in a welcoming, modern environment.</p>
+
       <a href="about-us.html" class="btn btn-flat" style="margin-top:22px" data-i18n="about_btn">Read more</a>
+</div>
+  </div>
+  <div class="wrap">
+    <div class="about-stats reveal">
+      <div class="stat"><div class="num">5+</div><div class="lbl" data-i18n="stat_team">Experts</div></div>
+      <div class="stat"><div class="num">4×</div><div class="lbl" data-i18n="stat_award">Top Rated</div></div>
+      <div class="stat"><div class="num">3</div><div class="lbl" data-i18n="stat_services">Disciplines</div></div>
     </div>
   </div>
 </section>
 
 <section class="team">
   <div class="wrap">
+<span class="kicker reveal">Team</span>
     <h2 class="sec-title reveal"><span class="g" data-i18n="team_title">Meet</span> <span class="w" data-i18n="team_title2">our Team</span></h2>
     <div class="team-grid">
       <article class="member reveal">
         <div class="avatar"><img src="img/sa.jpg" alt="Sayyam Awan"></div>
         <div class="name">Sayyam<br>Awan</div>
         <div class="role">CEO</div>
+        <div class="tap-hint" data-i18n="bio_hint">Hover to read</div>
         <p class="bio" data-i18n-html="bio_sayyam">I'm Sayyam the young and passionate owner of this eclectic beauty, tattoo and hairstyling salon.</p>
       </article>
       <article class="member reveal">
         <div class="avatar"><img src="img/rr.jpg" alt="Riccardo Riina"></div>
         <div class="name">Riccardo<br>Riina</div>
         <div class="role">Barber Member</div>
+        <div class="tap-hint" data-i18n="bio_hint">Hover to read</div>
         <p class="bio" data-i18n-html="bio_riccardo">Hello everyone!</p>
       </article>
       <article class="member reveal">
         <div class="avatar"><img src="img/lc.jpg" alt="Loris Carosella"></div>
         <div class="name">Loris<br>Carosella</div>
         <div class="role">Barber Member</div>
+        <div class="tap-hint" data-i18n="bio_hint">Hover to read</div>
         <p class="bio" data-i18n-html="bio_loris">I'm Loris.</p>
       </article>
       <article class="member reveal">
         <div class="avatar"><img src="img/kn.jpg" alt="Kevin Nguyen"></div>
         <div class="name">Kevin<br>Nguyen</div>
         <div class="role">Tattoo Member</div>
+        <div class="tap-hint" data-i18n="bio_hint">Hover to read</div>
         <p class="bio" data-i18n-html="bio_kevin">Kevin, a renowned tattoo artist.</p>
       </article>
       <article class="member reveal">
         <div class="avatar"><img src="img/em.jpg" alt="Emil Mariscal"></div>
         <div class="name">Emil<br>Mariscal</div>
         <div class="role">Tattoo Member</div>
+        <div class="tap-hint" data-i18n="bio_hint">Hover to read</div>
         <p class="bio" data-i18n-html="bio_emil">Hi everyone, I'm Emil.</p>
       </article>
       <article class="member reveal">
-        <div class="avatar"><img src="img/doina.jpg" alt="Doina"></div>
+        <div class="avatar"><img src="img/DS.jpg" alt="Doina"></div>
         <div class="name">Doina<br>Suveica</div>
         <div class="role">Beauty Member</div>
+        <div class="tap-hint" data-i18n="bio_hint">Hover to read</div>
         <p class="bio" data-i18n-html="bio_doina">Doina is a qualified and highly specialized beauty therapist with extensive experience in the beauty and wellness industry.</p>
       </article>
     </div>
@@ -185,11 +203,13 @@
 
 <section class="tattoo bg-chair" id="tattoo-preview">
   <div class="wrap">
-    <h2 class="sec-title reveal"><span class="g" data-i18n="tattoo_title">Tattoo</span></h2>
-    <p class="reveal" style="max-width:900px" data-i18n-html="tattoo_text">We are specialized in three styles: <span class="hl">Lettering</span>, <span class="hl">realism</span> and <span class="hl">black tattoo</span>.</p>
+    <div class="chair-card reveal">
+      <h2 class="sec-title"><span class="g" data-i18n="tattoo_title">Tattoo</span></h2>
+      <p data-i18n-html="tattoo_text">We are specialized in three styles: <span class="hl">Lettering</span>, <span class="hl">realism</span> and <span class="hl">black tattoo</span>.</p>
+    </div>
     <div class="style-row" style="margin-top:30px">
       <div class="reveal"><img src="img/Tatto_Realistic_1.jpg" alt="Realistic tattoo"><div class="style-cap" data-i18n="cap_realistic">Realistic</div></div>
-      <div class="reveal"><img src="img/Old%20School_Tattoo_3.jpg" alt="Old School / Neo Traditional tattoo"><div class="style-cap" data-i18n="cap_oldschool">Old School / Neo Traditional</div></div>
+      <div class="reveal"><img src="img/olds5.png" alt="Old School / Neo Traditional tattoo"><div class="style-cap" data-i18n="cap_oldschool">Old School / Neo Traditional</div></div>
       <div class="reveal"><img src="img/Lettering_Tattoo_2.jpg" alt="Lettering tattoo"><div class="style-cap" data-i18n="cap_lettering">Lettering</div></div>
     </div>
     <div style="margin-top:34px"><a href="tattoo.html" class="btn btn-flat" data-i18n="tattoo_btn">See more</a></div>
@@ -198,9 +218,11 @@
 
 <section class="products-banner bg-chair">
   <div class="wrap">
-    <h2 class="sec-title reveal"><span class="g" data-i18n="products_title">Products</span></h2>
-    <p class="reveal" style="max-width:760px;margin-top:18px" data-i18n-html="products_text">We select only high-quality, professional products, chosen for visible and lasting results.<br>We use nothing less than the best, because every detail matters.</p>
-    <div style="margin-top:34px"><a href="products.html" class="btn btn-flat" data-i18n="products_btn">View All</a></div>
+    <div class="chair-card reveal">
+      <h2 class="sec-title"><span class="g" data-i18n="products_title">Products</span></h2>
+      <p data-i18n-html="products_text">We select only high-quality, professional products, chosen for visible and lasting results.<br>We use nothing less than the best, because every detail matters.</p>
+      <div style="margin-top:24px"><a href="products.html" class="btn btn-flat" data-i18n="products_btn">View All</a></div>
+    </div>
   </div>
 </section>
 
@@ -212,7 +234,7 @@
         <img src="img/hot_towel.png" alt="Haircut, shampoo and styling">
         <div>
           <h3 data-i18n-html="svc1_title">Haircut, shampoo &amp; styling +<br>Short beard reshaping + HOT TOWEL</h3>
-          <div class="dur" data-i18n="svc1_dur">1h 30 mints</div>
+          <div class="dur" data-i18n="svc1_dur">1h</div>
           <a href="https://buchung.treatwell.ch/ort/stbarber/" target="_blank" rel="noopener" class="btn btn-flat" data-i18n="svc_btn">Booking</a>
         </div>
       </article>
@@ -220,7 +242,7 @@
         <img src="img/combo_premium.webp" alt="Premium Paket">
         <div>
           <h3 data-i18n-html="svc2_title">PREMIUM PAKET</h3>
-          <div class="dur" data-i18n="svc2_dur">1h 40 minuts</div>
+          <div class="dur" data-i18n="svc2_dur">1h 30 minuts</div>
           <a href="https://buchung.treatwell.ch/ort/stbarber/" target="_blank" rel="noopener" class="btn btn-flat" data-i18n="svc_btn">Booking</a>
         </div>
       </article>
