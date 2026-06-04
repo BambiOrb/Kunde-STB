@@ -318,14 +318,14 @@ form .row{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 .tattoo .style-block{margin-top:0;padding:54px 0;border-top:1px solid var(--line-soft);position:relative}
 .tattoo .style-block:first-of-type{border-top:0}
 
-.tattoo .rail-head{display:flex;align-items:baseline;gap:16px;padding:0 28px;margin-bottom:26px}
+.tattoo .rail-head{display:flex;align-items:baseline;justify-content:center;gap:16px;padding:0 28px;margin-bottom:26px}
 .tattoo .rail-head .idx{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--gold-bright);opacity:.6}
 .tattoo .style-block h3{font-size:clamp(2.2rem,6vw,4.6rem);color:var(--ink);margin:0;letter-spacing:.01em;
   line-height:1;background:linear-gradient(90deg,var(--gold),var(--gold-bright));
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 
 .tattoo .rail{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;
-  padding:0 28px 22px;scrollbar-width:thin;scrollbar-color:var(--gold) transparent}
+  justify-content:center;padding:0 28px 22px;scrollbar-width:thin;scrollbar-color:var(--gold) transparent}
 .tattoo .rail::-webkit-scrollbar{height:6px}
 .tattoo .rail::-webkit-scrollbar-thumb{background:var(--gold);border-radius:100px}
 .tattoo .rail::-webkit-scrollbar-track{background:transparent}
@@ -346,18 +346,18 @@ form .row{display:grid;grid-template-columns:1fr 1fr;gap:24px}
   .tattoo .frame{flex:0 0 82vw}
 }
 
-/* ---------- Tattoo – Instagram note (refined) ---------- */
-.tattoo .ig-note{display:inline-flex;align-items:center;gap:16px;font-family:var(--serif);
-  font-size:1.05rem;color:var(--muted);background:rgba(255,255,255,.03);
-  border:1px solid var(--line-soft);border-radius:100px;padding:10px 12px 10px 24px;
+/* ---------- Tattoo – Instagram note (gold, centered) ---------- */
+.tattoo .ig-note{display:flex;width:fit-content;margin:30px auto 0;align-items:center;gap:16px;
+  font-family:var(--serif);font-size:1.05rem;color:var(--ink);
+  background:linear-gradient(135deg,rgba(201,162,75,.12),rgba(201,162,75,.04));
+  border:1px solid rgba(201,162,75,.4);border-radius:100px;padding:10px 14px 10px 26px;
   transition:border-color .3s ease,background .3s ease,transform .3s ease}
-.tattoo .ig-note:hover{border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.05);transform:translateY(-2px)}
+.tattoo .ig-note:hover{border-color:var(--gold);transform:translateY(-2px)}
 .tattoo .ig-note .igmark{display:inline-grid;place-items:center;width:44px;height:44px;margin:0;
-  border-radius:50%;color:#fff;flex:0 0 auto;
-  background:radial-gradient(circle at 30% 110%,#fdf497 0%,#fd5949 45%,#d6249f 70%,#285AEB 100%);
-  box-shadow:0 4px 14px -4px rgba(214,36,159,.6);transition:transform .35s ease,box-shadow .35s ease}
+  border-radius:50%;flex:0 0 auto;background:var(--gold);color:#1b1408;
+  box-shadow:0 4px 14px -4px rgba(201,162,39,.6);transition:transform .35s ease,box-shadow .35s ease}
 .tattoo .ig-note .igmark svg{width:24px;height:24px}
-.tattoo .ig-note:hover .igmark{transform:rotate(-8deg) scale(1.08);box-shadow:0 8px 22px -4px rgba(214,36,159,.75)}
+.tattoo .ig-note:hover .igmark{transform:rotate(-8deg) scale(1.08);box-shadow:0 8px 22px -4px rgba(201,162,39,.8)}
 
 /* ============================================================
    REDESIGN 2026 — index/about/services/products
