@@ -29,6 +29,16 @@
   @keyframes soonShimmer{0%,100%{background-position:0% 0}50%{background-position:100% 0}}
   @keyframes soonPulse{0%{box-shadow:0 0 0 0 rgba(201,162,75,.55)}70%{box-shadow:0 0 0 12px rgba(201,162,75,0)}100%{box-shadow:0 0 0 0 rgba(201,162,75,0)}}
   @media(max-width:480px){.soon-banner .txt{letter-spacing:.2em;font-size:.72rem}}
+
+.beauty-note{display:flex;gap:16px;align-items:flex-start;max-width:760px;margin:0 auto 10px;
+  text-align:left;background:linear-gradient(135deg,rgba(201,162,75,.12),rgba(201,162,75,.04));
+  border:1px solid rgba(201,162,75,.4);border-left:4px solid var(--gold);border-radius:10px;
+  padding:22px 26px}
+.beauty-note .bn-icon{flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:var(--gold);
+  color:#1b1408;font-family:var(--serif);font-style:italic;font-weight:700;display:grid;place-items:center;
+  font-size:1rem;margin-top:2px}
+.beauty-note p{color:var(--ink);font-size:1.02rem;line-height:1.65;margin:0}
+
 </style>
 </head>
 <body id="top">
@@ -61,8 +71,11 @@
 <section class="beauty page-hero">
   <div class="soon-banner reveal"><span class="dot"></span><span class="txt" data-i18n="beauty_soon">Opening: Monday, 8 June 2026</span></div>
     <h2 class="sec-title reveal center" style="margin:0 auto"><span class="g" data-i18n="beauty_title">Beauty</span></h2>
-    <p class="lead reveal" data-i18n="beauty_lead">New beauty &amp; wellness treatments coming soon to STB Atelier. Booking will run through Treatwell — stay tuned.</p>
-
+<p class="lead reveal" data-i18n="beauty_lead">New beauty &amp; wellness treatments coming soon to STB Atelier. Booking will run through Treatwell — stay tuned.</p>
+    <div class="beauty-note reveal">
+      <span class="bn-icon" aria-hidden="true">i</span>
+      <p data-i18n="beauty_note">To ensure the highest standards of safety, personalization, and treatment effectiveness, a complimentary consultation is required prior to any laser or radiofrequency service. You are welcome to book online at your convenience; once your reservation is received, our team will contact you via WhatsApp or phone to schedule your consultation and guide you through the next steps.</p>
+    </div>
 <div class="beauty-grid">
       <article class="beauty-card c1 reveal">
         <img class="ph" src="img/radio.png" alt="beauty">
