@@ -438,14 +438,14 @@ body.home .svc-card{position:relative;grid-template-columns:1fr;gap:0;padding:0;
 body.home .svc-card img{width:100%;aspect-ratio:16/10;object-fit:cover;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
 body.home .svc-card:hover img{transform:scale(1.06)}
 body.home .svc-card>div{padding:26px 28px 30px}
-body.home .svc-card::before{counter-increment:svc;content:"0" counter(svc);position:absolute;top:14px;right:20px;
-  z-index:2;font-family:var(--serif);font-style:italic;font-size:2.6rem;color:#fff;opacity:.55;
-  text-shadow:0 2px 14px rgba(0,0,0,.6)}
-body.home .svc-feature{counter-reset:svc}
+
 body.home .svc-card h3{font-size:1.3rem;margin-bottom:8px}
-body.home .svc-card .dur{display:inline-block;font-family:var(--sans);font-size:.78rem;letter-spacing:.08em;
+body.home .svc-card>div{display:flex;flex-direction:column}
+body.home .svc-card .svc-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding-top:8px}
+body.home .svc-card .dur{font-family:var(--sans);font-size:.78rem;letter-spacing:.08em;
   text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,162,39,.4);border-radius:100px;
-  padding:4px 12px;margin:0 0 18px}
+  padding:4px 12px;margin:0}
+body.home .svc-card .btn-flat{margin:0}
 @media(max-width:820px){body.home .svc-feature{grid-template-columns:1fr}}
 
 /* --- About page redesign --- */
