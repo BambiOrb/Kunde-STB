@@ -87,7 +87,7 @@ if (!empty($config['notify_email'])) {
     $body  = "Name: {$firstName} {$lastName}\n";
     $body .= "E-Mail: {$email}\n\n";
     $body .= "Nachricht:\n{$message}\n";
-    $headers = 'From: no-reply@' . ($_SERVER['SERVER_NAME'] ?? 'stbatelier.ch') . "\r\n";
+    $headers = 'From: Kontaktformular STB Atelier <no-reply@' . ($_SERVER['SERVER_NAME'] ?? 'stbatelier.ch') . ">\r\n";
     $headers .= 'Reply-To: ' . $email . "\r\n";
     @mail($config['notify_email'], $subject, $body, $headers);
 }
