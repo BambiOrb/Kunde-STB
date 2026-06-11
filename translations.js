@@ -118,6 +118,9 @@ const STB_TRANSLATIONS = {
     contact_err_conn: 'Verbindung fehlgeschlagen. Bitte später nochmal versuchen.',
     contact_sending: 'Senden…',
 
+
+    promo_kicker: "Aktion im", promo_month: "Juni", promo_on: "auf", promo_treatments: "ausgewählte", promo_selected: "Behandlungen", promo_discover: "Mehr erfahren — Website besuchen", promo_beauty: "Beauty",
+
     welcome_badge: "Eröffnung:8. Juni 2026",
     welcome_kicker: "Neu im STB Atelier",
     welcome_title: "Beauty",
@@ -251,6 +254,8 @@ const STB_TRANSLATIONS = {
     contact_err_conn: 'Connection failed. Please try again later.',
     contact_sending: 'Sending…',
 
+    promo_kicker: "Promo", promo_month: "June", promo_on: "on", promo_treatments: "selected", promo_selected: "Treatments", promo_discover: "Discover more — visit the site", promo_beauty: "Beauty",
+   
     welcome_badge: "Opening: 8 June 2026",
     welcome_kicker: "New at STB Atelier",
     welcome_title: "Beauty",
@@ -282,6 +287,8 @@ const STB_TRANSLATIONS = {
     tattoo_ig: "Explore more styles like this on Instagram",
 
     stat_team: "Experts", stat_award: "Top Rated", stat_services: "Disciplines", bio_hint: "Hover to read",
+
+
 
   },
 
@@ -384,6 +391,8 @@ const STB_TRANSLATIONS = {
     contact_err_generic: 'Qualcosa è andato storto.',
     contact_err_conn: 'Connessione fallita. Riprova più tardi.',
     contact_sending: 'Invio…',
+
+    promo_kicker: "Promo di", promo_month: "Giugno", promo_on: "su", promo_treatments: "Trattamenti", promo_selected: "selezionati", promo_discover: "Per scoprire visita il sito", promo_beauty: "Beauty",
 
     welcome_badge: "Apertura: 8 Giugno 2026",
     welcome_kicker: "Novità da STB Atelier",

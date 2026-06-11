@@ -7,8 +7,7 @@
 <meta name="description" content="ATELIER HAIR TATTOO (STB Atelier) – Barber and tattoo studio in Horgen, Zurich.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="stylesheet.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="stylesheet.css">
 <style>
   .lang-switcher{display:flex;gap:8px;align-items:center;font-family:var(--sans);font-size:.82rem}
   .lang-switcher button{background:none;border:1px solid rgba(255,255,255,.25);color:var(--muted);
@@ -19,65 +18,94 @@
 </style>
 <style>
   .welcome-overlay{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;
-    padding:24px;background:rgba(8,8,10,.78);backdrop-filter:blur(6px);
+    padding:24px;background:rgba(4,3,1,.85);backdrop-filter:blur(7px);
     opacity:0;visibility:hidden;transition:opacity .45s ease,visibility .45s ease}
   .welcome-overlay.show{opacity:1;visibility:visible}
-  .welcome-box{position:relative;display:grid;grid-template-columns:1fr 1fr;max-width:860px;width:100%;
-    background:linear-gradient(160deg,#23232a,#1a1a20);border:1px solid rgba(201,162,39,.3);
-    border-radius:18px;overflow:hidden;box-shadow:0 40px 90px -30px rgba(0,0,0,.8);
-    transform:translateY(20px) scale(.96);opacity:0;transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .5s ease}
-  .welcome-overlay.show .welcome-box{transform:none;opacity:1}
-  .welcome-close{position:absolute;top:14px;right:16px;z-index:3;width:38px;height:38px;border-radius:50%;
-    border:1px solid rgba(255,255,255,.25);background:rgba(0,0,0,.35);color:#fff;font-size:1.5rem;line-height:1;
+  .promo-box{position:relative;width:100%;max-width:470px;text-align:center;padding:40px 30px 34px;
+    border-radius:20px;overflow:hidden;border:1px solid rgba(201,162,75,.5);
+    background:#0b0805 url('img/banner-giugno.png') center/cover no-repeat;
+    box-shadow:0 40px 110px -30px #000;
+    transform:translateY(22px) scale(.95);opacity:0;
+    transition:transform .6s cubic-bezier(.2,.8,.2,1),opacity .5s ease}
+  .welcome-overlay.show .promo-box{transform:none;opacity:1}
+  /* velo scuro sopra lo sfondo per leggibilita */
+  .promo-box::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+    background:linear-gradient(180deg,rgba(8,6,3,.62),rgba(8,6,3,.78))}
+  .promo-box>*{position:relative;z-index:2}
+  .welcome-close{position:absolute;top:14px;right:16px;z-index:4;width:36px;height:36px;border-radius:50%;
+    border:1px solid rgba(201,162,75,.45);background:rgba(0,0,0,.5);color:#dcb949;font-size:1.4rem;line-height:1;
     cursor:pointer;display:grid;place-items:center;transition:.25s}
-  .welcome-close:hover{border-color:var(--gold);color:var(--gold);transform:rotate(90deg)}
-  .welcome-media{position:relative;min-height:340px}
-  .welcome-media img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
-  .welcome-media::after{content:"";position:absolute;inset:0;
-    background:linear-gradient(110deg,transparent 55%,rgba(26,26,32,.6))}
-  .welcome-badge{position:absolute;top:18px;left:18px;z-index:2;display:inline-flex;align-items:center;gap:9px;
-    padding:8px 16px;border-radius:100px;background:rgba(13,13,15,.7);border:1px solid rgba(201,162,75,.5);
-    font-family:var(--sans);text-transform:uppercase;letter-spacing:.22em;font-size:.68rem;color:#dcb949}
-  .wb-dot{width:8px;height:8px;border-radius:50%;background:#dcb949;
-    box-shadow:0 0 0 0 rgba(220,185,73,.6);animation:wbPulse 1.8s ease-out infinite}
-  @keyframes wbPulse{0%{box-shadow:0 0 0 0 rgba(220,185,73,.55)}70%{box-shadow:0 0 0 11px rgba(220,185,73,0)}100%{box-shadow:0 0 0 0 rgba(220,185,73,0)}}
-  .welcome-content{padding:44px 40px;display:flex;flex-direction:column;justify-content:center}
-  .welcome-kicker{font-family:var(--sans);text-transform:uppercase;letter-spacing:.28em;font-size:.72rem;
-    color:var(--muted);margin-bottom:16px}
-  .welcome-title{font-family:var(--serif);font-size:clamp(2rem,4vw,2.8rem);line-height:1.05;margin-bottom:18px}
-  .welcome-text{color:var(--muted);font-size:1.04rem;line-height:1.6;margin-bottom:30px}
-  .welcome-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
-  .welcome-cta{background:var(--gold);color:#1b1408;border-radius:100px;padding:13px 30px;font-size:.92rem;
-    letter-spacing:.04em;transition:.25s}
-  .welcome-cta:hover{background:var(--gold-bright);transform:translateY(-2px)}
-  .welcome-dismiss{background:none;border:0;color:var(--muted);font-family:var(--sans);font-size:.9rem;
-    cursor:pointer;text-decoration:underline;text-underline-offset:4px;transition:.2s}
-  .welcome-dismiss:hover{color:var(--ink)}
-  @media(max-width:680px){
-    .welcome-box{grid-template-columns:1fr;max-width:420px}
-    .welcome-media{min-height:240px}
-    .welcome-content{padding:32px 26px}
+  .welcome-close:hover{border-color:var(--gold);transform:rotate(90deg)}
+.promo-kicker{font-family:'Cinzel',serif;text-transform:uppercase;letter-spacing:.34em;font-size:1.3rem;
+    font-weight:500;margin-bottom:4px;padding-left:.34em;
+    background:linear-gradient(180deg,#fff7e6 0%,#f0d590 55%,#c9a24b 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.promo-month{font-family:'Cinzel',serif;font-weight:700;text-transform:uppercase;
+    font-size:clamp(2.8rem,11vw,4.4rem);line-height:1.16;letter-spacing:.06em;margin-bottom:24px;
+    padding-bottom:.1em;overflow:visible;
+    background:linear-gradient(180deg,#ffffff 0%,#fdf0c8 28%,#e6c061 60%,#a9802f 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    text-shadow:0 2px 26px rgba(220,185,73,.25)}
+  /* palco sfalsato */
+  .promo-stage{position:relative;height:340px;margin-bottom:18px}
+  .promo-photo{position:absolute;overflow:hidden;z-index:2;transition:transform .4s ease;
+    border:1px solid rgba(201,162,75,.7);border-radius:6px;
+    box-shadow:0 18px 44px -16px #000,0 0 0 5px rgba(11,8,5,.6),0 0 0 6px rgba(201,162,75,.25)}
+  .promo-photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .promo-photo.p-top{top:18px;left:8px;width:172px;height:206px}
+  .promo-photo.p-bot{bottom:0;right:8px;width:188px;height:150px}
+  .promo-photo:hover{transform:scale(1.03)}
+  .promo-deal{position:absolute;top:10px;right:6px;z-index:3;display:flex;flex-direction:column;align-items:flex-end;text-align:right}
+  .promo-num{font-family:var(--serif);font-weight:700;font-size:5rem;line-height:.85;color:#fbf4e2;
+    text-shadow:0 0 36px rgba(255,236,170,.45)}
+  .promo-pct{font-size:2.8rem;vertical-align:super}
+  .promo-su{font-family:var(--sans);text-transform:uppercase;letter-spacing:.45em;font-size:.74rem;
+    color:#e4cd8e;margin:6px 0 4px;padding-left:.45em}
+  .promo-treat{font-family:var(--serif);text-transform:uppercase;letter-spacing:.08em;font-size:1.4rem;color:#fbf4e2}
+  .promo-sel{font-family:var(--serif);font-style:italic;font-size:1.3rem;
+    background:linear-gradient(180deg,#f9ecc0,#c9a24b);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .promo-cta-label{font-family:var(--sans);text-transform:uppercase;letter-spacing:.24em;font-size:.72rem;
+    color:#cfc4ae;margin-bottom:14px}
+  .promo-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .promo-btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);letter-spacing:.16em;
+    text-transform:uppercase;font-size:.78rem;padding:13px 24px;border-radius:100px;transition:.25s}
+  .promo-btn-main{border:1px solid rgba(201,162,75,.75);color:#fbf4e2;background:rgba(11,8,5,.4)}
+  .promo-btn-main:hover{background:var(--gold);color:#1b1408;transform:translateY(-2px)}
+  .promo-btn-alt{background:var(--gold);color:#1b1408}
+  .promo-btn-alt:hover{background:var(--gold-bright);transform:translateY(-2px)}
+  @media(max-width:470px){
+    .promo-stage{height:300px}
+    .promo-photo.p-top{width:142px;height:172px}
+    .promo-photo.p-bot{width:152px;height:124px}
+    .promo-num{font-size:3.8rem}
+    .promo-treat{font-size:1.15rem}
   }
 </style>
 </head>
 <body id="top" class="home redesign">
 
-<!-- Welcome Modal: Beauty Opening Soon -->
+<!-- Welcome Modal: Promo Giugno -->
 <div class="welcome-overlay" id="welcomeModal" aria-hidden="true">
-  <div class="welcome-box" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
+  <div class="promo-box" role="dialog" aria-modal="true" aria-labelledby="promoTitle">
     <button class="welcome-close" id="welcomeClose" aria-label="Close">&times;</button>
-    <div class="welcome-media">
-      <img src="img/banner.png" alt="Doina Suveica — Beauty">
-      <span class="welcome-badge"><span class="wb-dot"></span><span data-i18n="welcome_badge">8 June 2026</span></span>
-    </div>
-    <div class="welcome-content">
-      <p class="welcome-kicker" data-i18n="welcome_kicker">New at STB Atelier</p>
-      <h2 class="welcome-title" id="welcomeTitle"><span class="g" data-i18n="welcome_title">Beauty</span> <span data-i18n="welcome_title2">is here</span></h2>
-      <p class="welcome-text" data-i18n="welcome_text">Discover our new beauty & wellness world with Doina — laser, massages, facial treatments, radiofrequency and more. Booking opens soon.</p>
-      <div class="welcome-actions">
-        <a href="beauty.html" class="btn welcome-cta" data-i18n="welcome_cta">Discover Beauty</a>
-        <button class="welcome-dismiss" id="welcomeDismiss" data-i18n="welcome_dismiss">Maybe later</button>
+    <div class="promo-kicker" data-i18n="promo_kicker">Promo di</div>
+    <h2 class="promo-month" id="promoTitle" data-i18n="promo_month">Giugno</h2>
+
+    <div class="promo-stage">
+      <div class="promo-photo p-top"><img src="img/massage-pietre.png" alt="Massaggi"></div>
+      <div class="promo-photo p-bot"><img src="img/laser-man.jpg" alt="Trattamento viso"></div>
+      <div class="promo-deal">
+        <span class="promo-num">-10<span class="promo-pct">%</span></span>
+        <span class="promo-su" data-i18n="promo_on">su</span>
+        <span class="promo-treat" data-i18n="promo_treatments">Trattamenti</span>
+        <span class="promo-sel" data-i18n="promo_selected">selezionati</span>
       </div>
+    </div>
+
+    <p class="promo-cta-label" data-i18n="promo_discover">Per scoprire visita il sito</p>
+    <div class="promo-actions">
+      <a href="https://www.treatwell.ch/ort/stb-atelier-hair-tattoo/" target="_blank" rel="noopener" class="promo-btn promo-btn-main">&#127760; Treatwell</a>
+      <a href="beauty.html" class="promo-btn promo-btn-alt" data-i18n="promo_beauty">Beauty</a>
     </div>
   </div>
 </div>
