@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://stbatelier.ch/</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://stbatelier.ch/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stbatelier.ch/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://stbatelier.ch/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stbatelier.ch/"/>
+  </url>
+
+  <url>
+    <loc>https://stbatelier.ch/services.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://stbatelier.ch/services.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stbatelier.ch/services.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://stbatelier.ch/services.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stbatelier.ch/services.html"/>
+  </url>
+
+  <url>
+    <loc>https://stbatelier.ch/tattoo.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://stbatelier.ch/tattoo.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stbatelier.ch/tattoo.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://stbatelier.ch/tattoo.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stbatelier.ch/tattoo.html"/>
+  </url>
+
+  <url>
+    <loc>https://stbatelier.ch/beauty.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://stbatelier.ch/beauty.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stbatelier.ch/beauty.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://stbatelier.ch/beauty.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stbatelier.ch/beauty.html"/>
+  </url>
+
+  <url>
+    <loc>https://stbatelier.ch/about-us.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://stbatelier.ch/about-us.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stbatelier.ch/about-us.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://stbatelier.ch/about-us.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stbatelier.ch/about-us.html"/>
+  </url>
+
+  <url>
+    <loc>https://stbatelier.ch/impressum.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+
+  <url>
+    <loc>https://stbatelier.ch/datenschutz.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+
+</urlset>

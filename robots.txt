@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /admin.php
+Disallow: /contact.php
+Disallow: /config.php
+Disallow: /data/
+
+Sitemap: https://stbatelier.ch/sitemap.xml
