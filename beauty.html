@@ -122,6 +122,32 @@
   font-size:1rem;margin-top:2px}
 .beauty-note p{color:var(--ink);font-size:1.02rem;line-height:1.65;margin:0}
 
+.beauty-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px}
+.beauty-info-btn{display:inline-flex;align-items:center;gap:7px;
+  font-family:var(--sans);text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;
+  padding:11px 20px;border-radius:100px;cursor:pointer;transition:.25s;
+  background:transparent;border:1px solid rgba(201,162,75,.4);color:#c9a24b}
+.beauty-info-btn:hover{border-color:var(--gold);background:rgba(201,162,39,.08);color:var(--gold)}
+
+.info-overlay{position:fixed;inset:0;z-index:1100;display:flex;align-items:center;justify-content:center;
+  padding:24px;background:rgba(4,3,1,.85);backdrop-filter:blur(7px);
+  opacity:0;visibility:hidden;transition:opacity .35s ease,visibility .35s ease}
+.info-overlay.show{opacity:1;visibility:visible}
+.info-box{position:relative;width:100%;max-width:560px;max-height:82vh;overflow-y:auto;
+  padding:38px 34px 34px;border-radius:18px;border:1px solid rgba(201,162,75,.5);
+  background:#0b0805;box-shadow:0 40px 110px -30px #000;
+  transform:translateY(18px) scale(.97);opacity:0;
+  transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .4s ease}
+.info-overlay.show .info-box{transform:none;opacity:1}
+.info-close{position:absolute;top:14px;right:16px;width:36px;height:36px;border-radius:50%;
+  border:1px solid rgba(201,162,75,.45);background:rgba(0,0,0,.5);color:#dcb949;font-size:1.4rem;line-height:1;
+  cursor:pointer;display:grid;place-items:center;transition:.25s}
+.info-close:hover{border-color:var(--gold);transform:rotate(90deg)}
+.info-title{font-family:var(--serif);font-size:1.8rem;margin:0 0 18px;padding-right:40px;color:var(--gold)}
+.info-body{font-family:var(--sans);font-size:.95rem;line-height:1.7;color:#d8cdb8}
+.info-body strong{color:#e4cd8e;font-weight:600;font-size:1.02rem}
+.info-body em{display:block;margin-top:14px;padding-top:14px;border-top:1px solid rgba(201,162,75,.25);
+  font-style:italic;color:#e4cd8e}
 </style>
 </head>
 <body id="top">
@@ -159,37 +185,51 @@
       <span class="bn-icon" aria-hidden="true">i</span>
       <p data-i18n="beauty_note">To ensure the highest standards of safety, personalization, and treatment effectiveness, a complimentary consultation is required prior to any laser or radiofrequency service. You are welcome to book online at your convenience; once your reservation is received, our team will contact you via WhatsApp or phone to schedule your consultation and guide you through the next steps.</p>
     </div>
-<div class="beauty-grid">
+
+    <div class="beauty-grid">
       <article class="beauty-card c1 reveal">
         <img class="ph" src="img/diode-laser.png" alt="beauty">
         <div class="beauty-body">
           <h3 data-i18n="beauty_laser_t">Diode Laser</h3>
           <p data-i18n="beauty_laser_d">Latest-generation medical technology for a progressive and lasting reduction of unwanted hair. A safe, precise and highly effective treatment, suitable for various skin types. Smooth skin, visible results, absolute comfort.</p>
-          <a href="https://www.treatwell.ch/ort/stb-atelier-hair-tattoo/" target="_blank" rel="noopener" class="btn btn-flat" data-i18n="beauty_btn">Booking</a>
+            <div class="beauty-actions">
+              <a href="https://www.treatwell.ch/ort/stb-atelier-hair-tattoo/" target="_blank" rel="noopener" class="btn btn-flat" data-i18n="beauty_btn">Booking</a>
+              <button class="beauty-info-btn" data-info="laser" data-i18n="info_btn">Informazioni</button>
+           </div>
         </div>
+
       </article>
       <article class="beauty-card c2 reveal">
         <img class="ph" src="img/massaggi2.png" alt="beauty">
         <div class="beauty-body">
           <h3 data-i18n="beauty_massage_t">Massages</h3>
           <p data-i18n="beauty_massage_d">Exclusive rituals designed for your wellbeing. From deep-tissue to lymphatic-drainage and relaxing massages, every treatment is crafted to release tension and rebalance body and mind. Deep relaxation, instant lightness, total balance.</p>
-          <a href="https://www.treatwell.ch/ort/stb-atelier-hair-tattoo/" target="_blank" rel="noopener" class="btn btn-flat" data-i18n="beauty_btn">Booking</a>
-        </div>
+            <div class="beauty-actions">
+              <a href="https://www.treatwell.ch/ort/stb-atelier-hair-tattoo/" target="_blank" rel="noopener" class="btn btn-flat" data-i18n="beauty_btn">Booking</a>
+              <button class="beauty-info-btn" data-info="massage" data-i18n="info_btn">Informazioni</button>
+            </div>
+          </div>
       </article>
       <article class="beauty-card c3 reveal">
         <img class="ph" src="img/Pulizia-viso.jpg" alt="beauty">
         <div class="beauty-body">
           <h3 data-i18n="beauty_facial_t">Facial Treatment</h3>
           <p data-i18n="beauty_facial_d">Every skin is unique. Our facial treatments are fully tailored to meet every need: hydration, purification, anti-aging or rebalancing. Radiant, healthy and visibly improved skin.</p>
-          <a href="https://www.treatwell.ch/ort/stb-atelier-hair-tattoo/" target="_blank" rel="noopener" class="btn btn-flat" data-i18n="beauty_btn">Booking</a>
-        </div>
+            <div class="beauty-actions">
+              <a href="https://www.treatwell.ch/ort/stb-atelier-hair-tattoo/" target="_blank" rel="noopener" class="btn btn-flat" data-i18n="beauty_btn">Booking</a>
+              <button class="beauty-info-btn" data-info="facial" data-i18n="info_btn">Informazioni</button>
+            </div>
+          </div>
       </article>
       <article class="beauty-card c4 reveal">
-        <img class="ph" src="img/cleansing.png" alt="beauty">
+        <img class="ph" src="img/facialcleansing.png" alt="beauty">
         <div class="beauty-body">
           <h3 data-i18n="beauty_deep_t">Facial Cleansing</h3>
           <p data-i18n="beauty_deep_d">Advanced, high-performance facial treatment, ideal for freeing the skin from impurities, blackheads and sebum build-up. Visibly improves skin texture and gives a fresher, more cared-for and even appearance. Cleaner, more even and visibly healthier skin from the very first session.</p>
-          <a href="https://www.treatwell.ch/ort/stb-atelier-hair-tattoo/" target="_blank" rel="noopener" class="btn btn-flat" data-i18n="beauty_btn">Booking</a>
+          <div class="beauty-actions">
+            <a href="https://www.treatwell.ch/ort/stb-atelier-hair-tattoo/" target="_blank" rel="noopener" class="btn btn-flat" data-i18n="beauty_btn">Booking</a>
+            <button class="beauty-info-btn" data-info="deep" data-i18n="info_btn">Informazioni</button>
+          </div>
         </div>
       </article>
       <article class="beauty-card c5 reveal">
@@ -197,11 +237,20 @@
         <div class="beauty-body">
           <h3 data-i18n="beauty_radio_t">Radiofrequency</h3>
           <p data-i18n="beauty_radio_d">Latest-generation anti-aging technology to visibly redefine and improve the skin. It acts on wrinkles, loss of firmness, dehydration, dull complexion, fatty deposits and scars, giving a firmer, more radiant and even appearance. Visible results, transformed skin.</p>
-          <a href="https://www.treatwell.ch/ort/stb-atelier-hair-tattoo/" target="_blank" rel="noopener" class="btn btn-flat" data-i18n="beauty_btn">Booking</a>
+          <div class="beauty-actions">
+            <a href="https://www.treatwell.ch/ort/stb-atelier-hair-tattoo/" target="_blank" rel="noopener" class="btn btn-flat" data-i18n="beauty_btn">Booking</a>
+            <button class="beauty-info-btn" data-info="radio" data-i18n="info_btn">Informazioni</button>
+          </div>
         </div>
       </article>
     </div>
-  
+  <div class="info-overlay" id="infoModal" aria-hidden="true">
+  <div class="info-box" role="dialog" aria-modal="true">
+    <button class="info-close" id="infoClose" aria-label="Close">&times;</button>
+    <h3 class="info-title" id="infoTitle"></h3>
+    <div class="info-body" id="infoBody"></div>
+  </div>
+</div>
 </section>
 <footer class="site-footer">
   <div class="wrap">
@@ -220,6 +269,6 @@
   </div>
 </footer>
 <script src="translations.js"></script>
-<script src="script.js"></script>
+<script src="script.js?v=3"></script>
 </body>
 </html>
