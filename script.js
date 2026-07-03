@@ -48,10 +48,17 @@
       localStorage.setItem(STORAGE_KEY, lang);
       document.documentElement.lang = lang;
 
+
       // Plain text
       document.querySelectorAll('[data-i18n]').forEach(function (el) {
         var key = el.getAttribute('data-i18n');
         if (t[key] !== undefined) el.textContent = t[key];
+      });
+
+      // Immagini (banner promo)
+      document.querySelectorAll('[data-i18n-src]').forEach(function (el) {
+        var key = el.getAttribute('data-i18n-src');
+        if (t[key] !== undefined) el.src = t[key];
       });
 
       // HTML (spans with classes inside)
