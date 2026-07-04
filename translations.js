@@ -406,7 +406,7 @@ const STB_TRANSLATIONS = {
     contact_sending: 'Invio…',
 
     // IT
-    promo_img: "img/promos/promo-juli-ita.png", promo_beauty: "Beauty",
+    promo_img: "img/promos/promo-juli-ita.jpeg", promo_beauty: "Beauty",
 
     welcome_badge: "Apertura: 8 Giugno 2026",
     welcome_kicker: "Novità da STB Atelier",
