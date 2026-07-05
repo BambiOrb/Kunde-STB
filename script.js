@@ -186,10 +186,9 @@
   function render(){
     if(!current) return;
     var L=lang();
-    var t=(window.STB_TRANSLATIONS&&STB_TRANSLATIONS[L])||STB_TRANSLATIONS.it;
+    var t=STB_TRANSLATIONS[L]||STB_TRANSLATIONS.it;
     var title=t['beauty_'+current+'_t'];
     var body=t['beauty_'+current+'_info'];
-    console.log('INFO modal →','lang:',L,'key:','beauty_'+current+'_info','trovato:',!!body);
     titleEl.textContent=title||current;
     bodyEl.innerHTML=body||'<em>Contenuto non trovato per: beauty_'+current+'_info</em>';
   }
