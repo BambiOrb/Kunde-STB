@@ -74,6 +74,8 @@
 
       // Update contact form error messages reference
       window._i18n = t;
+
+      if (typeof window._renderInfoModal === 'function') window._renderInfoModal();
     }
 
     // Language buttons
@@ -169,5 +171,43 @@
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
   }
+
+(function(){
+  var modal=document.getElementById('infoModal');
+  if(!modal){console.warn('infoModal non trovato');return;}
+  var titleEl=document.getElementById('infoTitle'),
+      bodyEl=document.getElementById('infoBody'),
+      current=null;
+  function lang(){
+    return localStorage.getItem('stb_lang')
+      || document.documentElement.lang
+      || 'de';
+  }
+  function render(){
+    if(!current) return;
+    var L=lang();
+    var t=STB_TRANSLATIONS[L]||STB_TRANSLATIONS.it;
+    var title=t['beauty_'+current+'_t'];
+    var body=t['beauty_'+current+'_info'];
+    titleEl.textContent=title||current;
+    bodyEl.innerHTML=body||'<em>Contenuto non trovato per: beauty_'+current+'_info</em>';
+  }
+  window._renderInfoModal = render;
+  document.querySelectorAll('[data-info]').forEach(function(b){
+    b.addEventListener('click',function(){
+      current=b.getAttribute('data-info');
+      render();
+      modal.classList.add('show');
+      modal.setAttribute('aria-hidden','false');
+    });
+  });
+  function close(){modal.classList.remove('show');modal.setAttribute('aria-hidden','true');current=null;}
+  document.getElementById('infoClose').addEventListener('click',close);
+  modal.addEventListener('click',function(e){if(e.target===modal)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  document.querySelectorAll('.lang-switcher button').forEach(function(b){
+    b.addEventListener('click',function(){setTimeout(render,0);});
+  });
+})();
 
 })();
