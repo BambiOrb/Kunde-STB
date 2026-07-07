@@ -100,17 +100,18 @@
 
 <style>
   .welcome-overlay{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;
-    padding:24px;background:rgba(4,3,1,.85);backdrop-filter:blur(7px);
+    padding:24px;background:rgba(4,3,1,.85);backdrop-filter:blur(7px);overflow-y:auto;
     opacity:0;visibility:hidden;transition:opacity .45s ease,visibility .45s ease}
   .welcome-overlay.show{opacity:1;visibility:visible}
 
-  .promo-box{position:relative;width:100%;max-width:440px;padding:0;border-radius:20px;overflow:hidden;
+  .promo-box{position:relative;width:-moz-fit-content;width:fit-content;max-width:min(440px,92vw);max-height:96vh;
+    display:flex;flex-direction:column;padding:0;border-radius:20px;overflow:hidden;
     border:1px solid rgba(201,162,75,.5);background:#0b0805;box-shadow:0 40px 110px -30px #000;
     transform:translateY(22px) scale(.95);opacity:0;
     transition:transform .6s cubic-bezier(.2,.8,.2,1),opacity .5s ease}
   .welcome-overlay.show .promo-box{transform:none;opacity:1}
 
-  .promo-img{display:block;width:100%;height:auto;max-height:78vh;object-fit:contain}
+  .promo-img{display:block;width:auto;height:auto;max-width:100%;max-height:78vh;object-fit:contain}
 
   .welcome-close{position:absolute;top:14px;right:16px;z-index:4;width:36px;height:36px;border-radius:50%;
     border:1px solid rgba(201,162,75,.45);background:rgba(0,0,0,.5);color:#dcb949;font-size:1.4rem;line-height:1;
@@ -126,6 +127,18 @@
 .promo-btn-main:hover{background:#00b4a0;color:#fff;border-color:#00b4a0;transform:translateY(-2px)}
   .promo-btn-alt{background:#1b1408;color:#f3ead6}
   .promo-btn-alt:hover{background:#000;transform:translateY(-2px)}
+
+  /* Landscape / schermi bassi (TV, telefoni e iPad orizzontali):
+     l'altezza è la risorsa scarsa. Diamo all'immagine un'altezza DEFINITA
+     (la larghezza segue l'aspect ratio) e impiliamo i pulsanti in colonna,
+     così il box si restringe alla larghezza dell'immagine: niente bande nere
+     ai lati e niente overflow verticale. */
+  @media (orientation:landscape) and (max-height:680px){
+    .welcome-overlay{padding:14px}
+    .promo-img{width:auto;height:58vh;max-height:58vh;max-width:min(440px,94vw)}
+    .promo-actions{flex-direction:column;flex-wrap:nowrap;padding:12px 18px;gap:10px}
+    .promo-btn{width:100%;justify-content:center;padding:10px 18px;font-size:.72rem}
+  }
 </style>
 
 </head>
