@@ -104,7 +104,7 @@
     opacity:0;visibility:hidden;transition:opacity .45s ease,visibility .45s ease}
   .welcome-overlay.show{opacity:1;visibility:visible}
 
-  .promo-box{position:relative;width:-moz-fit-content;width:fit-content;max-width:min(440px,92vw);max-height:96vh;
+  .promo-box{position:relative;width:-moz-fit-content;width:fit-content;max-width:min(640px,92vw);max-height:96vh;
     display:flex;flex-direction:column;padding:0;border-radius:20px;overflow:hidden;
     border:1px solid rgba(201,162,75,.5);background:#0b0805;box-shadow:0 40px 110px -30px #000;
     transform:translateY(22px) scale(.95);opacity:0;
@@ -135,7 +135,7 @@
      ai lati e niente overflow verticale. */
   @media (orientation:landscape) and (max-height:680px){
     .welcome-overlay{padding:14px}
-    .promo-img{width:auto;height:58vh;max-height:58vh;max-width:min(440px,94vw)}
+    .promo-img{width:auto;height:58vh;max-height:58vh;max-width:min(640px,94vw)}
     .promo-actions{flex-direction:column;flex-wrap:nowrap;align-items:center;padding:12px 18px;gap:10px}
     .promo-btn{padding:11px 26px;font-size:.72rem}
   }
@@ -147,7 +147,7 @@
 <div class="welcome-overlay" id="welcomeModal" aria-hidden="true">
   <div class="promo-box" role="dialog" aria-modal="true" aria-label="Promo">
     <button class="welcome-close" id="welcomeClose" aria-label="Close">&times;</button>
-    <img class="promo-img" id="promoImg" data-i18n-src="promo_img" src="img/promos/promo-juli-ita.png" alt="Promo">
+    <img class="promo-img" id="promoImg" data-i18n-src="promo_img" src="img/promos/promo-aug-de.png" alt="Promo">
     <div class="promo-actions">
       <a href="https://www.treatwell.ch/ort/stb-atelier-hair-tattoo-beauty/" class="promo-btn promo-btn-main" target="_blank" rel="noopener">🌐 Treatwell</a>
       <a href="beauty.html" class="promo-btn promo-btn-alt" data-i18n="promo_beauty" target="_blank" rel="noopener">Beauty</a>

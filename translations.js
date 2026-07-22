@@ -119,7 +119,7 @@ const STB_TRANSLATIONS = {
     contact_sending: 'Senden…',
 
     // DE
-  promo_img: "img/promos/promo-juli-de.png", promo_beauty: "Beauty",
+  promo_img: "img/promos/promo-aug-de.png", promo_beauty: "Beauty",
 
     welcome_badge: "Eröffnung:8. Juni 2026",
     welcome_kicker: "Neu im STB Atelier",
@@ -261,7 +261,7 @@ const STB_TRANSLATIONS = {
     contact_sending: 'Sending…',
 
     // EN
-    promo_img: "img/promos/promo-juli-eng.png", promo_beauty: "Beauty",
+    promo_img: "img/promos/promo-aug-en.PNG", promo_beauty: "Beauty",
     
     welcome_badge: "Opening: 8 June 2026",
     welcome_kicker: "New at STB Atelier",
@@ -406,7 +406,7 @@ const STB_TRANSLATIONS = {
     contact_sending: 'Invio…',
 
     // IT
-    promo_img: "img/promos/promo-juli-ita.jpeg", promo_beauty: "Beauty",
+    promo_img: "img/promos/promo-aug-it.jpeg", promo_beauty: "Beauty",
 
     welcome_badge: "Apertura: 8 Giugno 2026",
     welcome_kicker: "Novità da STB Atelier",
