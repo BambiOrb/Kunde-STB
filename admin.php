@@ -2,11 +2,32 @@
 /**
  * STB Atelier – Admin
  * Einfaches, passwortgeschütztes Dashboard für eingegangene Kontaktanfragen.
- * Login-Daten siehe config.php (Default: admin / stb-admin-2026).
+ * Login-Daten werden NICHT hier gespeichert, siehe config.php /
+ * config.local.php.example zum Einrichten des Admin-Zugangs.
  */
 
+/* ---------- Session-Cookie hardening (vor session_start!) ---------- */
+session_set_cookie_params([
+    'lifetime' => 0,
+    'path'     => '/',
+    'httponly' => true,
+    'secure'   => !empty($_SERVER['HTTPS']),
+    'samesite' => 'Strict',
+]);
 session_start();
 $config = require __DIR__ . '/config.php';
+
+/* ---------- CSRF-Token für diese Session ---------- */
+if (empty($_SESSION['csrf'])) {
+    $_SESSION['csrf'] = bin2hex(random_bytes(32));
+}
+$csrf = $_SESSION['csrf'];
+function csrf_ok(): bool {
+    return isset($_POST['csrf'], $_SESSION['csrf']) && hash_equals($_SESSION['csrf'], $_POST['csrf']);
+}
+
+/* ---------- Kein Admin-Login konfiguriert ---------- */
+$loginConfigured = !empty($config['admin_user']) && !empty($config['admin_hash']);
 
 /* ---------- Logout ---------- */
 if (isset($_GET['logout'])) {
@@ -17,14 +38,20 @@ if (isset($_GET['logout'])) {
 
 /* ---------- Login ---------- */
 $error = '';
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['password'])) {
-    $user = $_POST['user'] ?? '';
-    $pass = $_POST['password'] ?? '';
-    if ($user === $config['admin_user'] && password_verify($pass, $config['admin_hash'])) {
-        session_regenerate_id(true);
-        $_SESSION['auth'] = true;
+if ($loginConfigured && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['password'])) {
+    if (!csrf_ok()) {
+        $error = 'Sitzung abgelaufen, bitte Seite neu laden und erneut versuchen.';
     } else {
-        $error = 'Falscher Benutzername oder Passwort.';
+        $user = $_POST['user'] ?? '';
+        $pass = $_POST['password'] ?? '';
+        if (hash_equals((string) $config['admin_user'], $user) && password_verify($pass, $config['admin_hash'])) {
+            session_regenerate_id(true);
+            $_SESSION['auth'] = true;
+            $_SESSION['csrf'] = bin2hex(random_bytes(32)); // Token nach Login erneuern
+            $csrf = $_SESSION['csrf'];
+        } else {
+            $error = 'Falscher Benutzername oder Passwort.';
+        }
     }
 }
 
@@ -32,6 +59,10 @@ $authed = !empty($_SESSION['auth']);
 
 /* ---------- Nachricht löschen ---------- */
 if ($authed && isset($_POST['delete'])) {
+    if (!csrf_ok()) {
+        http_response_code(403);
+        exit('Ungültiges CSRF-Token.');
+    }
     $id = $_POST['delete'];
     $file = $config['data_file'];
     if (is_file($file)) {
@@ -92,10 +123,23 @@ if ($authed && is_file($config['data_file'])) {
 </head>
 <body>
 
-<?php if (!$authed): ?>
+<?php if (!$loginConfigured): ?>
+  <div class="login">
+    <h1>STB <span style="color:var(--gold)">Admin</span></h1>
+    <p>Es ist noch kein Admin-Zugang eingerichtet.</p>
+    <p style="margin-top:14px">
+      Kopiere <code>config.local.php.example</code> nach <code>config.local.php</code>
+      und trage Benutzername + Passwort-Hash ein (siehe Kommentare in der Datei),
+      oder setze die Umgebungsvariablen <code>STB_ADMIN_USER</code> und
+      <code>STB_ADMIN_HASH</code>.
+    </p>
+  </div>
+
+<?php elseif (!$authed): ?>
   <form class="login" method="post">
     <h1>STB <span style="color:var(--gold)">Admin</span></h1>
     <p>Bitte einloggen, um Kontaktanfragen zu sehen.</p>
+    <input type="hidden" name="csrf" value="<?= htmlspecialchars($csrf) ?>">
     <label for="user">Benutzer</label>
     <input type="text" id="user" name="user" autocomplete="username" required>
     <label for="password">Passwort</label>
@@ -130,6 +174,7 @@ if ($authed && is_file($config['data_file'])) {
               <td class="msg"><?= htmlspecialchars($m['message'] ?? '') ?></td>
               <td>
                 <form method="post" onsubmit="return confirm('Diese Nachricht löschen?')">
+                  <input type="hidden" name="csrf" value="<?= htmlspecialchars($csrf) ?>">
                   <input type="hidden" name="delete" value="<?= htmlspecialchars($m['id'] ?? '') ?>">
                   <button class="del" type="submit">Löschen</button>
                 </form>

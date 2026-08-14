@@ -30,6 +30,54 @@ $firstName = trim($data['firstName'] ?? '');
 $lastName  = trim($data['lastName']  ?? '');
 $email     = trim($data['email']     ?? '');
 $message   = trim($data['message']   ?? '');
+$honeypot  = trim($data['website']   ?? ''); // Feld ist per CSS versteckt, nur Bots füllen es aus
+
+/* --- Spam: Honeypot --- */
+// Ausgefülltes Honeypot-Feld = (fast sicher) ein Bot. Wir antworten mit "success",
+// speichern aber nichts, damit Bots keinen Hinweis bekommen, dass sie erkannt wurden.
+if ($honeypot !== '') {
+    respond(true);
+}
+
+/* --- Spam: einfaches Rate-Limit pro IP --- */
+$ip = $_SERVER['REMOTE_ADDR'] ?? '';
+if ($ip !== '') {
+    $rateFile = $config['ratelimit_file'];
+    $rateDir  = dirname($rateFile);
+    if (!is_dir($rateDir)) {
+        @mkdir($rateDir, 0755, true);
+    }
+    $rfp = @fopen($rateFile, 'c+');
+    if ($rfp !== false) {
+        if (flock($rfp, LOCK_EX)) {
+            $raw   = stream_get_contents($rfp);
+            $rates = json_decode($raw, true);
+            if (!is_array($rates)) $rates = [];
+
+            $ipKey = hash('sha256', $ip);
+            $now   = time();
+            $minInterval = 30; // Sekunden zwischen zwei Anfragen derselben IP
+
+            // alte Einträge aufräumen (älter als 1h), damit die Datei nicht wächst
+            $rates = array_filter($rates, fn($ts) => ($now - $ts) < 3600);
+
+            if (isset($rates[$ipKey]) && ($now - $rates[$ipKey]) < $minInterval) {
+                flock($rfp, LOCK_UN);
+                fclose($rfp);
+                http_response_code(429);
+                respond(false, 'Bitte kurz warten, bevor du eine weitere Nachricht sendest.');
+            }
+
+            $rates[$ipKey] = $now;
+            ftruncate($rfp, 0);
+            rewind($rfp);
+            fwrite($rfp, json_encode($rates));
+            fflush($rfp);
+            flock($rfp, LOCK_UN);
+        }
+        fclose($rfp);
+    }
+}
 
 /* --- Validierung --- */
 if ($firstName === '' || $lastName === '' || $email === '' || $message === '') {

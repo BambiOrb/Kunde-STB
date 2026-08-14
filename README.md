@@ -21,7 +21,8 @@ Bilder und längere Originaltexte sind Platzhalter (siehe unten).
 | `script.js`      | Mobile-Menü, aktiver Nav-Link je Seite, Reveal, Kontaktformular |
 | `contact.php`    | Nimmt das Kontaktformular entgegen, speichert + mailt         |
 | `admin.php`      | Passwortgeschütztes Dashboard für Kontaktanfragen             |
-| `config.php`     | Konfiguration (Login, Empfänger-Mail, Pfade)                  |
+| `config.php`     | Konfiguration (liest Login/Empfänger-Mail aus config.local.php bzw. Umgebungsvariablen, siehe unten) |
+| `config.local.php.example` | Vorlage für lokale Zugangsdaten – kopieren nach `config.local.php` (nicht eingecheckt) |
 
 ## Buchung
 Es gibt **kein eigenes Reservierungssystem**. Alle „Book now" / „Booking" /
@@ -37,9 +38,38 @@ PHP nötig für Formular + Admin:
 php -S localhost:8000
 ```
 - Website:  http://localhost:8000/index.html
-- Admin:    http://localhost:8000/admin.php  (Default: admin / stb-admin-2026)
+- Admin:    http://localhost:8000/admin.php
 
 Reines Design-Anschauen geht auch ohne PHP (HTML direkt öffnen).
+
+## Admin-Zugang einrichten
+Es gibt **keinen eingebauten Default-Login** mehr – ohne Einrichtung bleibt
+`admin.php` gesperrt. Zugangsdaten werden **nicht** im Code gespeichert,
+sondern entweder über eine lokale, nicht eingecheckte Datei oder über
+Umgebungsvariablen bereitgestellt (siehe `config.php`).
+
+**Variante A – lokale Datei (empfohlen für eigenes Hosting):**
+```bash
+cp config.local.php.example config.local.php
+php -r "echo password_hash('DEIN_PASSWORT', PASSWORD_DEFAULT);"
+```
+Den ausgegebenen Hash zusammen mit dem gewünschten Benutzernamen in
+`config.local.php` eintragen. Diese Datei ist in `.gitignore` und wird nie
+committed.
+
+**Variante B – Umgebungsvariablen** (z. B. wenn das Hosting kein Anlegen
+lokaler Dateien erlaubt): `STB_ADMIN_USER` und `STB_ADMIN_HASH` setzen.
+
+⚠️ Falls das alte Default-Passwort (`stb-admin-2026`) jemals produktiv im
+Einsatz war: als kompromittiert behandeln und nicht wiederverwenden – es
+stand zuvor im Klartext-Code und in dieser README.
+
+## Sicherheit im Kontaktformular
+- Verstecktes Honeypot-Feld (`website`) filtert einfache Bots.
+- Rate-Limit von 30 Sekunden pro IP-Adresse gegen Formular-Flooding.
+- Löschen im Admin-Dashboard ist per CSRF-Token abgesichert.
+- `data/` (Kontaktanfragen) und `config.local.php` (Zugangsdaten) sind über
+  `.gitignore` von Commits ausgeschlossen.
 
 ## Logo
 Aktuell ein Platzhalter unter `assets/img/logo.svg`. Euer echtes Logo einfach
