@@ -106,13 +106,18 @@ if (mb_strlen($message) > 5000) {
     respond(false, 'Nachricht ist zu lang.');
 }
 
-/* --- Datensatz aufbauen --- */
+/* --- Datensatz aufbauen ---
+ * Roh speichern, NICHT hier escapen: admin.php escaped beim Anzeigen
+ * bereits (htmlspecialchars). Würden wir schon hier escapen, escaped
+ * admin.php ein zweites Mal – z. B. "O'Brien" würde dann als
+ * "O&amp;#039;Brien" angezeigt statt als "O'Brien". Escaping gehört an
+ * die Ausgabe, nicht an die Eingabe. */
 $entry = [
     'id'        => bin2hex(random_bytes(6)),
-    'firstName' => htmlspecialchars($firstName, ENT_QUOTES, 'UTF-8'),
-    'lastName'  => htmlspecialchars($lastName,  ENT_QUOTES, 'UTF-8'),
-    'email'     => htmlspecialchars($email,     ENT_QUOTES, 'UTF-8'),
-    'message'   => htmlspecialchars($message,   ENT_QUOTES, 'UTF-8'),
+    'firstName' => $firstName,
+    'lastName'  => $lastName,
+    'email'     => $email,
+    'message'   => $message,
     'ip'        => $_SERVER['REMOTE_ADDR'] ?? '',
     'created'   => date('c'),
 ];
