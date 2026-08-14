@@ -24,6 +24,35 @@ Bilder und längere Originaltexte sind Platzhalter (siehe unten).
 | `config.php`     | Konfiguration (liest Login/Empfänger-Mail aus config.local.php bzw. Umgebungsvariablen, siehe unten) |
 | `config.local.php.example` | Vorlage für lokale Zugangsdaten – kopieren nach `config.local.php` (nicht eingecheckt) |
 
+## ⚠️ Wo editieren? `src/` ist die Quelle, die Root-Dateien sind der Build
+Header, Navigation, Footer und die Script-Tags waren früher in allen 8
+HTML-Seiten von Hand dupliziert (jede Änderung = 8× copy-paste, leicht
+auseinanderdriftend). Das ist jetzt aufgelöst:
+
+```
+src/
+  partials/    ← Header (2 Varianten), Footer, Script-Tags – einmal pflegen
+  pages/       ← eine Datei pro Seite, referenziert die partials
+build.php      ← baut daraus die fertigen .html-Dateien in der Projektwurzel
+```
+
+**Workflow bei Änderungen:**
+1. Seiteninhalt ändern → in `src/pages/<seite>.html`.
+2. Header/Nav/Footer ändern → in `src/partials/header.html` (Hauptseiten),
+   `src/partials/header-legal.html` (Impressum/Datenschutz) bzw.
+   `src/partials/footer.html`.
+3. Bauen: `php build.php` – überschreibt `index.html`, `about-us.html` usw.
+   in der Projektwurzel.
+4. Wie gewohnt per FTP hochladen (nur die Root-`.html`-Dateien werden auf
+   den Server geladen, `src/` und `build.php` bleiben lokal/im Repo).
+
+**Nicht mehr direkt** in `index.html`, `about-us.html` etc. editieren –
+diese Dateien werden bei jedem `php build.php` aus `src/` neu erzeugt und
+eure Änderungen wären beim nächsten Build wieder weg.
+
+`datenschutz.html`/`impressum.html` nutzen bewusst `header-legal.html`
+(kein Sprachumschalter, feste deutsche Texte) statt `header.html`.
+
 ## Buchung
 Es gibt **kein eigenes Reservierungssystem**. Alle „Book now" / „Booking" /
 „Book on Treatwell" Buttons verlinken direkt auf Treatwell:

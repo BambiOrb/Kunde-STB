@@ -14,6 +14,16 @@ function respond($ok, $error = null) {
     exit;
 }
 
+// Fehler, die bisher mit @ stillschweigend verschluckt wurden, landen jetzt
+// wenigstens in data/error.log, statt spurlos zu verschwinden.
+function log_error($message) {
+    $dir = __DIR__ . '/data';
+    if (!is_dir($dir)) {
+        @mkdir($dir, 0755, true);
+    }
+    @file_put_contents($dir . '/error.log', '[' . date('c') . '] ' . $message . "\n", FILE_APPEND | LOCK_EX);
+}
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
     respond(false, 'Methode nicht erlaubt.');
@@ -44,10 +54,13 @@ $ip = $_SERVER['REMOTE_ADDR'] ?? '';
 if ($ip !== '') {
     $rateFile = $config['ratelimit_file'];
     $rateDir  = dirname($rateFile);
-    if (!is_dir($rateDir)) {
-        @mkdir($rateDir, 0755, true);
+    if (!is_dir($rateDir) && !@mkdir($rateDir, 0755, true)) {
+        log_error("Rate-Limit: Verzeichnis konnte nicht angelegt werden: {$rateDir}");
     }
     $rfp = @fopen($rateFile, 'c+');
+    if ($rfp === false) {
+        log_error("Rate-Limit: Datei konnte nicht geöffnet werden: {$rateFile}");
+    }
     if ($rfp !== false) {
         if (flock($rfp, LOCK_EX)) {
             $raw   = stream_get_contents($rfp);
@@ -107,12 +120,13 @@ $entry = [
 /* --- In JSON-Datei speichern (mit Lock) --- */
 $file = $config['data_file'];
 $dir  = dirname($file);
-if (!is_dir($dir)) {
-    @mkdir($dir, 0755, true);
+if (!is_dir($dir) && !@mkdir($dir, 0755, true)) {
+    log_error("Nachrichten-Verzeichnis konnte nicht angelegt werden: {$dir}");
 }
 
 $fp = @fopen($file, 'c+');
 if ($fp === false) {
+    log_error("Nachrichten-Datei konnte nicht geöffnet werden: {$file}");
     http_response_code(500);
     respond(false, 'Speichern nicht möglich.');
 }
@@ -137,7 +151,9 @@ if (!empty($config['notify_email'])) {
     $body .= "Nachricht:\n{$message}\n";
     $headers = 'From: Kontaktformular STB Atelier <no-reply@' . ($_SERVER['SERVER_NAME'] ?? 'stbatelier.ch') . ">\r\n";
     $headers .= 'Reply-To: ' . $email . "\r\n";
-    @mail($config['notify_email'], $subject, $body, $headers);
+    if (!@mail($config['notify_email'], $subject, $body, $headers)) {
+        log_error("Benachrichtigungs-Mail konnte nicht gesendet werden an {$config['notify_email']}");
+    }
 }
 
 respond(true);
