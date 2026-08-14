@@ -53,6 +53,21 @@ eure Änderungen wären beim nächsten Build wieder weg.
 `datenschutz.html`/`impressum.html` nutzen bewusst `header-legal.html`
 (kein Sprachumschalter, feste deutsche Texte) statt `header.html`.
 
+## Qualitätssicherung
+- **Übersetzungen prüfen:** `translations.js` enthält de/en/it als ein
+  grosses JS-Objekt. Fehlt in einer Sprache ein Key, fällt das im Browser
+  nicht auf (der zuletzt gesetzte Text bleibt einfach stehen). Wer Node.js
+  installiert hat, kann das automatisiert prüfen:
+  ```bash
+  node tools/check-translations.js
+  ```
+  Meldet fehlende oder leere Keys pro Sprache. Rein optional – ohne
+  Node.js hat das keinerlei Einfluss auf die Website. `php build.php` ruft
+  diesen Check automatisch mit auf, **falls** Node.js gefunden wird
+  (informativ, bricht den Build nie ab).
+- **PHP-Syntax prüfen** (falls an `contact.php`/`admin.php`/`config.php`
+  etwas geändert wurde): `php -l <datei>`.
+
 ## Buchung
 Es gibt **kein eigenes Reservierungssystem**. Alle „Book now" / „Booking" /
 „Book on Treatwell" Buttons verlinken direkt auf Treatwell:

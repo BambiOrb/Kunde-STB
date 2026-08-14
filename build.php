@@ -55,3 +55,15 @@ foreach ($pages as $pagePath) {
 }
 
 echo "\n{$built} Seite(n) erzeugt.\n";
+
+/* --- Optionaler Übersetzungs-Check (nur falls Node.js verfügbar ist) --- */
+// Rein informativ: bricht den Build nie ab, auch nicht bei fehlenden Keys.
+// Wer kein Node installiert hat, sieht diesen Abschnitt einfach nicht.
+$nodeCheck = $root . '/tools/check-translations.js';
+if (is_file($nodeCheck)) {
+    $nodePath = trim((string) @shell_exec('command -v node 2>/dev/null'));
+    if ($nodePath !== '') {
+        echo "\n--- Übersetzungs-Check (translations.js) ---\n";
+        echo shell_exec('node ' . escapeshellarg($nodeCheck) . ' 2>&1');
+    }
+}

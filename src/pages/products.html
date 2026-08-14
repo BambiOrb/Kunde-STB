@@ -11,30 +11,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="stylesheet.css">
-<style>
-  /* Products page specific */
-  .line-head{text-align:center;margin:70px 0 10px}
-  .line-head h3{font-size:clamp(2.4rem,6vw,4rem);color:var(--gold);font-family:var(--serif);font-weight:400}
-  .line-head p{color:var(--ink);font-size:1.1rem;max-width:760px;margin:10px auto 40px;text-align:center}
-
-  .prod-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
-  .prod-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:30px;max-width:820px;margin:0 auto}
-
-  .prod-item{text-align:left}
-  .prod-item img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;display:block;margin-bottom:16px}
-  .prod-item .pname{font-family:var(--serif);font-size:1.2rem;line-height:1.4}
-  .prod-item .pname span{color:var(--gold)}
-
-  /* Best sellers: 2-col on this page */
-  .sellers-2{display:grid;grid-template-columns:repeat(2,1fr);gap:30px;max-width:900px;margin:0 auto}
-  .sellers-2 .prod-item img{aspect-ratio:4/3}
-
-  @media(max-width:820px){
-    .prod-grid-3{grid-template-columns:1fr}
-    .prod-grid-2{grid-template-columns:1fr}
-    .sellers-2{grid-template-columns:1fr}
-  }
-</style>
 </head>
 <body id="top">
 
@@ -43,7 +19,7 @@
 <!-- Hero -->
 <section class="sellers page-hero" id="products">
   <div class="wrap">
-    <h2 class="sec-title reveal center" style="margin:0 auto"><span class="g" data-i18n="products_title">Products</span></h2>
+    <h2 class="sec-title reveal center mx-auto"><span class="g" data-i18n="products_title">Products</span></h2>
     <p class="reveal" style="text-align:center;max-width:820px;margin:22px auto 0" data-i18n-html="products_text">We select only high-quality, professional products, chosen for visible and lasting results. We use nothing less than the best, because every detail matters.</p>
     <div class="center" style="margin-top:28px">
       <a href="https://www.stbatelier.ch/blank-3" target="_blank" rel="noopener" class="btn btn-flat" data-i18n="sellers_btn">View all</a>
@@ -51,12 +27,12 @@
   </div>
 </section>
 
-<section class="sellers" style="padding-top:10px">
+<section class="sellers pt-10">
   <div class="wrap">
 
     <!-- Best Sellers -->
     <h2 class="sec-title reveal"><span class="g" data-i18n="sellers_title">Best</span> <span class="w" data-i18n="sellers_title2">Sellers</span></h2>
-    <div class="sellers-2" style="margin-top:30px">
+    <div class="sellers-2 mt-30">
       <div class="prod-item reveal">
         <img src="img/product_loop.png" alt="Loop – Curly Definition Fluid">
         <div class="pname"><span>Loop</span> | Curly DefinitionFluid</div>
@@ -174,7 +150,7 @@
         <div class="pname"><span>Loop</span> | Curly DefinitionFluid</div>
       </div>
     </div>
-    <div class="prod-grid-2" style="margin-top:30px">
+    <div class="prod-grid-2 mt-30">
       <div class="prod-item reveal">
         <img src="img/product_overup.jpg" alt="Overup – Extra Strong Progressive Spray">
         <div class="pname"><span>Overup</span> | Extra Strong Progressive Spray</div>
@@ -184,7 +160,7 @@
         <div class="pname"><span>Ruby</span> | Anti-Frizz Serum</div>
       </div>
     </div>
-    <div class="prod-grid-3" style="margin-top:30px">
+    <div class="prod-grid-3 mt-30">
       <div class="prod-item reveal">
         <img src="img/emery.png" alt="Emery – Restructuring Spray">
         <div class="pname"><span>Emery</span> | Restructuring Spray</div>
