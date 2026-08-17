@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# about-us (ohne www, ohne .html) -> about-us.html
+RewriteCond %{HTTP_HOST} ^www\.stbatelier\.ch$ [OR]
+RewriteCond %{REQUEST_URI} ^/about-us$
+RewriteRule ^about-us$ /about-us.html [R=301,L]
+
+# www -> non-www (falls noch nicht vorhanden)
+RewriteCond %{HTTP_HOST} ^www\.stbatelier\.ch$ [NC]
+RewriteRule ^(.*)$ https://stbatelier.ch/$1 [R=301,L]
