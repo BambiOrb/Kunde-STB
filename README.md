@@ -21,7 +21,52 @@ Bilder und längere Originaltexte sind Platzhalter (siehe unten).
 | `script.js`      | Mobile-Menü, aktiver Nav-Link je Seite, Reveal, Kontaktformular |
 | `contact.php`    | Nimmt das Kontaktformular entgegen, speichert + mailt         |
 | `admin.php`      | Passwortgeschütztes Dashboard für Kontaktanfragen             |
-| `config.php`     | Konfiguration (Login, Empfänger-Mail, Pfade)                  |
+| `config.php`     | Konfiguration (liest Login/Empfänger-Mail aus config.local.php bzw. Umgebungsvariablen, siehe unten) |
+| `config.local.php.example` | Vorlage für lokale Zugangsdaten – kopieren nach `config.local.php` (nicht eingecheckt) |
+
+## ⚠️ Wo editieren? `src/` ist die Quelle, die Root-Dateien sind der Build
+Header, Navigation, Footer und die Script-Tags waren früher in allen 8
+HTML-Seiten von Hand dupliziert (jede Änderung = 8× copy-paste, leicht
+auseinanderdriftend). Das ist jetzt aufgelöst:
+
+```
+src/
+  partials/    ← Header (2 Varianten), Footer, Script-Tags – einmal pflegen
+  pages/       ← eine Datei pro Seite, referenziert die partials
+build.php      ← baut daraus die fertigen .html-Dateien in der Projektwurzel
+```
+
+**Workflow bei Änderungen:**
+1. Seiteninhalt ändern → in `src/pages/<seite>.html`.
+2. Header/Nav/Footer ändern → in `src/partials/header.html` (Hauptseiten),
+   `src/partials/header-legal.html` (Impressum/Datenschutz) bzw.
+   `src/partials/footer.html`.
+3. Bauen: `php build.php` – überschreibt `index.html`, `about-us.html` usw.
+   in der Projektwurzel.
+4. Wie gewohnt per FTP hochladen (nur die Root-`.html`-Dateien werden auf
+   den Server geladen, `src/` und `build.php` bleiben lokal/im Repo).
+
+**Nicht mehr direkt** in `index.html`, `about-us.html` etc. editieren –
+diese Dateien werden bei jedem `php build.php` aus `src/` neu erzeugt und
+eure Änderungen wären beim nächsten Build wieder weg.
+
+`datenschutz.html`/`impressum.html` nutzen bewusst `header-legal.html`
+(kein Sprachumschalter, feste deutsche Texte) statt `header.html`.
+
+## Qualitätssicherung
+- **Übersetzungen prüfen:** `translations.js` enthält de/en/it als ein
+  grosses JS-Objekt. Fehlt in einer Sprache ein Key, fällt das im Browser
+  nicht auf (der zuletzt gesetzte Text bleibt einfach stehen). Wer Node.js
+  installiert hat, kann das automatisiert prüfen:
+  ```bash
+  node tools/check-translations.js
+  ```
+  Meldet fehlende oder leere Keys pro Sprache. Rein optional – ohne
+  Node.js hat das keinerlei Einfluss auf die Website. `php build.php` ruft
+  diesen Check automatisch mit auf, **falls** Node.js gefunden wird
+  (informativ, bricht den Build nie ab).
+- **PHP-Syntax prüfen** (falls an `contact.php`/`admin.php`/`config.php`
+  etwas geändert wurde): `php -l <datei>`.
 
 ## Buchung
 Es gibt **kein eigenes Reservierungssystem**. Alle „Book now" / „Booking" /
@@ -37,9 +82,38 @@ PHP nötig für Formular + Admin:
 php -S localhost:8000
 ```
 - Website:  http://localhost:8000/index.html
-- Admin:    http://localhost:8000/admin.php  (Default: admin / stb-admin-2026)
+- Admin:    http://localhost:8000/admin.php
 
 Reines Design-Anschauen geht auch ohne PHP (HTML direkt öffnen).
+
+## Admin-Zugang einrichten
+Es gibt **keinen eingebauten Default-Login** mehr – ohne Einrichtung bleibt
+`admin.php` gesperrt. Zugangsdaten werden **nicht** im Code gespeichert,
+sondern entweder über eine lokale, nicht eingecheckte Datei oder über
+Umgebungsvariablen bereitgestellt (siehe `config.php`).
+
+**Variante A – lokale Datei (empfohlen für eigenes Hosting):**
+```bash
+cp config.local.php.example config.local.php
+php -r "echo password_hash('DEIN_PASSWORT', PASSWORD_DEFAULT);"
+```
+Den ausgegebenen Hash zusammen mit dem gewünschten Benutzernamen in
+`config.local.php` eintragen. Diese Datei ist in `.gitignore` und wird nie
+committed.
+
+**Variante B – Umgebungsvariablen** (z. B. wenn das Hosting kein Anlegen
+lokaler Dateien erlaubt): `STB_ADMIN_USER` und `STB_ADMIN_HASH` setzen.
+
+⚠️ Falls das alte Default-Passwort (`stb-admin-2026`) jemals produktiv im
+Einsatz war: als kompromittiert behandeln und nicht wiederverwenden – es
+stand zuvor im Klartext-Code und in dieser README.
+
+## Sicherheit im Kontaktformular
+- Verstecktes Honeypot-Feld (`website`) filtert einfache Bots.
+- Rate-Limit von 30 Sekunden pro IP-Adresse gegen Formular-Flooding.
+- Löschen im Admin-Dashboard ist per CSRF-Token abgesichert.
+- `data/` (Kontaktanfragen) und `config.local.php` (Zugangsdaten) sind über
+  `.gitignore` von Commits ausgeschlossen.
 
 ## Logo
 Aktuell ein Platzhalter unter `assets/img/logo.svg`. Euer echtes Logo einfach

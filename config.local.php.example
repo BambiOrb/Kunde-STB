@@ -1,0 +1,19 @@
+<?php
+/**
+ * STB Atelier – lokale/produktive Zugangsdaten
+ * --------------------------------------------------------
+ * Diese Datei ist eine Vorlage. Kopieren nach "config.local.php"
+ * (dieser Name ist in .gitignore und wird NIE eingecheckt) und
+ * eigene Werte eintragen.
+ *
+ * Hash für ein neues Passwort erzeugen:
+ *   php -r "echo password_hash('DEIN_PASSWORT', PASSWORD_DEFAULT);"
+ */
+
+return [
+    'admin_user' => 'admin',
+    'admin_hash' => 'HIER_DEN_ERZEUGTEN_HASH_EINSETZEN',
+
+    // Optional – überschreibt den Wert aus config.php:
+    // 'notify_email' => 'deine@mail.ch',
+];

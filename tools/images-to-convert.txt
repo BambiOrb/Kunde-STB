@@ -1,0 +1,17 @@
+img/DS.jpg
+img/diode-laser.png
+img/facialcleansing.png
+img/lett1.png
+img/lett2.png
+img/lett3.png
+img/logo-ohnehg.png
+img/massaggi2.png
+img/olds2.png
+img/olds4.png
+img/olds5.png
+img/promos/promo-aug-de.png
+img/promos/promo-aug-en.png
+img/promos/promo-aug-it.jpg
+img/realism1.png
+img/realism2.png
+img/realism3.png

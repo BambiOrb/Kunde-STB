@@ -102,7 +102,8 @@
         firstName: form.firstName.value.trim(),
         lastName:  form.lastName.value.trim(),
         email:     form.email.value.trim(),
-        message:   form.message.value.trim()
+        message:   form.message.value.trim(),
+        website:   form.website ? form.website.value.trim() : '' // Honeypot, muss leer bleiben
       };
       if (!data.email) {
         msg.classList.add('err');

@@ -1,0 +1,16 @@
+# Secrets – niemals einchecken (siehe config.php / config.local.php.example)
+config.local.php
+
+# Nutzerdaten aus dem Kontaktformular (personenbezogen, DSG/DSGVO-relevant)
+data/
+
+# Rate-Limit-Zustand des Kontaktformulars
+data/ratelimit.json
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Editor
+.vscode/*
+!.vscode/settings.json
