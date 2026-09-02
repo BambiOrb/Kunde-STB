@@ -12,6 +12,7 @@ img/olds5.png
 img/promos/promo-aug-de.png
 img/promos/promo-aug-en.png
 img/promos/promo-aug-it.jpg
+img/promos/promo-sept.jpeg
 img/realism1.png
 img/realism2.png
 img/realism3.png
