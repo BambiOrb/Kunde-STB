@@ -696,39 +696,16 @@ body.beauty-page .soon-banner{border-color:rgba(95,176,196,.4);
 body.beauty-page .soon-banner .dot{background:#4d97a9;box-shadow:0 0 0 0 rgba(77,151,169,.6)}
 body.beauty-page .soon-banner .txt{color:#3d7686}
 
-/* Nuvole/riflessi morbidi sullo sfondo dell'hero */
-body.beauty-page .page-hero{position:relative;overflow:hidden}
-body.beauty-page .page-hero::before,
-body.beauty-page .page-hero::after{content:"";position:absolute;border-radius:50%;
-  filter:blur(50px);opacity:.5;z-index:0;pointer-events:none;animation:cloudDrift 18s ease-in-out infinite}
-body.beauty-page .page-hero::before{width:340px;height:220px;background:#ffffff;top:-60px;left:-60px}
-body.beauty-page .page-hero::after{width:300px;height:200px;background:var(--bg-3);bottom:-80px;right:-40px;animation-delay:-9s}
-@keyframes cloudDrift{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,18px)}}
-body.beauty-page .page-hero>*{position:relative;z-index:1}
-
-/* Cascata (effetto "wow" ben visibile) */
-body.beauty-page .beauty-waterfall{position:relative;height:190px;max-width:560px;
-  margin:36px auto 6px;display:flex;justify-content:center;align-items:flex-start;gap:9px;
-  overflow:hidden;border-radius:0 0 80px 80px}
-body.beauty-page .beauty-waterfall span{position:relative;width:14px;height:100%;border-radius:100px;
-  background:repeating-linear-gradient(180deg,
-    #ffffff 0px,#ffffff 3px,
-    var(--gold-bright) 3px,var(--gold-bright) 13px,
-    #ffffff 13px,#ffffff 16px,
-    var(--gold) 16px,var(--gold) 30px);
-  background-size:100% 30px;
-  filter:drop-shadow(0 0 5px rgba(255,255,255,.8));
-  animation:waterFall .8s linear infinite}
-body.beauty-page .beauty-waterfall span:nth-child(2){animation-duration:.65s;opacity:.85;height:92%}
-body.beauty-page .beauty-waterfall span:nth-child(3){animation-duration:.95s;height:100%}
-body.beauty-page .beauty-waterfall span:nth-child(4){animation-duration:.7s;opacity:.8;height:88%}
-body.beauty-page .beauty-waterfall span:nth-child(5){animation-duration:.9s;opacity:.9;height:96%}
-@keyframes waterFall{from{background-position-y:0}to{background-position-y:30px}}
-body.beauty-page .beauty-waterfall::after{content:"";position:absolute;left:6%;right:6%;bottom:-6px;
-  height:34px;border-radius:50%;
-  background:radial-gradient(ellipse at center,rgba(255,255,255,.95),rgba(207,232,237,.35) 60%,transparent 75%);
-  filter:blur(5px);animation:mistPulse 2s ease-in-out infinite}
-@keyframes mistPulse{0%,100%{opacity:.6;transform:scale(1)}50%{opacity:1;transform:scale(1.1)}}
+/* Video reale (oceano/rocce) come sfondo di TUTTA la sezione Beauty (header escluso) */
+body.beauty-page .page-hero{position:relative;overflow:hidden;
+  min-height:calc(100svh - 128px);display:flex;flex-direction:column;
+  align-items:center;justify-content:center;padding:40px 20px;text-align:center}
+body.beauty-page .beauty-video-bg{position:absolute;inset:0;z-index:0;
+  width:100%;height:100%;object-fit:cover;object-position:center}
+/* Velo chiaro sopra il video (stesso tono di --bg) per mantenere il testo leggibile */
+body.beauty-page .page-hero::before{content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(238,247,249,.55) 0%,rgba(238,247,249,.72) 55%,rgba(238,247,249,.9) 100%)}
+body.beauty-page .page-hero>*:not(.beauty-video-bg){position:relative;z-index:2}
 
 body.beauty-page .beauty-preview{text-align:center;margin:20px 0 60px;position:relative;z-index:1}
 
