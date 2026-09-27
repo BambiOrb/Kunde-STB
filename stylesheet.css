@@ -661,3 +661,92 @@ body{font-size:1.05rem;letter-spacing:.005em;font-weight:400}
 .products-banner,
 .sellers{display:none!important}
 /* ====================================================================================== */
+
+/* ============================================================
+   BEAUTY — tema azzurro/bianco, natura e acqua (anteprima nuovo sito)
+   Attivo solo su beauty.html tramite <body class="beauty-page">
+   ============================================================ */
+body.beauty-page{
+  --bg:#eef7f9;
+  --bg-2:#e1f0f3;
+  --bg-3:#cfe8ed;
+  --ink:#22333a;
+  --muted:#5d7680;
+  --gold:#5fb0c4;
+  --gold-bright:#8fd2e0;
+  --line:rgba(30,60,70,.15);
+  --line-soft:rgba(30,60,70,.08);
+  --white-btn:#ffffff;
+}
+body.beauty-page{animation:beautyFadeIn .9s ease both}
+@keyframes beautyFadeIn{from{opacity:0}to{opacity:1}}
+
+/* Correzioni: colori scritti a mano nel CSS, pensati per il tema scuro */
+body.beauty-page .nav-links a.active,
+body.beauty-page .nav-links a:hover{color:var(--ink)}
+body.beauty-page .burger span{background:var(--ink)}
+body.beauty-page .lang-switcher button{border-color:rgba(30,60,70,.2)}
+body.beauty-page .lang-switcher button.active{background:rgba(95,176,196,.16)}
+/* Logo: presumo chiaro (pensato per sfondo scuro) — appiattito a nero come default sicuro.
+   Se il logo ha già colori scuri, rimuovi questa riga. */
+body.beauty-page .logo-img{filter:brightness(0)}
+
+body.beauty-page .soon-banner{border-color:rgba(95,176,196,.4);
+  background:linear-gradient(110deg,rgba(95,176,196,.08),rgba(95,176,196,.2),rgba(95,176,196,.08))}
+body.beauty-page .soon-banner .dot{background:#4d97a9;box-shadow:0 0 0 0 rgba(77,151,169,.6)}
+body.beauty-page .soon-banner .txt{color:#3d7686}
+
+/* Nuvole/riflessi morbidi sullo sfondo dell'hero */
+body.beauty-page .page-hero{position:relative;overflow:hidden}
+body.beauty-page .page-hero::before,
+body.beauty-page .page-hero::after{content:"";position:absolute;border-radius:50%;
+  filter:blur(50px);opacity:.5;z-index:0;pointer-events:none;animation:cloudDrift 18s ease-in-out infinite}
+body.beauty-page .page-hero::before{width:340px;height:220px;background:#ffffff;top:-60px;left:-60px}
+body.beauty-page .page-hero::after{width:300px;height:200px;background:var(--bg-3);bottom:-80px;right:-40px;animation-delay:-9s}
+@keyframes cloudDrift{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,18px)}}
+body.beauty-page .page-hero>*{position:relative;z-index:1}
+
+/* Cascata (effetto "wow" ben visibile) */
+body.beauty-page .beauty-waterfall{position:relative;height:190px;max-width:560px;
+  margin:36px auto 6px;display:flex;justify-content:center;align-items:flex-start;gap:9px;
+  overflow:hidden;border-radius:0 0 80px 80px}
+body.beauty-page .beauty-waterfall span{position:relative;width:14px;height:100%;border-radius:100px;
+  background:repeating-linear-gradient(180deg,
+    #ffffff 0px,#ffffff 3px,
+    var(--gold-bright) 3px,var(--gold-bright) 13px,
+    #ffffff 13px,#ffffff 16px,
+    var(--gold) 16px,var(--gold) 30px);
+  background-size:100% 30px;
+  filter:drop-shadow(0 0 5px rgba(255,255,255,.8));
+  animation:waterFall .8s linear infinite}
+body.beauty-page .beauty-waterfall span:nth-child(2){animation-duration:.65s;opacity:.85;height:92%}
+body.beauty-page .beauty-waterfall span:nth-child(3){animation-duration:.95s;height:100%}
+body.beauty-page .beauty-waterfall span:nth-child(4){animation-duration:.7s;opacity:.8;height:88%}
+body.beauty-page .beauty-waterfall span:nth-child(5){animation-duration:.9s;opacity:.9;height:96%}
+@keyframes waterFall{from{background-position-y:0}to{background-position-y:30px}}
+body.beauty-page .beauty-waterfall::after{content:"";position:absolute;left:6%;right:6%;bottom:-6px;
+  height:34px;border-radius:50%;
+  background:radial-gradient(ellipse at center,rgba(255,255,255,.95),rgba(207,232,237,.35) 60%,transparent 75%);
+  filter:blur(5px);animation:mistPulse 2s ease-in-out infinite}
+@keyframes mistPulse{0%,100%{opacity:.6;transform:scale(1)}50%{opacity:1;transform:scale(1.1)}}
+
+body.beauty-page .beauty-preview{text-align:center;margin:20px 0 60px;position:relative;z-index:1}
+
+/* ============================================================
+   Portale verso Beauty — attivo su TUTTE le pagine (click sul link nav)
+   ============================================================ */
+.beauty-portal{position:fixed;inset:0;z-index:9999;pointer-events:none;
+  background:radial-gradient(circle at var(--px,50%) var(--py,50%),#ffffff 0%,#eef7f9 40%,#a9d8e2 100%);
+  clip-path:circle(0px at var(--px,50%) var(--py,50%));
+  transition:clip-path .75s cubic-bezier(.16,.84,.2,1)}
+.beauty-portal.run{clip-path:circle(160% at var(--px,50%) var(--py,50%))}
+.beauty-portal span{position:absolute;bottom:-20px;width:6px;height:6px;border-radius:50%;
+  background:radial-gradient(circle,#fff,transparent 70%);opacity:0;
+  animation:beautyRise 1.4s ease-out forwards}
+@keyframes beautyRise{0%{transform:translateY(0) scale(.6);opacity:0}
+  15%{opacity:.85}
+  100%{transform:translateY(-90px) scale(1.15);opacity:0}}
+
+body.portal-leaving{overflow:hidden}
+body.portal-leaving>*:not(.beauty-portal){transition:transform .6s ease,filter .6s ease;
+  transform:scale(.97);filter:blur(3px)}
