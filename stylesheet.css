@@ -682,14 +682,12 @@ body.beauty-page{animation:beautyFadeIn .9s ease both}
 @keyframes beautyFadeIn{from{opacity:0}to{opacity:1}}
 
 /* Correzioni: colori scritti a mano nel CSS, pensati per il tema scuro */
-body.beauty-page .nav-links a.active,
-body.beauty-page .nav-links a:hover{color:var(--ink)}
+body.beauty-page .nav-links a{color:var(--ink)}
+body.beauty-page .nav-links a.active{font-size:1.15em;font-weight:600}
 body.beauty-page .burger span{background:var(--ink)}
 body.beauty-page .lang-switcher button{border-color:rgba(30,60,70,.2)}
 body.beauty-page .lang-switcher button.active{background:rgba(95,176,196,.16)}
-/* Logo: presumo chiaro (pensato per sfondo scuro) — appiattito a nero come default sicuro.
-   Se il logo ha già colori scuri, rimuovi questa riga. */
-body.beauty-page .logo-img{filter:brightness(0)}
+/* Logo: presumo chiaro (pensato per sfondo scuro) — vedi override più sotto (header trasparente) */
 
 body.beauty-page .soon-banner{border-color:rgba(95,176,196,.4);
   background:linear-gradient(110deg,rgba(95,176,196,.08),rgba(95,176,196,.2),rgba(95,176,196,.08))}
@@ -700,19 +698,66 @@ body.beauty-page .soon-banner .txt{color:#3d7686}
 body.beauty-page .sec-title .g{color:#1c4750;
   text-shadow:0 1px 0 rgba(255,255,255,.5),0 12px 28px rgba(10,40,48,.4)}
 
-/* Testo sotto il titolo: font più elegante (corsivo) */
+/* Testo sotto il titolo: font più elegante (corsivo) + vetrino leggero per leggibilità */
 body.beauty-page .lead{font-family:var(--serif);font-style:italic;font-weight:400;
-  font-size:1.25rem;color:#2c3e44}
+  font-size:1.25rem;color:#2c3e44;display:inline-block;
+  background:rgba(255,255,255,.32);
+  -webkit-backdrop-filter:blur(12px) saturate(160%);
+  backdrop-filter:blur(12px) saturate(160%);
+  border-radius:20px;padding:14px 26px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5)}
 
-/* Bottone "Visita il nuovo sito": ora pieno ed evidenziato, non solo bordo */
-body.beauty-page .btn-outline{background:var(--gold);border:1px solid var(--gold);color:#fff;
-  box-shadow:0 10px 24px -8px rgba(31,91,104,.5)}
-body.beauty-page .btn-outline:hover{background:#4a97a8;border-color:#4a97a8}
+/* Bottone "Visita il nuovo sito": ben evidenziato, pieno + bagliore pulsante */
+body.beauty-page .btn-outline{background:#1c4750;border:1px solid #1c4750;color:#fff;
+  padding:16px 32px;font-weight:600;
+  box-shadow:0 14px 30px -10px rgba(15,50,58,.6);
+  animation:btnOutlineGlow 2.6s ease-in-out infinite}
+body.beauty-page .btn-outline:hover{background:#123138;border-color:#123138;transform:translateY(-2px)}
+@keyframes btnOutlineGlow{0%,100%{box-shadow:0 14px 30px -10px rgba(15,50,58,.6)}
+  50%{box-shadow:0 16px 42px -6px rgba(15,50,58,.85)}}
 
 /* Video reale (oceano/rocce) come sfondo di TUTTA la sezione Beauty (header escluso) */
+/* Header su Beauty: completamente trasparente, il "vetro" sta solo su menu e lingue (vedi sotto) */
+body.beauty-page .site-header{position:fixed;left:0;right:0;top:0;z-index:90;
+  background:transparent;box-shadow:none}
+body.beauty-page .site-header .nav-row{border-top-color:transparent}
+
+/* Menu mobile (hamburger aperto) su Beauty: pannello vetro, prima non aveva sfondo */
+@media(max-width:820px){
+  body.beauty-page .nav-links.open{
+    background:rgba(255,255,255,.6);
+    -webkit-backdrop-filter:blur(20px) saturate(180%);
+    backdrop-filter:blur(20px) saturate(180%);
+    border-radius:0 0 24px 24px;
+    padding:6px 20px 16px;
+    box-shadow:0 24px 50px -16px rgba(20,50,60,.35)}
+  body.beauty-page .nav-links li{border-top-color:rgba(30,60,70,.12)}
+}
+@media(min-width:821px){
+  body.beauty-page .nav-links{background:rgba(255,255,255,.42);
+    -webkit-backdrop-filter:blur(20px) saturate(180%);
+    backdrop-filter:blur(20px) saturate(180%);
+    border-radius:100px;padding:10px 26px;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.65),
+               inset 0 -1px 0 rgba(255,255,255,.15),
+               0 8px 24px -12px rgba(20,50,60,.25)}
+}
+/* Pillola "vetro satinato" attorno alle lingue */
+body.beauty-page .lang-switcher{background:rgba(255,255,255,.42);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  backdrop-filter:blur(20px) saturate(180%);
+  border-radius:100px;padding:6px 10px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.65),
+             inset 0 -1px 0 rgba(255,255,255,.15),
+             0 8px 24px -12px rgba(20,50,60,.25)}
+/* Link/lingua/logo: ombra per restare leggibili sul video in movimento */
+body.beauty-page .nav-links a{text-shadow:0 1px 3px rgba(0,0,0,.35),0 2px 14px rgba(255,255,255,.5)}
+body.beauty-page .lang-switcher button{text-shadow:0 1px 3px rgba(0,0,0,.3)}
+body.beauty-page .logo-img{filter:brightness(0) drop-shadow(0 2px 8px rgba(255,255,255,.55))}
+
 body.beauty-page .page-hero{position:relative;overflow:hidden;
-  min-height:calc(100svh - 128px);display:flex;flex-direction:column;
-  align-items:center;justify-content:center;padding:40px 20px;text-align:center}
+  min-height:100svh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;padding:175px 20px 40px;text-align:center}
 body.beauty-page .beauty-video-bg{position:absolute;inset:0;z-index:0;
   width:100%;height:100%;object-fit:cover;object-position:center}
 /* Velo chiaro sopra il video (stesso tono di --bg) per mantenere il testo leggibile */
@@ -723,7 +768,7 @@ body.beauty-page .page-hero>*:not(.beauty-video-bg){position:relative;z-index:2}
 body.beauty-page .beauty-preview{text-align:center;margin:20px 0 60px;position:relative;z-index:1}
 
 /* Carosello "foto moderna" del nuovo sito — angoli molto arrotondati, ombra profonda per effetto 3D */
-body.beauty-page .beauty-carousel{position:relative;width:min(80vw,480px);margin:0 auto 28px;
+body.beauty-page .beauty-carousel{position:relative;width:min(80vw,540px);margin:0 auto 28px;
   border-radius:26px;overflow:hidden;
   box-shadow:0 45px 80px -24px rgba(20,55,65,.45),
              0 18px 34px -14px rgba(20,55,65,.3),
@@ -751,8 +796,6 @@ body.beauty-page .beauty-carousel-dot{width:8px;height:8px;border-radius:50%;bor
 body.beauty-page .beauty-carousel-dot.is-active{background:#fff;transform:scale(1.3)}
 
 body.beauty-page .beauty-actions-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-body.beauty-page .btn-outline{background:transparent;border:1px solid var(--ink);color:var(--ink)}
-body.beauty-page .btn-outline:hover{background:var(--ink);color:var(--white-btn)}
 
 /* ============================================================
    Transizione tra pagine — fade nativo del browser (Chrome/Edge/Safari;

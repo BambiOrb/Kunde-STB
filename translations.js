@@ -422,7 +422,7 @@ const STB_TRANSLATIONS = {
 
     beauty_soon: "In arrivo",
     beauty_title: "Beauty",
-    beauty_lead: "Un nuovo mondo Beauty sta per aprirsi: calma, natura e benessere in un'esperienza tutta nuova.",
+    beauty_lead: "Il nuovo mondo Beauty sta prendendo forma: calma, natura e benessere in un'esperienza tutta nuova.",
     beauty_note: "Per prenderci cura di te al meglio, i trattamenti laser e di radiofrequenza iniziano sempre con una consulenza gratuita. Prenota online quando preferisci: ti contatteremo via WhatsApp o telefono per fissare insieme il tuo appuntamento.",    
     beauty_btn: "Prenota",
     beauty_visit_btn: "Visita il nuovo sito",
