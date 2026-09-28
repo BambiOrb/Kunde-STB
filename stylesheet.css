@@ -742,20 +742,15 @@ body.beauty-page .btn-outline{background:transparent;border:1px solid var(--ink)
 body.beauty-page .btn-outline:hover{background:var(--ink);color:var(--white-btn)}
 
 /* ============================================================
-   Portale verso Beauty — attivo su TUTTE le pagine (click sul link nav)
+   Transizione tra pagine — fade nativo del browser (Chrome/Edge/Safari;
+   su Firefox naviga normalmente, senza effetto, nessun errore)
    ============================================================ */
-.beauty-portal{position:fixed;inset:0;z-index:9999;pointer-events:none;
-  background:radial-gradient(circle at var(--px,50%) var(--py,50%),#ffffff 0%,#eef7f9 40%,#a9d8e2 100%);
-  clip-path:circle(0px at var(--px,50%) var(--py,50%));
-  transition:clip-path .75s cubic-bezier(.16,.84,.2,1)}
-.beauty-portal.run{clip-path:circle(160% at var(--px,50%) var(--py,50%))}
-.beauty-portal span{position:absolute;bottom:-20px;width:6px;height:6px;border-radius:50%;
-  background:radial-gradient(circle,#fff,transparent 70%);opacity:0;
-  animation:beautyRise 1.4s ease-out forwards}
-@keyframes beautyRise{0%{transform:translateY(0) scale(.6);opacity:0}
-  15%{opacity:.85}
-  100%{transform:translateY(-90px) scale(1.15);opacity:0}}
-
-body.portal-leaving{overflow:hidden}
-body.portal-leaving>*:not(.beauty-portal){transition:transform .6s ease,filter .6s ease;
-  transform:scale(.97);filter:blur(3px)}
+@view-transition{
+  navigation:auto;
+}
+/* Header: resta visivamente continuo passando da una pagina all'altra */
+.site-header{view-transition-name:site-header}
+/* "Beauty" nel menu si trasforma nel titolo "Beauty" della pagina (magic move) */
+.nav-links a[data-page="beauty"]{view-transition-name:nav-beauty}
+.nav-links a[data-page="beauty"].active{view-transition-name:none}
+body.beauty-page .sec-title{view-transition-name:nav-beauty}

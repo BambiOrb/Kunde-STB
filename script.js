@@ -22,34 +22,6 @@
     });
   }
 
-  /* ---- Transizione "portale" verso la sezione Beauty ---- */
-  document.querySelectorAll('a[data-page="beauty"]').forEach(function (link) {
-    link.addEventListener('click', function (ev) {
-      if (link.classList.contains('active')) return; // già sulla pagina Beauty
-      var href = link.getAttribute('href');
-      if (!href) return;
-      ev.preventDefault();
-      var rect = link.getBoundingClientRect();
-      var px = rect.left + rect.width / 2;
-      var py = rect.top + rect.height / 2;
-      var portal = document.createElement('div');
-      portal.className = 'beauty-portal';
-      portal.style.setProperty('--px', px + 'px');
-      portal.style.setProperty('--py', py + 'px');
-      for (var i = 0; i < 10; i++) {
-        var p = document.createElement('span');
-        p.style.left = (40 + Math.random() * 20) + '%';
-        p.style.top = (40 + Math.random() * 20) + '%';
-        p.style.animationDelay = (Math.random() * .5) + 's';
-        portal.appendChild(p);
-      }
-      document.body.appendChild(portal);
-      document.body.classList.add('portal-leaving');
-      requestAnimationFrame(function () { portal.classList.add('run'); });
-      setTimeout(function () { window.location.href = href; }, 700);
-    });
-  });
-
   /* ---- Beauty: carosello anteprima nuovo sito ---- */
   var beautyCarousel = document.querySelector('.beauty-carousel');
   if (beautyCarousel) {
