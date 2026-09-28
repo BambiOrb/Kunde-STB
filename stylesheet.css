@@ -709,6 +709,20 @@ body.beauty-page .page-hero>*:not(.beauty-video-bg){position:relative;z-index:2}
 
 body.beauty-page .beauty-preview{text-align:center;margin:20px 0 60px;position:relative;z-index:1}
 
+/* Mockup "foto moderna" del nuovo sito — dritto, angoli molto arrotondati, ombra profonda per effetto 3D */
+body.beauty-page .beauty-mockup{display:inline-block;margin:0 0 28px;
+  animation:mockupFloat 5.5s ease-in-out infinite}
+body.beauty-page .beauty-mockup-img{display:block;width:min(80vw,480px);height:auto;
+  border-radius:26px;
+  box-shadow:0 45px 80px -24px rgba(20,55,65,.45),
+             0 18px 34px -14px rgba(20,55,65,.3),
+             0 4px 10px rgba(20,55,65,.12)}
+@keyframes mockupFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+body.beauty-page .beauty-actions-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+body.beauty-page .btn-outline{background:transparent;border:1px solid var(--ink);color:var(--ink)}
+body.beauty-page .btn-outline:hover{background:var(--ink);color:var(--white-btn)}
+
 /* ============================================================
    Portale verso Beauty — attivo su TUTTE le pagine (click sul link nav)
    ============================================================ */
