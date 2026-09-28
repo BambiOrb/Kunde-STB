@@ -696,6 +696,19 @@ body.beauty-page .soon-banner{border-color:rgba(95,176,196,.4);
 body.beauty-page .soon-banner .dot{background:#4d97a9;box-shadow:0 0 0 0 rgba(77,151,169,.6)}
 body.beauty-page .soon-banner .txt{color:#3d7686}
 
+/* Titolo "Beauty": era poco leggibile sul video (colore troppo simile all'azzurro) */
+body.beauty-page .sec-title .g{color:#1c4750;
+  text-shadow:0 1px 0 rgba(255,255,255,.5),0 12px 28px rgba(10,40,48,.4)}
+
+/* Testo sotto il titolo: font più elegante (corsivo) */
+body.beauty-page .lead{font-family:var(--serif);font-style:italic;font-weight:400;
+  font-size:1.25rem;color:#2c3e44}
+
+/* Bottone "Visita il nuovo sito": ora pieno ed evidenziato, non solo bordo */
+body.beauty-page .btn-outline{background:var(--gold);border:1px solid var(--gold);color:#fff;
+  box-shadow:0 10px 24px -8px rgba(31,91,104,.5)}
+body.beauty-page .btn-outline:hover{background:#4a97a8;border-color:#4a97a8}
+
 /* Video reale (oceano/rocce) come sfondo di TUTTA la sezione Beauty (header escluso) */
 body.beauty-page .page-hero{position:relative;overflow:hidden;
   min-height:calc(100svh - 128px);display:flex;flex-direction:column;
