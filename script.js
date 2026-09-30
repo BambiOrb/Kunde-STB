@@ -22,6 +22,48 @@
     });
   }
 
+  /* ---- Beauty: carosello anteprima nuovo sito ---- */
+  var beautyCarousel = document.querySelector('.beauty-carousel');
+  if (beautyCarousel) {
+    var bcTrack = beautyCarousel.querySelector('.beauty-carousel-track');
+    var bcSlides = beautyCarousel.querySelectorAll('.beauty-slide');
+    var bcDots = beautyCarousel.querySelectorAll('.beauty-carousel-dot');
+    var bcPrev = beautyCarousel.querySelector('.beauty-carousel-arrow.prev');
+    var bcNext = beautyCarousel.querySelector('.beauty-carousel-arrow.next');
+    var bcIndex = 0;
+    var bcTotal = bcSlides.length;
+    var bcTimer = null;
+
+    var bcGoTo = function (i) {
+      bcIndex = (i + bcTotal) % bcTotal;
+      bcTrack.style.transform = 'translateX(-' + (bcIndex * 100) + '%)';
+      bcDots.forEach(function (d, di) { d.classList.toggle('is-active', di === bcIndex); });
+    };
+    var bcNextSlide = function () { bcGoTo(bcIndex + 1); };
+    var bcPrevSlide = function () { bcGoTo(bcIndex - 1); };
+    var bcStop = function () { if (bcTimer) clearInterval(bcTimer); };
+    var bcStart = function () { bcStop(); bcTimer = setInterval(bcNextSlide, 4500); };
+    var bcRestart = function () { bcStart(); };
+
+    if (bcNext) bcNext.addEventListener('click', function () { bcNextSlide(); bcRestart(); });
+    if (bcPrev) bcPrev.addEventListener('click', function () { bcPrevSlide(); bcRestart(); });
+    bcDots.forEach(function (d, di) {
+      d.addEventListener('click', function () { bcGoTo(di); bcRestart(); });
+    });
+
+    var bcStartX = null;
+    bcTrack.addEventListener('touchstart', function (e) { bcStartX = e.touches[0].clientX; }, { passive: true });
+    bcTrack.addEventListener('touchend', function (e) {
+      if (bcStartX === null) return;
+      var dx = e.changedTouches[0].clientX - bcStartX;
+      if (Math.abs(dx) > 40) { if (dx < 0) bcNextSlide(); else bcPrevSlide(); bcRestart(); }
+      bcStartX = null;
+    });
+
+    bcGoTo(0);
+    bcStart();
+  }
+
   /* ---- Reveal on scroll ---- */
   var revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {

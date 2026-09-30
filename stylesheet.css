@@ -594,6 +594,7 @@ body{font-size:1.05rem;letter-spacing:.005em;font-weight:400}
 @keyframes soonShimmer{0%,100%{background-position:0% 0}50%{background-position:100% 0}}
 @keyframes soonPulse{0%{box-shadow:0 0 0 0 rgba(201,162,75,.55)}70%{box-shadow:0 0 0 12px rgba(201,162,75,0)}100%{box-shadow:0 0 0 0 rgba(201,162,75,0)}}
 @media(max-width:480px){.soon-banner .txt{letter-spacing:.2em;font-size:.72rem}}
+@media(max-width:480px){.btn-book{font-size:.78rem;padding:10px 18px;letter-spacing:0}}
 
 .beauty-note{display:flex;gap:16px;align-items:flex-start;max-width:760px;margin:0 auto 10px;
   text-align:left;background:linear-gradient(135deg,rgba(201,162,75,.12),rgba(201,162,75,.04));
@@ -661,3 +662,152 @@ body{font-size:1.05rem;letter-spacing:.005em;font-weight:400}
 .products-banner,
 .sellers{display:none!important}
 /* ====================================================================================== */
+
+/* ============================================================
+   BEAUTY — tema azzurro/bianco, natura e acqua (anteprima nuovo sito)
+   Attivo solo su beauty.html tramite <body class="beauty-page">
+   ============================================================ */
+body.beauty-page{
+  --bg:#eef7f9;
+  --bg-2:#e1f0f3;
+  --bg-3:#cfe8ed;
+  --ink:#22333a;
+  --muted:#5d7680;
+  --gold:#0592c9;
+  --gold-bright:#4fc8ea;
+  --line:rgba(30,60,70,.15);
+  --line-soft:rgba(30,60,70,.08);
+  --white-btn:#ffffff;
+}
+body.beauty-page{animation:beautyFadeIn .9s ease both}
+@keyframes beautyFadeIn{from{opacity:0}to{opacity:1}}
+
+/* Correzioni: colori scritti a mano nel CSS, pensati per il tema scuro */
+body.beauty-page .nav-links a{color:var(--ink)}
+body.beauty-page .nav-links a.active{font-size:1.15em;font-weight:600}
+body.beauty-page .burger span{background:var(--ink)}
+body.beauty-page .lang-switcher button{border-color:rgba(30,60,70,.2)}
+body.beauty-page .lang-switcher button.active{background:rgba(95,176,196,.16)}
+/* Logo: presumo chiaro (pensato per sfondo scuro) — vedi override più sotto (header trasparente) */
+
+body.beauty-page .soon-banner{border-color:rgba(95,176,196,.4);
+  background:linear-gradient(110deg,rgba(95,176,196,.08),rgba(95,176,196,.2),rgba(95,176,196,.08))}
+body.beauty-page .soon-banner .dot{background:#4d97a9;box-shadow:0 0 0 0 rgba(77,151,169,.6)}
+body.beauty-page .soon-banner .txt{color:#3d7686}
+
+/* Titolo "Beauty": era poco leggibile sul video (colore troppo simile all'azzurro) */
+body.beauty-page .sec-title .g{color:#ffffff;
+  text-shadow:0 1px 0 rgba(255,255,255,.5),0 12px 28px rgba(10,40,48,.4)}
+
+/* Testo sotto il titolo: font più elegante (corsivo) + vetrino leggero per leggibilità */
+body.beauty-page .lead{font-family:var(--serif);font-style:italic;font-weight:400;
+  font-size:1.25rem;color:#2c3e44;display:inline-block;
+  background:rgba(255,255,255,.32);
+  -webkit-backdrop-filter:blur(12px) saturate(160%);
+  backdrop-filter:blur(12px) saturate(160%);
+  border-radius:20px;padding:14px 26px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5)}
+
+/* Bottone "Visita il nuovo sito": colore caldo a contrasto — deve saltare all'occhio */
+body.beauty-page .btn-outline{background:#0c8eca;border:1px solid #00aeff;color:#fff;
+  padding:16px 34px;font-weight:700;
+  box-shadow:0 16px 34px -10px rgba(0,174,255,.6);
+  animation:btnOutlineGlow 2.2s ease-in-out infinite}
+body.beauty-page .btn-outline:hover{background:#0097dd;border-color:#0097dd;transform:translateY(-2px)}
+@keyframes btnOutlineGlow{0%,100%{box-shadow:0 16px 34px -10px rgba(0,174,255,.6);transform:scale(1)}
+  50%{box-shadow:0 18px 48px -6px rgba(0,174,255,.9);transform:scale(1.035)}}
+
+/* Video reale (oceano/rocce) come sfondo di TUTTA la sezione Beauty (header escluso) */
+/* Header su Beauty: completamente trasparente, il "vetro" sta solo su menu e lingue (vedi sotto) */
+body.beauty-page .site-header{position:fixed;left:0;right:0;top:0;z-index:90;
+  background:transparent;box-shadow:none}
+body.beauty-page .site-header .nav-row{border-top-color:transparent}
+
+/* Menu mobile (hamburger aperto) su Beauty: pannello vetro, prima non aveva sfondo */
+@media(max-width:820px){
+  body.beauty-page .nav-links.open{
+    background:rgba(255,255,255,.6);
+    -webkit-backdrop-filter:blur(20px) saturate(180%);
+    backdrop-filter:blur(20px) saturate(180%);
+    border-radius:0 0 24px 24px;
+    padding:6px 20px 16px;
+    box-shadow:0 24px 50px -16px rgba(20,50,60,.35)}
+  body.beauty-page .nav-links li{border-top-color:rgba(30,60,70,.12)}
+}
+@media(min-width:821px){
+  body.beauty-page .nav-links{background:rgba(255,255,255,.42);
+    -webkit-backdrop-filter:blur(20px) saturate(180%);
+    backdrop-filter:blur(20px) saturate(180%);
+    border-radius:100px;padding:10px 26px;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.65),
+               inset 0 -1px 0 rgba(255,255,255,.15),
+               0 8px 24px -12px rgba(20,50,60,.25)}
+}
+/* Pillola "vetro satinato" attorno alle lingue */
+body.beauty-page .lang-switcher{background:rgba(255,255,255,.42);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  backdrop-filter:blur(20px) saturate(180%);
+  border-radius:100px;padding:6px 10px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.65),
+             inset 0 -1px 0 rgba(255,255,255,.15),
+             0 8px 24px -12px rgba(20,50,60,.25)}
+/* Link/lingua/logo: ombra per restare leggibili sul video in movimento */
+body.beauty-page .nav-links a{text-shadow:0 1px 3px rgba(0,0,0,.35),0 2px 14px rgba(255,255,255,.5)}
+body.beauty-page .lang-switcher button{text-shadow:0 1px 3px rgba(0,0,0,.3)}
+body.beauty-page .logo-img{filter:brightness(0) drop-shadow(0 2px 8px rgba(255,255,255,.55))}
+
+body.beauty-page .page-hero{position:relative;overflow:hidden;
+  min-height:100svh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;padding:175px 20px 40px;text-align:center}
+body.beauty-page .beauty-video-bg{position:absolute;inset:0;z-index:0;
+  width:100%;height:100%;object-fit:cover;object-position:center}
+/* Velo chiaro sopra il video — ridotto per far risaltare i colori veri del mare */
+body.beauty-page .page-hero::before{content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(238,247,249,.12) 0%,rgba(238,247,249,.22) 55%,rgba(238,247,249,.5) 100%)}
+body.beauty-page .page-hero>*:not(.beauty-video-bg){position:relative;z-index:2}
+
+body.beauty-page .beauty-preview{text-align:center;margin:20px 0 60px;position:relative;z-index:1}
+
+/* Carosello "foto moderna" del nuovo sito — angoli molto arrotondati, ombra profonda per effetto 3D */
+body.beauty-page .beauty-carousel{position:relative;width:min(80vw,540px);margin:0 auto 28px;
+  border-radius:26px;overflow:hidden;
+  box-shadow:0 45px 80px -24px rgba(20,55,65,.45),
+             0 18px 34px -14px rgba(20,55,65,.3),
+             0 4px 10px rgba(20,55,65,.12);
+  animation:mockupFloat 5.5s ease-in-out infinite}
+@keyframes mockupFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+body.beauty-page .beauty-carousel-track{display:flex;transition:transform .6s cubic-bezier(.22,.8,.22,1)}
+body.beauty-page .beauty-slide{flex:0 0 100%;aspect-ratio:4/3;position:relative;background:#111}
+body.beauty-page .beauty-slide img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+body.beauty-page .beauty-slide-teaser-text{position:absolute;inset:0;display:flex;align-items:center;
+  justify-content:center;text-align:center;padding:24px}
+body.beauty-page .beauty-slide-teaser-text p{font-family:var(--serif);font-size:1.3rem;color:#fff;
+  max-width:80%;text-shadow:0 2px 12px rgba(0,0,0,.45)}
+body.beauty-page .beauty-carousel-arrow{position:absolute;top:50%;transform:translateY(-50%);
+  width:36px;height:36px;border-radius:50%;border:0;background:rgba(255,255,255,.85);
+  color:var(--ink);font-size:.85rem;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 12px rgba(20,55,65,.25);z-index:2;transition:background .2s}
+body.beauty-page .beauty-carousel-arrow.prev{left:12px}
+body.beauty-page .beauty-carousel-arrow.next{right:12px}
+body.beauty-page .beauty-carousel-arrow:hover{background:#fff}
+body.beauty-page .beauty-carousel-dots{position:absolute;bottom:14px;left:0;right:0;
+  display:flex;justify-content:center;gap:8px;z-index:2}
+body.beauty-page .beauty-carousel-dot{width:8px;height:8px;border-radius:50%;border:0;
+  background:rgba(255,255,255,.55);cursor:pointer;padding:0;transition:transform .2s,background .2s}
+body.beauty-page .beauty-carousel-dot.is-active{background:#fff;transform:scale(1.3)}
+
+body.beauty-page .beauty-actions-row{display:flex;flex-direction:column;gap:14px;align-items:center}
+
+/* ============================================================
+   Transizione tra pagine — fade nativo del browser (Chrome/Edge/Safari;
+   su Firefox naviga normalmente, senza effetto, nessun errore)
+   ============================================================ */
+@view-transition{
+  navigation:auto;
+}
+/* Header: resta visivamente continuo passando da una pagina all'altra */
+.site-header{view-transition-name:site-header}
+/* "Beauty" nel menu si trasforma nel titolo "Beauty" della pagina (magic move) */
+.nav-links a[data-page="beauty"]{view-transition-name:nav-beauty}
+.nav-links a[data-page="beauty"].active{view-transition-name:none}
+body.beauty-page .sec-title{view-transition-name:nav-beauty}
