@@ -48,8 +48,16 @@ foreach ($pages as $pagePath) {
         }
     }
 
+    $html = implode("\n", $out) . "\n";
+
+    // digitalNow: Live-Vorschau im Portfolio auf digitalnow.ch (nur Startseite)
+    $previewSnippet = $root . '/dn-preview-snippet.html';
+    if (basename($pagePath) === 'index.html' && is_file($previewSnippet) && strpos($html, 'data-allow="https://digitalnow.ch') === false) {
+        $html = str_replace('</body>', file_get_contents($previewSnippet) . '</body>', $html);
+    }
+
     $target = $root . '/' . basename($pagePath);
-    file_put_contents($target, implode("\n", $out) . "\n");
+    file_put_contents($target, $html);
     $built++;
     echo "gebaut: " . basename($pagePath) . "\n";
 }
