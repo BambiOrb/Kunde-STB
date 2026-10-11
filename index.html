@@ -405,5 +405,69 @@
 
 <script src="translations.js?v=4"></script>
 <script src="script.js?v=4"></script>
+<!-- digitalNow: anteprima live nel portfolio su digitalnow.ch. Per i visitatori normali non fa nulla. -->
+<script data-allow="https://digitalnow.ch,https://www.digitalnow.ch">
+(function () {
+    'use strict';
+
+    if (window.self === window.top) return;
+
+    var script = document.currentScript;
+    var allowed = ((script && script.getAttribute('data-allow')) || 'https://digitalnow.ch,https://www.digitalnow.ch')
+        .split(',')
+        .map(function (s) { return s.trim(); });
+
+    var raf = null;
+    var root = document.documentElement;
+
+    // Nell'anteprima la barra di scorrimento non serve
+    var style = document.createElement('style');
+    style.textContent = 'html.dn-preview{scrollbar-width:none;scroll-behavior:auto!important}html.dn-preview::-webkit-scrollbar{display:none}';
+    document.head.appendChild(style);
+
+    function maxScroll() {
+        return Math.max(0, root.scrollHeight - window.innerHeight);
+    }
+
+    var easeInOut = function (p) { return p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2; };
+    var easeOut = function (p) { return 1 - Math.pow(1 - p, 3); };
+
+    function scrollTo(target, duration, ease) {
+        cancelAnimationFrame(raf);
+        var start = window.scrollY;
+        var delta = target - start;
+        if (!duration || Math.abs(delta) < 1) {
+            window.scrollTo(0, target);
+            return;
+        }
+        var t0 = null;
+        function step(now) {
+            if (t0 === null) t0 = now;
+            var p = Math.min(1, (now - t0) / duration);
+            window.scrollTo(0, start + delta * ease(p));
+            if (p < 1) raf = requestAnimationFrame(step);
+        }
+        raf = requestAnimationFrame(step);
+    }
+
+    window.addEventListener('message', function (e) {
+        if (allowed.indexOf(e.origin) === -1) return;
+        var data = e.data;
+        if (!data || data.dn !== 'preview') return;
+
+        if (data.action === 'hello') {
+            root.classList.add('dn-preview');
+            e.source.postMessage({ dn: 'preview', action: 'ready', height: root.scrollHeight }, e.origin);
+        } else if (data.action === 'play') {
+            var distance = maxScroll() - window.scrollY;
+            var speed = Number(data.speed) || 0; // px/s, 0 = salto immediato
+            var duration = speed ? Math.min(9000, Math.max(2000, distance / speed * 1000)) : 0;
+            scrollTo(maxScroll(), duration, easeInOut);
+        } else if (data.action === 'reset') {
+            scrollTo(0, 900, easeOut);
+        }
+    });
+})();
+</script>
 </body>
 </html>

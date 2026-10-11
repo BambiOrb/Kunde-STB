@@ -8,3 +8,9 @@ RewriteRule ^about-us$ /about-us.html [R=301,L]
 # www -> non-www (falls noch nicht vorhanden)
 RewriteCond %{HTTP_HOST} ^www\.stbatelier\.ch$ [NC]
 RewriteRule ^(.*)$ https://stbatelier.ch/$1 [R=301,L]
+
+# digitalNow: Live-Vorschau im Portfolio auf digitalnow.ch erlauben
+<IfModule mod_headers.c>
+  Header always set Content-Security-Policy "frame-ancestors 'self' https://digitalnow.ch https://www.digitalnow.ch"
+  Header always unset X-Frame-Options
+</IfModule>
